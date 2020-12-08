@@ -5,10 +5,14 @@ const Wrapper = styled.div`
 
 `;
 
-function Welcome() {
+function Welcome({ setStarted }) {
+  const handleStartClick = () => {
+    setStarted(true);
+  }
+  
   return (
     <Wrapper>
-      Welcome
+      <p onClick={handleStartClick}>Start</p>
     </Wrapper>
   )
 }

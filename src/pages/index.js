@@ -6,13 +6,13 @@ import Welcome from '../components/Welcome';
 import Dashboard from '../components/Dashboard';
 
 function IndexPage() {
-  const [hasStarted, setStarted] = useState(true);
+  const [hasStarted, setStarted] = useState(false);
   
   return (
     <Layout>
       <SEO title="Home" />
       {
-        hasStarted ? <Dashboard /> : <Welcome />
+        hasStarted ? <Dashboard /> : <Welcome setStarted={setStarted} />
       }
     </Layout>
   )
