@@ -1,14 +1,25 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Welcome from '../components/Welcome';
+import Dashboard from '../components/Dashboard';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
+function IndexPage() {
+  const [hasStarted, setStarted] = useState(false);
+  
+  return (
+    <Layout>
+      <SEO title="Home" />
 
-  </Layout>
-)
+      {
+        hasStarted
+        ? <Dashboard />
+        : <Welcome />
+      }
+    </Layout>
+  )
+}
+
 
 export default IndexPage
