@@ -11,11 +11,8 @@ function IndexPage() {
   return (
     <Layout>
       <SEO title="Home" />
-
       {
-        hasStarted
-        ? <Dashboard />
-        : <Welcome />
+        hasStarted ? <Dashboard /> : <Welcome />
       }
     </Layout>
   )
