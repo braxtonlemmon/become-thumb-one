@@ -6,7 +6,7 @@ import Welcome from '../components/Welcome';
 import Dashboard from '../components/Dashboard';
 
 function IndexPage() {
-  const [hasStarted, setStarted] = useState(false);
+  const [hasStarted, setStarted] = useState(true);
   
   return (
     <Layout>
