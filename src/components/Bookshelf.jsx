@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import ReadingModal from './ReadingModal';
 
 const Wrapper = styled.div`
   display: flex;
@@ -52,15 +53,25 @@ const Shelf = styled.div`
 `;
 
 function Bookshelf() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleBookClick = () => {
+    setModalOpen(true);
+  }
+
   return (
     <Wrapper>
       <Books>
-        <BookOne><h2>Snow Beetle</h2></BookOne>
-        <BookTwo><h2>The Consciousness Stream</h2></BookTwo>
-        <BookThree><h2>Running Through Sliding Doors</h2></BookThree>
-        <BookFour><h2>Holy Socks</h2></BookFour>
+        <BookOne onClick={handleBookClick}><h2>Snow Beetle</h2></BookOne>
+        <BookTwo onClick={handleBookClick}><h2>The Consciousness Stream</h2></BookTwo>
+        <BookThree onClick={handleBookClick}><h2>Running Through Sliding Doors</h2></BookThree>
+        <BookFour onClick={handleBookClick}><h2>Holy Socks</h2></BookFour>
       </Books>
       <Shelf></Shelf>
+      {
+        modalOpen &&
+        <ReadingModal setModalOpen={setModalOpen} />
+      }
     </Wrapper>
   )
 }
