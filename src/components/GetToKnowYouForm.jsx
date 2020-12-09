@@ -23,7 +23,7 @@ const Block = styled.div`
 `;
 
 function GetToKnowYouForm() {
-  const { setStarted } = useContext(Context);
+  const { setStarted, setName } = useContext(Context);
 
   const { register, handleSubmit, errors } = useForm({
     defaultValues: {
@@ -33,9 +33,10 @@ function GetToKnowYouForm() {
   })
 
   const onSubmit = (data, e) => {
-    console.log('done');
+    // console.log(data);
     e.preventDefault();
     setStarted(true);
+    setName(data.name)
     navigate("/")
   }
 

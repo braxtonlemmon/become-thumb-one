@@ -20,10 +20,7 @@ function Dashboard() {
   
   return (
     <Wrapper>
-      Dashboard {name}
-      <p onClick={() => {
-        setName('jo')
-      }}>Change</p>
+      Dashboard: Welcome {name}
       <Link to="/required-reading">Required reading</Link>
       <Link to="/hearing-test">Hearing test</Link>
       <Link to="/click-a-button">Click a button</Link>
