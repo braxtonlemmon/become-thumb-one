@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export const Context = React.createContext();
 
 const ContextProvider = ({ children }) => {
-  const [name, setName] = useState('Braxton');
+  const [name, setName] = useState('');
   const [requiredReadingDone, setRequiredReadingDone] = useState(false);
   const [hearingTestDone, setHearingTestDone] = useState(false);
   const [clickAButtonDone, setClickAButtonDone] = useState(false);
