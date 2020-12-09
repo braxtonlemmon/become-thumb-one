@@ -1,18 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const Wrapper = styled.div`
 
 `;
 
-function Welcome({ setStarted }) {
-  const handleStartClick = () => {
-    setStarted(true);
-  }
-  
+function Welcome() {  
   return (
     <Wrapper>
-      <p onClick={handleStartClick}>Start</p>
+      <Link to="/get-to-know-you">Start</Link>
     </Wrapper>
   )
 }
