@@ -54,15 +54,9 @@ const Shelf = styled.div`
   border: 1px solid black;
 `;
 
-const toVowels = (text) => {
-  return text.replace(/[aeiou]/ig, "");
-}
 
-const toConsonants = (text) => {
-  return text.replace(/[^aeiou]/ig, "");
-}
 
-function Bookshelf() {
+function Bookshelf({ setOneRead, setTwoRead, setThreeRead, setFourRead }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentBook, setCurrentBook] = useState({});
 
@@ -70,6 +64,28 @@ function Bookshelf() {
     setCurrentBook(book)
     setModalOpen(true);
   }
+
+  const getBookFunction = () => {
+    let setBookRead;
+    switch (currentBook.id) {
+      case 0:
+        setBookRead = setOneRead;
+        break;
+      case 1:
+        setBookRead = setTwoRead;
+        break;
+      case 2:
+        setBookRead = setThreeRead;
+        break;
+      case 3:
+        setBookRead = setFourRead;
+        break;
+      default:
+        break;
+    }
+    return setBookRead;
+  }
+
   return (
     <Wrapper>
       <Books>
@@ -84,7 +100,7 @@ function Bookshelf() {
       <Shelf></Shelf>
       {
         modalOpen &&
-        <ReadingModal setModalOpen={setModalOpen} book={currentBook} />
+        <ReadingModal setModalOpen={setModalOpen} book={currentBook} setBookRead={getBookFunction()} />
       }
     </Wrapper>
   )

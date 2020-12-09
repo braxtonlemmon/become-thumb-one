@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { Context } from '../context/GlobalContext';
@@ -11,11 +11,27 @@ function RequiredReadingPage() {
   const [threeRead, setThreeRead] = useState(false);
   const [fourRead, setFourRead] = useState(false);
 
+  useEffect(() => {
+    if (
+      oneRead &&
+      twoRead &&
+      threeRead &&
+      fourRead
+    ) {
+      setRequiredReadingDone(true);
+    }
+  }, [oneRead, twoRead, threeRead, fourRead])
+
   return (
     <Layout>
       <SEO title="Thumb Singing" />
       <p>RequiredReadingPage</p>
-      <Bookshelf />
+      <Bookshelf 
+        setOneRead={setOneRead}
+        setTwoRead={setTwoRead}
+        setThreeRead={setThreeRead}
+        setFourRead={setFourRead}
+      />
     </Layout>
   )
 }

@@ -32,6 +32,10 @@ const ToggleButtons = styled.div`
   justify-content: center;
 `;
 
+const DoneButton = styled.button`
+
+`;
+
 const CloseButton = styled.button`
   height: 45px;
   width: 45px;
@@ -43,7 +47,7 @@ const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-function ReadingModal({ setModalOpen, book }) {
+function ReadingModal({ setModalOpen, book, setBookRead }) {
   const [vowels, setVowels] = useState(true);
   const toVowels = (text) => {
     return text.replace(/[bcdfghjklmnpqrstvwxyz]/ig, "");
@@ -64,6 +68,12 @@ function ReadingModal({ setModalOpen, book }) {
   // }
   const onlyVowels = toVowels(book.text);
   const onlyConsonants = toConsonants(book.text);
+  
+  const handleDoneClick = () => {
+    setBookRead(true);
+    setModalOpen(false);
+  }
+  
   const handleCloseClick = () => {
     setModalOpen(false);
   }
@@ -74,9 +84,10 @@ function ReadingModal({ setModalOpen, book }) {
         <h2>{book.title}</h2>
         <p>{vowels ? onlyVowels : onlyConsonants}</p>
         <ToggleButtons>
-          <button onClick={() => setVowels(true)}>Vowels</button>
-          <button onClick={() => setVowels(false)}>Consonants</button>
+          <button onClick={() => setVowels(true)}>Vowel Mode</button>
+          <button onClick={() => setVowels(false)}>Consonant Mode</button>
         </ToggleButtons>
+        <DoneButton onClick={handleDoneClick}>Done</DoneButton>
         <CloseButton onClick={handleCloseClick}></CloseButton>
       </TextBox>
     </Wrapper>
