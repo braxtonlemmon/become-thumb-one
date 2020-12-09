@@ -8,7 +8,6 @@ function GetToKnowYouPage() {
   return (
     <Layout>
       <SEO title="Get to know you" />
-      {/* <FormContainer /> */}
       <GetToKnowYouForm />
     </Layout>
   )

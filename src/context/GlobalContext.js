@@ -4,6 +4,7 @@ export const Context = React.createContext();
 
 const ContextProvider = ({ children }) => {
   const [name, setName] = useState('');
+  const [hasStarted, setStarted] = useState(false);
   const [requiredReadingDone, setRequiredReadingDone] = useState(false);
   const [hearingTestDone, setHearingTestDone] = useState(false);
   const [clickAButtonDone, setClickAButtonDone] = useState(false);
@@ -14,6 +15,8 @@ const ContextProvider = ({ children }) => {
       value={{
         name,
         setName,
+        hasStarted, 
+        setStarted,
         requiredReadingDone,
         setRequiredReadingDone,
         hearingTestDone,

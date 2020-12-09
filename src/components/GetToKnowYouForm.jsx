@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
+import { Context } from '../context/GlobalContext';
+import { navigate } from 'gatsby';
 
 const Wrapper = styled.div`
 
@@ -21,6 +23,8 @@ const Block = styled.div`
 `;
 
 function GetToKnowYouForm() {
+  const { setStarted } = useContext(Context);
+
   const { register, handleSubmit, errors } = useForm({
     defaultValues: {
       name: '',
@@ -30,6 +34,9 @@ function GetToKnowYouForm() {
 
   const onSubmit = (data, e) => {
     console.log('done');
+    e.preventDefault();
+    setStarted(true);
+    navigate("/")
   }
 
   const getMaxAge = () => {
@@ -96,7 +103,7 @@ function GetToKnowYouForm() {
             No
           </label>
         </Block>
-        
+
         <Block>
           <label htmlFor="name">What is your name? (Name entered must be between 5 and 7 characters.)</label>
           <input
