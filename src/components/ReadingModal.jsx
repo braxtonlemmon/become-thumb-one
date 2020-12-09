@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import BookData from '../data/BookData';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -21,6 +22,14 @@ const TextBox = styled.div`
   height: 80%;
   max-height: 700px;
   position: relative;
+  h2 {
+    margin-top: 50px;
+  }
+`;
+
+const ToggleButtons = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const CloseButton = styled.button`
@@ -34,7 +43,27 @@ const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-function ReadingModal({ setModalOpen }) {
+function ReadingModal({ setModalOpen, book }) {
+  const [vowels, setVowels] = useState(true);
+  const toVowels = (text) => {
+    return text.replace(/[bcdfghjklmnpqrstvwxyz]/ig, "");
+  }
+
+  const toConsonants = (text) => {
+    return text.replace(/[aeiou]/ig, "");
+  }
+
+  // Maybe going to attempt to offer an option to scramble up the letters of each word, keeping the first and last letters the same
+  // const toScrambles = (text) => {
+  //   const splitText = text.split(" ");
+  //   splitText.map(word => {
+  //     if (word.length > 4) {
+
+  //     }
+  //   })
+  // }
+  const onlyVowels = toVowels(book.text);
+  const onlyConsonants = toConsonants(book.text);
   const handleCloseClick = () => {
     setModalOpen(false);
   }
@@ -42,6 +71,12 @@ function ReadingModal({ setModalOpen }) {
   return (
     <Wrapper>
       <TextBox>
+        <h2>{book.title}</h2>
+        <p>{vowels ? onlyVowels : onlyConsonants}</p>
+        <ToggleButtons>
+          <button onClick={() => setVowels(true)}>Vowels</button>
+          <button onClick={() => setVowels(false)}>Consonants</button>
+        </ToggleButtons>
         <CloseButton onClick={handleCloseClick}></CloseButton>
       </TextBox>
     </Wrapper>

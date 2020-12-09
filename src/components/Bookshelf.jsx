@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReadingModal from './ReadingModal';
+import BookData from '../data/BookData';
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const Books = styled.div`
 
 const Book = styled.div`
   width: 20%;
+  height: 300px;
   border: 1px solid black;
   display: flex;
   justify-content: center;
@@ -52,25 +54,37 @@ const Shelf = styled.div`
   border: 1px solid black;
 `;
 
+const toVowels = (text) => {
+  return text.replace(/[aeiou]/ig, "");
+}
+
+const toConsonants = (text) => {
+  return text.replace(/[^aeiou]/ig, "");
+}
+
 function Bookshelf() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [currentBook, setCurrentBook] = useState({});
 
-  const handleBookClick = () => {
+  const handleBookClick = (book) => {
+    setCurrentBook(book)
     setModalOpen(true);
   }
-
   return (
     <Wrapper>
       <Books>
-        <BookOne onClick={handleBookClick}><h2>Snow Beetle</h2></BookOne>
-        <BookTwo onClick={handleBookClick}><h2>The Consciousness Stream</h2></BookTwo>
-        <BookThree onClick={handleBookClick}><h2>Running Through Sliding Doors</h2></BookThree>
-        <BookFour onClick={handleBookClick}><h2>Holy Socks</h2></BookFour>
+        {BookData.map((book, index) => {
+          return (
+            <Book onClick={() => handleBookClick(book)} >
+              <h2>{book.title}</h2>
+            </Book>
+          )
+        })}
       </Books>
       <Shelf></Shelf>
       {
         modalOpen &&
-        <ReadingModal setModalOpen={setModalOpen} />
+        <ReadingModal setModalOpen={setModalOpen} book={currentBook} />
       }
     </Wrapper>
   )
