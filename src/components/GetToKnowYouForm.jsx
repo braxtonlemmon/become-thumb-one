@@ -23,7 +23,7 @@ const Block = styled.div`
 `;
 
 function GetToKnowYouForm() {
-  const { setStarted, setName } = useContext(Context);
+  const { setStarted, setName, setThumbatar } = useContext(Context);
 
   const { register, handleSubmit, errors } = useForm({
     defaultValues: {
@@ -33,10 +33,11 @@ function GetToKnowYouForm() {
   })
 
   const onSubmit = (data, e) => {
-    // console.log(data);
     e.preventDefault();
+    console.log(data);
     setStarted(true);
     setName(data.name)
+    setThumbatar(data.thumbatar)
     navigate("/")
   }
 
@@ -141,6 +142,46 @@ function GetToKnowYouForm() {
               ref={register}
             />
             No
+          </label>
+        </Block>
+
+        <Block>
+          <h3>Choose a thumb avatar.</h3>
+          <label>
+            <input
+              type="radio"
+              name="thumbatar"
+              value={1}
+              ref={register}
+            />
+            One
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="thumbatar"
+              value={2}
+              ref={register}
+            />
+            Two
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="thumbatar"
+              value={3}
+              ref={register}
+            />
+            Three
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="thumbatar"
+              value={4}
+              ref={register}
+            />
+            Four
           </label>
         </Block>
 

@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 function Dashboard() {
   const { 
     name, 
+    thumbatar,
     setName,
     requiredReadingDone,
     hearingTestDone,
@@ -20,7 +21,8 @@ function Dashboard() {
   
   return (
     <Wrapper>
-      Dashboard: Welcome {name}
+      <p>Dashboard: Welcome {name}</p>
+      <p>Thumbatar: {thumbatar}</p>
       <Link to="/required-reading">Required reading</Link>
       <Link to="/hearing-test">Hearing test</Link>
       <Link to="/click-a-button">Click a button</Link>
