@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -97,7 +97,9 @@ function Spot({ children, guesses, setGuesses, num, questions, setQuestions, res
   )
 }
 
-function ThumbSingingModal({ setModalOpen }) {
+
+function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
+  const [attempts, setAttempts] = useState(0);
   const [guesses, setGuesses] = useState([0]);
   const reset = {
     1: false, 
@@ -127,108 +129,38 @@ function ThumbSingingModal({ setModalOpen }) {
   const handleCloseClick = () => {
     setModalOpen(false);
   }
-  
+
+  useEffect(() => {
+    setAttempts(prev => prev + 1);
+    if (attempts < 1) {
+      song.words.sort(() => Math.random() - 0.5);
+    }
+  }, [])
+
+  useEffect(() => {
+    if (guesses.length > 12) {
+      setSongDone(true);
+      setModalOpen(false);
+    }
+  }, [guesses.length])
+
   return (
     <Wrapper>
       <QuizBox>
-        <h2>Thumbwhere over the rainbow, way up...</h2>
+        <h2>{song.intro}...</h2>
         <Words>
-          <Spot 
-            num={2}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >and</Spot>
-          <Spot 
-            num={4}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >dreams</Spot>
-          <Spot 
-            num={6}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >you</Spot>
-          <Spot 
-            num={1}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >high</Spot>
-          <Spot 
-            num={8}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >of</Spot>
-          <Spot 
-            num={10}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >in</Spot>
-          <Spot 
-            num={7}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >dream</Spot>
-          <Spot 
-            num={5}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >that</Spot>
-          <Spot 
-            num={12}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >lullaby</Spot>
-          <Spot 
-            num={11}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >a</Spot>
-          <Spot 
-            num={9}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >once</Spot>
-          <Spot 
-            num={3}
-            guesses={guesses}
-            setGuesses={setGuesses}
-            questions={questions}
-            setQuestions={setQuestions}
-            resetQuiz={resetQuiz}
-          >the</Spot>
+          {
+            song.words.map(word => 
+              <Spot
+                num={word.id}
+                guesses={guesses}
+                setGuesses={setGuesses}
+                questions={questions}
+                setQuestions={setQuestions}
+                resetQuiz={resetQuiz}
+              >{word.word}</Spot>
+            )   
+          }
         </Words>
         <CloseButton onClick={handleCloseClick}></CloseButton>
       </QuizBox>

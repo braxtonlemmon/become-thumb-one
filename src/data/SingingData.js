@@ -1,5 +1,6 @@
 const SingingData = [
   {
+    id: 0,
     title: 'Thumbwhere Over the Rainbow',
     intro: 'Thumbwhere over the rainbow, way up...',
     words: [
@@ -54,6 +55,7 @@ const SingingData = [
     ]
   },
   {
+    id: 1,
     title: 'I Wanna Dance with Thumb-body',
     intro: 'Oh, I wanna dance with thumb-body, I wanna feel the heat with...',
     words: [
