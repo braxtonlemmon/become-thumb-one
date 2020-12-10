@@ -33,7 +33,9 @@ const ToggleButtons = styled.div`
 `;
 
 const DoneButton = styled.button`
-
+  position: absolute;
+  top: ${props => `${props.y}%`};
+  left: ${props => `${props.x}%`};
 `;
 
 const CloseButton = styled.button`
@@ -49,6 +51,17 @@ const CloseButton = styled.button`
 
 function ReadingModal({ setModalOpen, book, setBookRead }) {
   const [vowels, setVowels] = useState(true);
+  const [doneX, setDoneX] = useState(25);
+  const [doneY, setDoneY] = useState(60);
+  const [doneCount, setDoneCount] = useState(0);
+
+  const doneMessages = [
+    "Done.",
+    "I'm done.",
+    "Really, I'm done.",
+    "Seriously!",
+    "Ugh."
+  ]
   const toVowels = (text) => {
     return text.replace(/[bcdfghjklmnpqrstvwxyz]/ig, "");
   }
@@ -56,6 +69,22 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
   const toConsonants = (text) => {
     return text.replace(/[aeiou]/ig, "");
   }
+
+  const randomPercent = () => {
+    return Math.floor(Math.random() * 55);
+  }
+
+  const handleDoneClick = () => {
+    setDoneX(randomPercent());
+    setDoneY(randomPercent());
+    const theCount = doneCount;
+    setDoneCount(theCount + 1);
+    if (theCount > 3) {
+      setBookRead(true);
+      setModalOpen(false);
+    }
+  }
+
 
   // Maybe going to attempt to offer an option to scramble up the letters of each word, keeping the first and last letters the same
   // const toScrambles = (text) => {
@@ -69,10 +98,10 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
   const onlyVowels = toVowels(book.text);
   const onlyConsonants = toConsonants(book.text);
   
-  const handleDoneClick = () => {
-    setBookRead(true);
-    setModalOpen(false);
-  }
+  // const handleDoneClick = () => {
+  //   setBookRead(true);
+  //   setModalOpen(false);
+  // }
   
   const handleCloseClick = () => {
     setModalOpen(false);
@@ -87,7 +116,7 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
           <button onClick={() => setVowels(true)}>Vowel Mode</button>
           <button onClick={() => setVowels(false)}>Consonant Mode</button>
         </ToggleButtons>
-        <DoneButton onClick={handleDoneClick}>Done</DoneButton>
+        <DoneButton onClick={handleDoneClick} x={doneX} y={doneY}>{doneMessages[doneCount]}</DoneButton>
         <CloseButton onClick={handleCloseClick}></CloseButton>
       </TextBox>
     </Wrapper>
