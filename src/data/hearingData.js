@@ -1,4 +1,4 @@
-const hearingData = [
+export const hearingData = [
   {
     question: 'What sounds most like a banana peel?',
     imageOne: '',
@@ -43,4 +43,16 @@ const hearingData = [
   }, 
 ]
 
-export default hearingData;
+export const results = [
+  'K-pop',
+  'Doo-wop',
+  'Calypso',
+  'Progressive bluegrass',
+  'Elevator music',
+  'Digital hardcore',
+  'Psychedelic folk',
+  'Reggaeton',
+  'Smooth jazz',
+  'Mariachi',
+  'Hair metal'
+]
