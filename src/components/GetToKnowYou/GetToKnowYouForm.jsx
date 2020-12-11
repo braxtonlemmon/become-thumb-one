@@ -22,9 +22,19 @@ const Block = styled.div`
   align-items: center;
   text-align: center;
   margin: 15px 5px;
-  .thumbz {
+`;
+
+const Thumbs = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  /* .thumbz {
     width: 100px;
-  }
+    border: 1px solid green;
+  } */
   [type=radio] {
     opacity: 0;
     width: 0;
@@ -35,23 +45,20 @@ const Block = styled.div`
     cursor: pointer;
   }
   [type=radio]:checked + .thumbz {
-    outline: 2px ridge goldenrod;
+    outline: 2px dashed goldenrod;
     /* box-shadow: 0 0 8px rgba(0,0,0,0.3); */
   }
+
 `;
 
 const Image = styled.div`
   width: 100px;
-  max-height: 200px;
-  /* position: relative; */
-  /* border: 1px solid black; */
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   .thumb {
-    /* height: 100%; */
     width: 100%;
-    object-fit: contain;
   }
 
 `;
@@ -198,57 +205,67 @@ function GetToKnowYouForm() {
 
         <Block>
           <h3>Choose a thumb avatar.</h3>
-          <label>
-            <input
-              type="radio"
-              name="thumbatar"
-              value={1}
-              ref={register}
-            />
-            <Img 
-              className="thumbz" 
-              fluid={images[0].node.childImageSharp.fluid}  
-            />
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="thumbatar"
-              value={2}
-              ref={register}
-            />
-            <Img 
-              className="thumbz" 
-              fluid={images[1].node.childImageSharp.fluid}  
-            />
-
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="thumbatar"
-              value={3}
-              ref={register}
-            />
-            <Img 
-              className="thumbz" 
-              fluid={images[2].node.childImageSharp.fluid}  
-            />
-
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="thumbatar"
-              value={4}
-              ref={register}
-            />
-            <Img 
-              className="thumbz" 
-              fluid={images[3].node.childImageSharp.fluid}  
-            />
-
-          </label>
+          <Thumbs>
+            <label>
+              <input
+                type="radio"
+                name="thumbatar"
+                value={1}
+                ref={register}
+              />
+              <Image className="thumbz">
+                <Img 
+                  className="thumb" 
+                  fluid={images[0].node.childImageSharp.fluid}  
+                />
+              </Image>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="thumbatar"
+                value={2}
+                ref={register}
+              />
+              <Image className="thumbz">
+                <Img 
+                  className="thumb" 
+                  fluid={images[1].node.childImageSharp.fluid}  
+                />
+              </Image>
+  
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="thumbatar"
+                value={3}
+                ref={register}
+              />
+              <Image className="thumbz">
+                <Img 
+                  className="thumb" 
+                  fluid={images[2].node.childImageSharp.fluid}  
+                />
+              </Image>
+  
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="thumbatar"
+                value={4}
+                ref={register}
+              />
+              <Image className="thumbz">
+                <Img 
+                  className="thumb" 
+                  fluid={images[3].node.childImageSharp.fluid}  
+                  />
+              </Image>
+  
+            </label>
+          </Thumbs>
         </Block>
        
         <button type="submit">Submit</button>
