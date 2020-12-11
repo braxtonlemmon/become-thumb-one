@@ -8,7 +8,7 @@ const ContextProvider = ({ children }) => {
   const [hasStarted, setStarted] = useState(false);
   const [requiredReadingDone, setRequiredReadingDone] = useState(false);
   const [hearingTestDone, setHearingTestDone] = useState(false);
-  const [clickAButtonDone, setClickAButtonDone] = useState(false);
+  const [clickADotDone, setClickADotDone] = useState(false);
   const [thumbSingingDone, setThumbSingingDone] = useState(false);
 
   return (
@@ -24,8 +24,8 @@ const ContextProvider = ({ children }) => {
         setRequiredReadingDone,
         hearingTestDone,
         setHearingTestDone,
-        clickAButtonDone,
-        setClickAButtonDone,
+        clickADotDone,
+        setClickADotDone,
         thumbSingingDone,
         setThumbSingingDone
       }}

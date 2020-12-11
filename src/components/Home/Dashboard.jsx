@@ -15,7 +15,7 @@ function Dashboard() {
     setName,
     requiredReadingDone,
     hearingTestDone,
-    clickAButtonDone,
+    clickADotDone,
     thumbSingingDone
   } = useContext(Context);
   
@@ -25,11 +25,11 @@ function Dashboard() {
       <p>Thumbatar: {thumbatar}</p>
       <Link to="/required-reading">Required reading</Link>
       <Link to="/hearing-test">Hearing test</Link>
-      <Link to="/click-a-button">Click a button</Link>
+      <Link to="/click-a-button">Click a dot</Link>
       <Link to="/thumb-singing">Thumb singing</Link>
       <p>{requiredReadingDone ? 'reading done' : 'reading not done'}</p>
       <p>{hearingTestDone ? 'hearing test done' : 'hearing test not done'}</p>
-      <p>{clickAButtonDone ? 'click-a-button done' : 'click-a-button not done'}</p>
+      <p>{clickADotDone ? 'click-a-dot done' : 'click-a-dot not done'}</p>
       <p>{thumbSingingDone ? 'thumb singing done' : 'thumb singing not done'}</p>
     </Wrapper>
   )

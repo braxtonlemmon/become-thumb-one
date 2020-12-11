@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.3);
+  z-index: 100;
 `;
 
 const IntroBox = styled.div`
