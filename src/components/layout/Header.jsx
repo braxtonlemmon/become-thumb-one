@@ -10,6 +10,8 @@ const Wrapper = styled.header`
   height: 40px;
   padding: 0 8px;
   background: yellow;
+  position: sticky;
+  top: 0;
 `;
 
 const NavLinks = styled.ul`
