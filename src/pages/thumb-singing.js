@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/layout/seo';
 import ThumbSingingModal from '../components/ThumbSinging/ThumbSingingModal';
-import SingingData from '../data/SingingData';
+import singingData from '../data/singingData';
 import { Context } from '../context/GlobalContext';
 
 function ThumbSingingPage() {
@@ -38,13 +38,13 @@ function ThumbSingingPage() {
       <SEO title="Thumb Singing" />
       <p>ThumbSingingPage</p>
       <button onClick={() => {
-        setCurrentSong(SingingData[0])
+        setCurrentSong(singingData[0])
         setModalOpen(true)
         }
       }>Song 1</button>
 
       <button onClick={() => {
-        setCurrentSong(SingingData[1])
+        setCurrentSong(singingData[1])
         setModalOpen(true)
         }
       }>Song 2</button>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReadingModal from './ReadingModal';
-import BookData from '../../data/BookData';
+import bookData from '../../data/bookData';
 
 const Wrapper = styled.div`
   display: flex;
@@ -89,7 +89,7 @@ function Bookshelf({ setOneRead, setTwoRead, setThreeRead, setFourRead }) {
   return (
     <Wrapper>
       <Books>
-        {BookData.map((book, index) => {
+        {bookData.map((book, index) => {
           return (
             <Book onClick={() => handleBookClick(book)} >
               <h2>{book.title}</h2>

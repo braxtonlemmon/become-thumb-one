@@ -1,4 +1,4 @@
-const SingingData = [
+const singingData = [
   {
     id: 0,
     title: 'Thumbwhere Over the Rainbow',
@@ -111,4 +111,4 @@ const SingingData = [
   }
 ]
 
-export default SingingData;
+export default singingData;

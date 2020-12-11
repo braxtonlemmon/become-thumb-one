@@ -1,4 +1,4 @@
-const BookData = [
+const bookData = [
   {
     id: 0,
     title: 'Snow Beetle',
@@ -21,4 +21,4 @@ const BookData = [
   }
 ]
 
-export default BookData;
+export default bookData;
