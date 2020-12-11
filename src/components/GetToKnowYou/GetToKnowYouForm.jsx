@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { Context } from '../../context/GlobalContext';
-import { navigate } from 'gatsby';
+import { navigate, useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+
 
 const Wrapper = styled.div`
 
@@ -20,9 +22,58 @@ const Block = styled.div`
   align-items: center;
   text-align: center;
   margin: 15px 5px;
+  .thumbz {
+    width: 100px;
+  }
+  [type=radio] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+  [type=radio] + .thumbz {
+    cursor: pointer;
+  }
+  [type=radio]:checked + .thumbz {
+    outline: 2px ridge goldenrod;
+    /* box-shadow: 0 0 8px rgba(0,0,0,0.3); */
+  }
+`;
+
+const Image = styled.div`
+  width: 100px;
+  max-height: 200px;
+  /* position: relative; */
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .thumb {
+    /* height: 100%; */
+    width: 100%;
+    object-fit: contain;
+  }
+
 `;
 
 function GetToKnowYouForm() {
+  const data = useStaticQuery(graphql`
+    query Thumbs {
+      allFile(filter: {relativeDirectory: {eq: "thumbs" }}) {
+        edges {
+          node {
+            childImageSharp {
+              fluid(maxWidth: 200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const images = data.allFile.edges;
+  console.log(images);
   const { setStarted, setName, setThumbatar } = useContext(Context);
 
   const { register, handleSubmit, errors } = useForm({
@@ -154,7 +205,10 @@ function GetToKnowYouForm() {
               value={1}
               ref={register}
             />
-            One
+            <Img 
+              className="thumbz" 
+              fluid={images[0].node.childImageSharp.fluid}  
+            />
           </label>
           <label>
             <input
@@ -163,7 +217,11 @@ function GetToKnowYouForm() {
               value={2}
               ref={register}
             />
-            Two
+            <Img 
+              className="thumbz" 
+              fluid={images[1].node.childImageSharp.fluid}  
+            />
+
           </label>
           <label>
             <input
@@ -172,7 +230,11 @@ function GetToKnowYouForm() {
               value={3}
               ref={register}
             />
-            Three
+            <Img 
+              className="thumbz" 
+              fluid={images[2].node.childImageSharp.fluid}  
+            />
+
           </label>
           <label>
             <input
@@ -181,10 +243,14 @@ function GetToKnowYouForm() {
               value={4}
               ref={register}
             />
-            Four
+            <Img 
+              className="thumbz" 
+              fluid={images[3].node.childImageSharp.fluid}  
+            />
+
           </label>
         </Block>
-
+       
         <button type="submit">Submit</button>
       </Form>
     </Wrapper>
