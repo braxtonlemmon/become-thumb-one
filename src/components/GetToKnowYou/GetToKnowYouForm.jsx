@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
-import { Context } from '../context/GlobalContext';
+import { Context } from '../../context/GlobalContext';
 import { navigate } from 'gatsby';
 
 const Wrapper = styled.div`

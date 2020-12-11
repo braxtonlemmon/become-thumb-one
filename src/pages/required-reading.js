@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '../components/layout/layout';
+import SEO from '../components/layout/seo';
 import { Context } from '../context/GlobalContext';
-import Bookshelf from '../components/Bookshelf';
+import Bookshelf from '../components/RequiredReading/Bookshelf';
 
 function RequiredReadingPage() {
   const { setRequiredReadingDone } = useContext(Context);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReadingModal from './ReadingModal';
-import BookData from '../data/BookData';
+import BookData from '../../data/BookData';
 
 const Wrapper = styled.div`
   display: flex;

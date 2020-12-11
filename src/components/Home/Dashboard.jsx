@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link, navigate } from 'gatsby';
-import { Context } from '../context/GlobalContext';
+import { Context } from '../../context/GlobalContext';
 
 const Wrapper = styled.div`
   display: flex;

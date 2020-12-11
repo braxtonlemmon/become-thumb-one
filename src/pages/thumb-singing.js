@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import ThumbSingingModal from '../components/ThumbSingingModal';
+import Layout from '../components/layout/layout';
+import SEO from '../components/layout/seo';
+import ThumbSingingModal from '../components/ThumbSinging/ThumbSingingModal';
 import SingingData from '../data/SingingData';
 import { Context } from '../context/GlobalContext';
 

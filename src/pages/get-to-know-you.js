@@ -1,8 +1,7 @@
 import React from 'react'
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import FormContainer from '../components/GetToKnowYou/FormContainer';
-import GetToKnowYouForm from '../components/GetToKnowYouForm';
+import Layout from '../components/layout/layout';
+import SEO from '../components/layout/seo';
+import GetToKnowYouForm from '../components/GetToKnowYou/GetToKnowYouForm';
 
 function GetToKnowYouPage() {
   return (

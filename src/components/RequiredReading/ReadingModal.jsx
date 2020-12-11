@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import BookData from '../data/BookData';
+import BookData from '../../data/BookData';
 
 const Wrapper = styled.div`
   position: fixed;

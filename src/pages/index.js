@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react"
 import { Link } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Welcome from '../components/Welcome';
-import Dashboard from '../components/Dashboard';
+import Layout from "../components/layout/layout"
+import SEO from "../components/layout/seo"
+import Welcome from '../components/Home/Welcome';
+import Dashboard from '../components/Home/Dashboard';
 import { Context } from '../context/GlobalContext';
 
 function IndexPage() {
