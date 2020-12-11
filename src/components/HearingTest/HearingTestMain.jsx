@@ -25,10 +25,17 @@ function HearingTestMain({ setDone }) {
     audio.play();
   }
 
+  const handlePlayTwo = () => {
+    let audio = new Audio(`./${hearingData[question].soundTwo}`);
+    audio.currentTime = 0;
+    audio.play();
+  }
+
   return (
     <Wrapper>
       <h2>{hearingData[question].question}</h2>
       <button onClick={handlePlayOne}>play one</button>
+      <button onClick={handlePlayTwo}>play two</button>
       <button onClick={handleNextClick}>Next</button>
     </Wrapper>
   )

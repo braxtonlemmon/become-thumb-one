@@ -4,42 +4,42 @@ export const hearingData = [
     imageOne: '',
     imageTwo: '',
     soundOne: '484344__inspectorj__bike-bell-ding-single-01-01.wav',
-    soundTwo: '484344__inspectorj__bike-bell-ding-single-01-01.wav'
+    soundTwo: '81173__mkoenig__horn-honk.wav'
   },
   {
     question: 'Which sound best represents indignation?',
     imageOne: '',
     imageTwo: '',
     soundOne: '484344__inspectorj__bike-bell-ding-single-01-01.wav',
-    soundTwo: '484344__inspectorj__bike-bell-ding-single-01-01.wav'
+    soundTwo: '81173__mkoenig__horn-honk.wav'
   },
   {
     question: 'Think of your favorite bath towel. Now pick a sound.',
     imageOne: '',
     imageTwo: '',
     soundOne: '484344__inspectorj__bike-bell-ding-single-01-01.wav',
-    soundTwo: '484344__inspectorj__bike-bell-ding-single-01-01.wav'
+    soundTwo: '81173__mkoenig__horn-honk.wav'
   },
   {
     question: 'What sounds most like a cloud?',
     imageOne: '',
     imageTwo: '',
     soundOne: '484344__inspectorj__bike-bell-ding-single-01-01.wav',
-    soundTwo: '484344__inspectorj__bike-bell-ding-single-01-01.wav'
+    soundTwo: '81173__mkoenig__horn-honk.wav'
   },
   {
     question: 'If you were stranded in the desert, what would you most like to hear?',
     imageOne: '',
     imageTwo: '',
     soundOne: '484344__inspectorj__bike-bell-ding-single-01-01.wav',
-    soundTwo: '484344__inspectorj__bike-bell-ding-single-01-01.wav'
+    soundTwo: '81173__mkoenig__horn-honk.wav'
   },
   {
     question: 'If you were required to permanently change your voice, which would you rather your new voice sound like?',
     imageOne: '',
     imageTwo: '',
     soundOne: '484344__inspectorj__bike-bell-ding-single-01-01.wav',
-    soundTwo: '484344__inspectorj__bike-bell-ding-single-01-01.wav'
+    soundTwo: '81173__mkoenig__horn-honk.wav'
   }, 
 ]
 
