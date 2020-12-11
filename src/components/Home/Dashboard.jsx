@@ -25,7 +25,7 @@ function Dashboard() {
       <p>Thumbatar: {thumbatar}</p>
       <Link to="/required-reading">Required reading</Link>
       <Link to="/hearing-test">Hearing test</Link>
-      <Link to="/click-a-button">Click a dot</Link>
+      <Link to="/click-a-dot">Click a dot</Link>
       <Link to="/thumb-singing">Thumb singing</Link>
       <p>{requiredReadingDone ? 'reading done' : 'reading not done'}</p>
       <p>{hearingTestDone ? 'hearing test done' : 'hearing test not done'}</p>
