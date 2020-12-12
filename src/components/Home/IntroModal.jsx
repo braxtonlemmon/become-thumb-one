@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { Context } from '../../context/GlobalContext';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -39,9 +40,10 @@ const CloseButton = styled.button`
 `;
 
 
-function IntroModal ({ setModalOpen }) {
+function IntroModal () {
+  const { setIntroModalOpen } = useContext(Context);
   const handleClose = () => {
-    setModalOpen(false);
+    setIntroModalOpen(false);
   }
   
   return (

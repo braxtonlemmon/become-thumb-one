@@ -6,6 +6,7 @@ const ContextProvider = ({ children }) => {
   const [name, setName] = useState('');
   const [thumbatar, setThumbatar] = useState('');
   const [hasStarted, setStarted] = useState(false);
+  const [introModalOpen, setIntroModalOpen] = useState(true);
   const [requiredReadingDone, setRequiredReadingDone] = useState(false);
   const [hearingTestDone, setHearingTestDone] = useState(false);
   const [clickADotDone, setClickADotDone] = useState(false);
@@ -21,6 +22,8 @@ const ContextProvider = ({ children }) => {
         setThumbatar,
         hasStarted, 
         setStarted,
+        introModalOpen,
+        setIntroModalOpen,
         requiredReadingDone,
         setRequiredReadingDone,
         hearingTestDone,

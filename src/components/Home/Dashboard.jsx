@@ -54,6 +54,10 @@ const Task = styled.div`
   font-size: ${props => props.theme.fontSizes.two};
   padding: 10px;
   border: 2px solid ${props => props.theme.colors.hey};
+  cursor: ${props => props.done ? 'initial' : 'pointer'};
+  &:hover {
+    background: ${props => props.done? props.theme.colors.hey : props.theme.colors.tada};
+  }
 `;
 
 const Check = styled(GiCheckMark)`
@@ -70,16 +74,16 @@ function Dashboard() {
   const { 
     name, 
     thumbatar,
-    setName,
+    introModalOpen,
+    setIntroModalOpen,
     requiredReadingDone,
     hearingTestDone,
     clickADotDone,
     thumbSingingDone
   } = useContext(Context);
   
-  const [isModalOpen, setModalOpen] = useState(true);
   const handleHelpClick = () => {
-    setModalOpen(true);
+    setIntroModalOpen(true);
   }
 
   return (
@@ -93,29 +97,32 @@ function Dashboard() {
         <Link to="/required-reading">
           <Task done={requiredReadingDone}>
             Required Reading
-            <Check />
+            { requiredReadingDone && <Check />}
           </Task>
         </Link>
         <Link to="/hearing-test">
           <Task done={hearingTestDone}>
             Hearing Test
+            {hearingTestDone && <Check />}
           </Task>
         </Link>
         <Link to="/click-a-dot">
           <Task done={clickADotDone}>
             Click-A-Dot
+            {clickADotDone && <Check />}
           </Task>
         </Link>
         <Link to="/thumb-singing">
           <Task done={thumbSingingDone}>
             Thumb Singing
+            {thumbSingingDone && <Check />}
           </Task>
         </Link>
       </Tasks>
       <Button onClick={handleHelpClick}>Help!?</Button>
       {
-        isModalOpen &&
-        <IntroModal setModalOpen={setModalOpen} />
+        introModalOpen &&
+        <IntroModal />
       }
     </Wrapper>
   )
