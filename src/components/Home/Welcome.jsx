@@ -24,11 +24,11 @@ const Intro = styled.p`
   width: 70%;
   max-width: 300px;
   font-family: ${props => props.theme.fonts.galindo};
-  color: ${props => props.theme.colors.hey};
+  color: ${props => props.theme.colors.yo};
   border-radius: 5px;
   padding: 8px;
-    line-height: ${props => props.theme.fontSizes.two};
-    background: ${props => props.theme.colors.yo};
+  line-height: ${props => props.theme.fontSizes.two};
+  /* background: ${props => props.theme.colors.yo}; */
 
 `;
 

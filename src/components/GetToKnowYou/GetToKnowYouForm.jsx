@@ -64,10 +64,6 @@ const Thumbs = styled.div`
   align-items: center;
   gap: 15px;
   margin: 10px 0;
-  /* .thumbz {
-    width: 100px;
-    border: 1px solid green;
-  } */
   [type=radio] {
     opacity: 0;
     width: 0;
@@ -132,7 +128,8 @@ function GetToKnowYouForm() {
     console.log(data);
     setStarted(true);
     setName(data.name)
-    setThumbatar(data.thumbatar)
+    /* setThumbatar(data.thumbatar) */
+    setThumbatar(images[data.thumbatar - 1])
     navigate("/")
   }
 
@@ -329,7 +326,6 @@ function GetToKnowYouForm() {
           </Thumbs>
           {errors.thumbatar && <Error>{errors.thumbatar.message}</Error>}
         </Block>
-       
         <Button type="submit">Submit</Button>
       </Form>
     </Wrapper>
