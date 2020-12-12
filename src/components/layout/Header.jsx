@@ -7,11 +7,13 @@ const Wrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 40px;
+  height: 120px;
   padding: 0 8px;
-  background: yellow;
+  background: ${props => props.theme.colors.rawr};
   position: sticky;
   top: 0;
+  font-family: ${props => props.theme.fonts.galindo};
+  color: ${props => props.theme.colors.tada};
 `;
 
 const NavLinks = styled.ul`

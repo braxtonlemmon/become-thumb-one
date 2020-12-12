@@ -7,10 +7,13 @@ const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    font-size: 18px;
   }
 
   body, html, #___gatsby {
     height: 100%;
+    background: ${props => props.theme.colors.hi};
+    font-size: 18px;
   }
 
   body {
