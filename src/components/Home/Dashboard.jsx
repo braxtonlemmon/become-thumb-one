@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
+import IntroModal from './IntroModal';
 import { Link, navigate } from 'gatsby';
 import { Context } from '../../context/GlobalContext';
 import Img from 'gatsby-image';
 import { GiCheckMark } from 'react-icons/gi';
+import Button from '../shared/Button';
 
 const Wrapper = styled.div`
   display: flex;
@@ -75,6 +77,11 @@ function Dashboard() {
     thumbSingingDone
   } = useContext(Context);
   
+  const [isModalOpen, setModalOpen] = useState(true);
+  const handleHelpClick = () => {
+    setModalOpen(true);
+  }
+
   return (
     <Wrapper>
       <h2>Dashboard</h2>
@@ -105,6 +112,11 @@ function Dashboard() {
           </Task>
         </Link>
       </Tasks>
+      <Button onClick={handleHelpClick}>Help!?</Button>
+      {
+        isModalOpen &&
+        <IntroModal setModalOpen={setModalOpen} />
+      }
     </Wrapper>
   )
 }
