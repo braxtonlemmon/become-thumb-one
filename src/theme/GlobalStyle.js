@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     background: ${props => props.theme.colors.hi};
     font-size: 18px;
+    font-family: ${props => props.theme.fonts.galindo};
   }
 
   body {

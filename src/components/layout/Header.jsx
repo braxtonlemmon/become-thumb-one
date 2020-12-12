@@ -11,6 +11,7 @@ const Wrapper = styled.header`
   padding: 0 8px;
   background: ${props => props.theme.colors.rawr};
   position: sticky;
+  margin-bottom: 30px;
   top: 0;
   font-family: ${props => props.theme.fonts.galindo};
   color: ${props => props.theme.colors.tada};

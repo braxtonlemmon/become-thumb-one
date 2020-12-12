@@ -1,13 +1,32 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { Context } from '../../context/GlobalContext';
 import { navigate, useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import Button from '../shared/Button';
 
+const hop = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  100% {
+    transform: translateY(0);
+  }
+`;
 
 const Wrapper = styled.div`
-
+  padding: 0 15px;
+  margin-bottom: 30px;
+  h2 {
+    text-align: center;
+    font-size: ${props => props.theme.fontSizes.three};
+    margin-bottom: 20px;
+    color: ${props => props.theme.colors.rawr};
+    text-shadow: 0 0 5px ${props => props.theme.colors.hey};
+  }
 `;
 
 const Form = styled.form`
@@ -21,7 +40,21 @@ const Block = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: 9px;
+  border-radius: 8px;
   margin: 15px 5px;
+  background: ${props => props.theme.colors.hey};
+  color: ${props => props.theme.colors.yo};
+  padding: 10px;
+  box-shadow: 0 0 3px ${props => props.theme.colors.sup};
+  input {
+    text-align: center;
+  }
+`;
+
+const Row = styled.div`
+  display: flex;
+  gap: 20px;
 `;
 
 const Thumbs = styled.div`
@@ -29,7 +62,7 @@ const Thumbs = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   margin: 10px 0;
   /* .thumbz {
     width: 100px;
@@ -45,8 +78,7 @@ const Thumbs = styled.div`
     cursor: pointer;
   }
   [type=radio]:checked + .thumbz {
-    outline: 2px dashed goldenrod;
-    /* box-shadow: 0 0 8px rgba(0,0,0,0.3); */
+    outline: 2px dashed ${props => props.theme.colors.sup};
   }
 
 `;
@@ -61,6 +93,12 @@ const Image = styled.div`
     width: 100%;
   }
 
+`;
+
+const Error = styled.p`
+  font-size: 13px;
+  animation: ${hop} 750ms ease infinite;
+  color: ${props => props.theme.colors.sup};
 `;
 
 function GetToKnowYouForm() {
@@ -80,7 +118,6 @@ function GetToKnowYouForm() {
     }
   `)
   const images = data.allFile.edges;
-  console.log(images);
   const { setStarted, setName, setThumbatar } = useContext(Context);
 
   const { register, handleSubmit, errors } = useForm({
@@ -106,6 +143,7 @@ function GetToKnowYouForm() {
 
   return (
     <Wrapper>
+      <h2>First, we need to get to know you...</h2>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Block>
           <label htmlFor="sofa">
@@ -122,6 +160,7 @@ function GetToKnowYouForm() {
               <option value="bench">Cast Iron Park Bench</option>
               <option value="sectional">Beige Sectional</option>
           </select>
+          {errors.sofa && <Error>{errors.sofa.message}</Error>}
         </Block>
 
 
@@ -134,34 +173,41 @@ function GetToKnowYouForm() {
             ref={
               register({
                 required: 'Age is required',
-                max: getMaxAge(),
+                max: { value: getMaxAge(), message: 'Too old!'},
               })
             }
-          />
+          ></input>
+          {errors.age && <Error>{errors.age.message}</Error>}
         </Block>
 
 
         <Block>
           <h3>Are you lying about your age?</h3>
-          <label>
-            <input 
-              type="radio"
-              name="trueAge"
-              value="Yes"
-              checked={true}
-              ref={register}
-            />
-            Yes
-          </label>
-          <label>
-            <input 
-              type="radio"
-              name="trueAge"
-              value="No"
-              ref={register}
-            />
-            No
-          </label>
+          <Row>
+            <label>
+              <input 
+                type="radio"
+                name="trueAge"
+                value="Yes"
+                ref={register({
+                  required: 'You have to tell us!'
+                })}
+                />
+              Yes
+            </label>
+            <label>
+              <input 
+                type="radio"
+                name="trueAge"
+                value="No"
+                ref={register({
+                  required: 'You have to tell us!'
+                })}
+                />
+              No
+            </label>
+          </Row>
+          {errors.trueAge && <Error>{errors.trueAge.message}</Error>}
         </Block>
 
         <Block>
@@ -173,45 +219,54 @@ function GetToKnowYouForm() {
             ref={
               register({ 
                 required: 'First name is required',
-                minLength: 5,
-                maxLength: 7
+                minLength: {value: 5, message: 'Too short!'},
+                maxLength: {value: 7, message: 'Too long!'}
               })
             }
           />
+          {errors.name && <Error>{errors.name.message}</Error>}
         </Block>
 
         <Block>
           <h3>Do you enjoy the occasional deep-fried Twinkie or pickle?</h3>
-          <label>
-            <input
-              type="radio"
-              name="enjoyFried"
-              value="Yes"
-              checked={true}
-              ref={register}
-            />
-            Yes
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="enjoyFried"
-              value="No"
-              ref={register}
-            />
-            No
-          </label>
+          <Row>
+            <label>
+              <input
+                type="radio"
+                name="enjoyFried"
+                value="Yes"
+                ref={register({
+                  required: 'We really want to know.'
+                })}
+              />
+              Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="enjoyFried"
+                value="No"
+                ref={register({
+                  required: 'We really want to know.'
+                })}
+              />
+              No
+            </label>
+          </Row>
+          {errors.enjoyFried && <Error>{errors.enjoyFried.message}</Error>}
         </Block>
 
         <Block>
-          <h3>Choose a thumb avatar.</h3>
+          <h3>Choose a thumbatar.</h3>
           <Thumbs>
             <label>
               <input
                 type="radio"
                 name="thumbatar"
                 value={1}
-                ref={register}
+                ref={register({
+                  required: 'Please choose a thumbatar.'
+                })}
               />
               <Image className="thumbz">
                 <Img 
@@ -225,7 +280,9 @@ function GetToKnowYouForm() {
                 type="radio"
                 name="thumbatar"
                 value={2}
-                ref={register}
+                ref={register({
+                  required: 'Please choose a thumbatar.'
+                })}
               />
               <Image className="thumbz">
                 <Img 
@@ -240,7 +297,9 @@ function GetToKnowYouForm() {
                 type="radio"
                 name="thumbatar"
                 value={3}
-                ref={register}
+                ref={register({
+                  required: 'Please choose a thumbatar.'
+                })}
               />
               <Image className="thumbz">
                 <Img 
@@ -255,7 +314,9 @@ function GetToKnowYouForm() {
                 type="radio"
                 name="thumbatar"
                 value={4}
-                ref={register}
+                ref={register({
+                  required: 'Please choose a thumbatar.'
+                })}
               />
               <Image className="thumbz">
                 <Img 
@@ -266,9 +327,10 @@ function GetToKnowYouForm() {
   
             </label>
           </Thumbs>
+          {errors.thumbatar && <Error>{errors.thumbatar.message}</Error>}
         </Block>
        
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit</Button>
       </Form>
     </Wrapper>
   )

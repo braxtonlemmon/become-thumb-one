@@ -7,7 +7,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   h2 {
     font-family: ${props => props.theme.fonts.galindo};
     font-size: ${props => props.theme.fontSizes.six};
