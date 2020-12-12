@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   position: fixed;
   bottom: 10px;
   right: 10px;
-  height: 50px;
-  width: 50%;
+  width: 70%;
   max-width: 400px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  box-shadow: 0 0 8px rgba(0,0,0,0.3);
   #rawr {
     background: ${props => props.theme.colors.rawr};
     color: ${props => props.theme.colors.tada};
@@ -35,6 +34,17 @@ const Wrapper = styled.div`
     background: ${props => props.theme.colors.sup};
     color: ${props => props.theme.colors.tada};
   }
+  button {
+    width: 30px;
+  }
+`;
+
+const Colors = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
 `;
 
 const Block = styled.div`
@@ -47,14 +57,26 @@ const Block = styled.div`
 `;
 
 function ColorBar() {
+  const [isVisible, setVisible] = useState(false);
+  
+  const toggleVisibility = () => {
+    setVisible(prev => !prev);
+  }
+
   return (
     <Wrapper>
-      <Block id="rawr">rawr</Block>
-      <Block id="tada">tada</Block>
-      <Block id="hey">hey</Block>
-      <Block id="hi">hi</Block>
-      <Block id="yo">yo</Block>
-      <Block id="sup">sup</Block>
+      {
+        isVisible &&
+        <Colors>
+          <Block id="rawr">rawr</Block>
+          <Block id="tada">tada</Block>
+          <Block id="hey">hey</Block>
+          <Block id="hi">hi</Block>
+          <Block id="yo">yo</Block>
+          <Block id="sup">sup</Block>
+        </Colors>
+      }
+      <button onClick={toggleVisibility}>{isVisible ? '-' : '+'}</button>
     </Wrapper>
   )
 }
