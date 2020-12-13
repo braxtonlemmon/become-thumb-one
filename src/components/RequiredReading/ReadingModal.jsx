@@ -1,27 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import bookData from '../../data/bookData';
+import { ModalWrapper, ModalBox } from '../shared/Modal';
 
-const Wrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
-const TextBox = styled.div`
-  border: 2px solid black;
-  background: white;
-  width: 95%;
-  max-width: 700px;
-  height: 80%;
-  max-height: 700px;
-  position: relative;
+const Wrapper = styled(ModalWrapper)``;
+
+const TextBox = styled(ModalBox)`
   h2 {
     margin-top: 50px;
   }

@@ -20,7 +20,6 @@ const wobble = keyframes`
 
 const Button = styled.button`
   border-radius: 8px;
-  /* border: 3px solid ${props => props.theme.colors.sup}; */
   border: none;
   box-shadow: 0 0 4px ${props => props.theme.colors.sup};
   height: 48px;
@@ -29,6 +28,7 @@ const Button = styled.button`
   font-family: ${props => props.theme.fonts.galindo};
   font-size: ${props => props.theme.fontSizes.two};
   cursor: pointer;
+
   &:hover {
     animation: ${wobble} 300ms linear;
   }
