@@ -4,14 +4,16 @@ import SEO from '../components/layout/seo';
 import { Context } from '../context/GlobalContext';
 import RequiredReadingMain from '../components/RequiredReading/RequiredReadingMain';
 import RequiredReadingIntro from '../components/RequiredReading/RequiredReadingIntro';
+import RequiredReadingOutro from '../components/RequiredReading/RequiredReadingOutro';
 
 function RequiredReadingPage() {
-  const { setRequiredReadingDone } = useContext(Context);
+  const { requiredReadingDone, setRequiredReadingDone } = useContext(Context);
   const [oneRead, setOneRead] = useState(false);
   const [twoRead, setTwoRead] = useState(false);
   const [threeRead, setThreeRead] = useState(false);
   const [fourRead, setFourRead] = useState(false);
   const [introOpen, setIntroOpen] = useState(true);
+  const [isDone, setDone] = useState(false);
 
   useEffect(() => {
     if (
@@ -21,6 +23,7 @@ function RequiredReadingPage() {
       fourRead
     ) {
       setRequiredReadingDone(true);
+      setDone(true);
     }
   }, [oneRead, twoRead, threeRead, fourRead])
 
@@ -40,6 +43,10 @@ function RequiredReadingPage() {
       {
         introOpen &&
         <RequiredReadingIntro setIntroOpen={setIntroOpen} />
+      }
+      {
+        isDone &&
+        <RequiredReadingOutro />
       }
     </Layout>
   )

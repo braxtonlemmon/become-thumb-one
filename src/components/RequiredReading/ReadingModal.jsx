@@ -2,36 +2,95 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import bookData from '../../data/bookData';
 import { ModalWrapper, ModalBox } from '../shared/Modal';
+import CloseButton from '../shared/CloseButton';
+import Button from '../shared/Button';
 
-
-const Wrapper = styled(ModalWrapper)``;
+const Wrapper = styled(ModalWrapper)`
+`;
 
 const TextBox = styled(ModalBox)`
+  justify-content: flex-start;
+  padding: 0;
+  position: relative;
   h2 {
-    margin-top: 50px;
+    padding: 10px;
+    padding-top: 15px;
+    font-size: ${props => props.theme.fontSizes.two};
+    margin-right: 20px;
+    margin-bottom: 15px;
+    text-align: center;
   }
+`;
+
+const Close = styled(CloseButton)`
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  right: 10px;
+  top: 0;
+  /* border: 1px solid white; */
 `;
 
 const ToggleButtons = styled.div`
   display: flex;
   justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
 `;
 
-const DoneButton = styled.button`
-  position: absolute;
-  top: ${props => `${props.y}%`};
-  left: ${props => `${props.x}%`};
-`;
-
-const CloseButton = styled.button`
-  height: 45px;
-  width: 45px;
-  border: 1px solid black;
-  border-radius: 50%;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+const ModeButton = styled.button`
+  font-family: ${props => props.theme.fonts.galindo};
   cursor: pointer;
+  background: ${props => props.vowels ? props.theme.colors.hey : 'none'};
+  border: ${props => props.vowels ? `3px solid ${props.theme.colors.rawr}` : `2px solid ${props.theme.colors.tada}`};
+  color: ${props => props.vowels ? props.theme.colors.rawr : props.theme.colors.tada};
+`;
+
+const Toggle = styled.div`
+  width: 55px;
+  height: 30px;
+  background: ${props => props.theme.colors.hey};
+  border-radius: 20%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: ${props => props.vowels ? 'flex-start' : 'flex-end'};
+  transition: all 300ms ease;
+  .toggle-dot {
+    height: 25px;
+    width: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: ${props => props.theme.colors.sup};
+    border-radius: 20%;
+  }
+`;
+
+const Text = styled.article`
+  width: 85%;
+  background: ${props => props.theme.colors.tada};
+  color: ${props => props.theme.colors.rawr};
+  padding: 10px;
+  border-radius: 8px;
+`;
+
+const DoneButton = styled(Button)`
+  position: absolute;
+  bottom: 20px;
+`;
+
+const Top = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    height: 60px;
+    font-size: ${props => props.theme.fontSizes.one};
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 function ReadingModal({ setModalOpen, book, setBookRead }) {
@@ -57,6 +116,10 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
 
   const randomPercent = () => {
     return Math.floor(Math.random() * 55);
+  }
+
+  const toggle = () => {
+    setVowels(prev => !prev);
   }
 
   const handleDoneClick = () => {
@@ -96,13 +159,27 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
     <Wrapper>
       <TextBox>
         <h2>{book.title}</h2>
-        <p>{vowels ? onlyVowels : onlyConsonants}</p>
+        <Close onClick={handleCloseClick}>x</Close>
         <ToggleButtons>
-          <button onClick={() => setVowels(true)}>Vowel Mode</button>
-          <button onClick={() => setVowels(false)}>Consonant Mode</button>
+          <ModeButton 
+            onClick={() => setVowels(true)}
+            vowels={vowels}
+          >Vowel</ModeButton>
+          <Toggle 
+            vowels={vowels} 
+            onClick={toggle}
+          >
+            <div className="toggle-dot"></div>
+          </Toggle>
+          <ModeButton 
+            onClick={() => setVowels(false)}
+            vowels={!vowels}
+          >Consonant</ModeButton>
         </ToggleButtons>
+        <Text>
+          {vowels ? onlyVowels : onlyConsonants}
+        </Text>
         <DoneButton onClick={handleDoneClick} x={doneX} y={doneY}>{doneMessages[doneCount]}</DoneButton>
-        <CloseButton onClick={handleCloseClick}></CloseButton>
       </TextBox>
     </Wrapper>
   )
