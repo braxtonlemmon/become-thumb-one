@@ -15,18 +15,6 @@ const OutroBox = styled(ModalBox)`
   }
 `;
 
-// const Wrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   p {
-//     text-align: center;
-//     margin: 0 50px 30px 50px;
-//     font-size: ${props => props.theme.fontSizes.three};
-//     color: ${props => props.theme.colors.rawr};
-//   }
-// `;
-
 function HearingTestOutro() {
   const { setHearingTestDone } = useContext(Context);
 
