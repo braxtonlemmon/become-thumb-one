@@ -2,7 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/layout/seo';
 import { Context } from '../context/GlobalContext';
-import Bookshelf from '../components/RequiredReading/Bookshelf';
+import RequiredReadingMain from '../components/RequiredReading/RequiredReadingMain';
+import RequiredReadingIntro from '../components/RequiredReading/RequiredReadingIntro';
 
 function RequiredReadingPage() {
   const { setRequiredReadingDone } = useContext(Context);
@@ -10,6 +11,7 @@ function RequiredReadingPage() {
   const [twoRead, setTwoRead] = useState(false);
   const [threeRead, setThreeRead] = useState(false);
   const [fourRead, setFourRead] = useState(false);
+  const [introOpen, setIntroOpen] = useState(true);
 
   useEffect(() => {
     if (
@@ -25,13 +27,16 @@ function RequiredReadingPage() {
   return (
     <Layout>
       <SEO title="Thumb Singing" />
-      <p>RequiredReadingPage</p>
-      <Bookshelf 
+      <RequiredReadingMain
         setOneRead={setOneRead}
         setTwoRead={setTwoRead}
         setThreeRead={setThreeRead}
         setFourRead={setFourRead}
       />
+      {
+        introOpen &&
+        <RequiredReadingIntro setIntroOpen={setIntroOpen} />
+      }
     </Layout>
   )
 }
