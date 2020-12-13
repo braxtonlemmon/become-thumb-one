@@ -7,10 +7,6 @@ import { ModalWrapper, ModalBox } from '../shared/Modal';
 const Wrapper = styled(ModalWrapper)``;
 
 const TextBox = styled(ModalBox)`
-  h2 {
-    margin-top: 50px;
-  }
-
 `;
 
 function IntroModal () {
