@@ -3,6 +3,7 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/layout/seo';
 import ThumbSingingMain from '../components/ThumbSinging/ThumbSingingMain';
 import ThumbSingingModal from '../components/ThumbSinging/ThumbSingingModal';
+import ThumbSingingIntro from '../components/ThumbSinging/ThumbSingingIntro';
 import singingData from '../data/singingData';
 import { Context } from '../context/GlobalContext';
 
@@ -12,6 +13,7 @@ function ThumbSingingPage() {
   const [songTwoDone, setSongTwoDone] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [currentSong, setCurrentSong] = useState();
+  const [introOpen, setIntroOpen] = useState(true);
 
   const getSongFunction = () => {
     let setSongDone;
@@ -43,6 +45,10 @@ function ThumbSingingPage() {
         songOneDone={songOneDone}
         songTwoDone={songTwoDone}
       />
+      {
+        introOpen &&
+        <ThumbSingingIntro setIntroOpen={setIntroOpen} />
+      }
       {
         modalOpen &&
         <ThumbSingingModal setModalOpen={setModalOpen} song={currentSong} setSongDone={getSongFunction()} />
