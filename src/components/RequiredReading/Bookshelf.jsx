@@ -21,39 +21,29 @@ const Books = styled.div`
 
 
 const Book = styled.div`
-  width: 20%;
-  height: 300px;
-  border: 1px solid black;
+  visibility: ${props => props.done ? 'hidden' : 'visible'};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background: ${props => props.background};
+  color: ${props => props.color};
+  &:hover {
+    transform: translateY(-8px);
+  }
+  transition: transform 250ms ease;
   h2 {
     transform: rotate(180deg);
     writing-mode: vertical-rl;
   }
 `;
 
-const BookOne = styled(Book)`
-  height: 300px;
-`;
-
-const BookTwo = styled(Book)`
-  height: 310px;
-`;
-
-const BookThree = styled(Book)`
-  height: 320px;
-`;
-
-const BookFour = styled(Book)`
-  height: 295px;
-`;
-
 const Shelf = styled.div`
   height: 50px;
   width: 90%;
-  /* border: 1px solid black; */
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
   overflow: hidden;
   background: brown;
@@ -65,9 +55,16 @@ const Shelf = styled.div`
   }
 `;
 
-
-
-function Bookshelf({ setOneRead, setTwoRead, setThreeRead, setFourRead }) {
+function Bookshelf({ 
+  setOneRead, 
+  setTwoRead, 
+  setThreeRead, 
+  setFourRead,
+  oneRead,
+  twoRead,
+  threeRead,
+  fourRead
+}) {
   const data = useStaticQuery(graphql`
     query WoodQuery {
       file(name: {eq: "wood"}) {
@@ -82,7 +79,7 @@ function Bookshelf({ setOneRead, setTwoRead, setThreeRead, setFourRead }) {
   const wood = data.file.childImageSharp.fluid;
   const [modalOpen, setModalOpen] = useState(false);
   const [currentBook, setCurrentBook] = useState({});
-
+  const status = [oneRead, twoRead, threeRead, fourRead];
   const handleBookClick = (book) => {
     setCurrentBook(book)
     setModalOpen(true);
@@ -90,6 +87,7 @@ function Bookshelf({ setOneRead, setTwoRead, setThreeRead, setFourRead }) {
 
   const getBookFunction = () => {
     let setBookRead;
+    let read;
     switch (currentBook.id) {
       case 0:
         setBookRead = setOneRead;
@@ -114,7 +112,14 @@ function Bookshelf({ setOneRead, setTwoRead, setThreeRead, setFourRead }) {
       <Books>
         {bookData.map((book, index) => {
           return (
-            <Book onClick={() => handleBookClick(book)} >
+            <Book 
+              onClick={() => handleBookClick(book)} 
+              background={book.background}
+              color={book.color}
+              height={book.height}
+              width={book.width}
+              done={status[index]}
+            >
               <h2>{book.title}</h2>
             </Book>
           )

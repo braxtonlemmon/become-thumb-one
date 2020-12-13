@@ -32,6 +32,10 @@ function RequiredReadingPage() {
         setTwoRead={setTwoRead}
         setThreeRead={setThreeRead}
         setFourRead={setFourRead}
+        oneRead={oneRead}
+        twoRead={twoRead}
+        threeRead={threeRead}
+        fourRead={fourRead}
       />
       {
         introOpen &&

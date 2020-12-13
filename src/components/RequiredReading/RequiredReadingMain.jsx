@@ -14,7 +14,11 @@ function RequiredReadingMain({
   setOneRead,
   setTwoRead,
   setThreeRead,
-  setFourRead
+  setFourRead,
+  oneRead,
+  twoRead,
+  threeRead,
+  fourRead
 }) {
   return (
     <Wrapper>
@@ -24,6 +28,10 @@ function RequiredReadingMain({
         setTwoRead={setTwoRead}
         setThreeRead={setThreeRead}
         setFourRead={setFourRead}
+        oneRead={oneRead}
+        twoRead={twoRead}
+        threeRead={threeRead}
+        fourRead={fourRead}
       />
     </Wrapper>
   )
