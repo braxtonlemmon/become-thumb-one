@@ -25,8 +25,8 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <Main>{children}</Main>
-      <ColorBar />
-      <FontSizeBar />
+      {/* <ColorBar /> */}
+      {/* <FontSizeBar /> */}
     </>
   )
 }
