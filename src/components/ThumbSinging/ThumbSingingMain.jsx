@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { PageTitle } from '../shared/Headings';
 import singingData from '../../data/singingData';
@@ -43,11 +43,17 @@ const Check = styled(GiCheckMark)`
 `;
 
 
-function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDone }) {
+function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDone, setOutroOpen }) {
   const handleClickSong = (num) => {
     setCurrentSong(singingData[num]);
     setModalOpen(true);
   }
+  
+  useEffect(() => {
+    if (songOneDone && songTwoDone) {
+      setOutroOpen(true);
+    }
+  }, [songOneDone, songTwoDone]);
   
   return (
     <Wrapper>
