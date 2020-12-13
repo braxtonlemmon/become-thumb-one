@@ -15,8 +15,8 @@ function HearingTestModal({ setIntroOpen }) {
   return (
     <Wrapper>
       <IntroBox>
-        <p>This hearing test is simple.</p>
-        <p>You will be asked a question and will have two choices of sounds to respond to that question.</p>
+        <p>This is a simple hearing test.</p>
+        <p>You will be asked a question and can respond with one of two sound choices.</p>
         <p>To listen and choose a sound, just click on its associated picture.</p>
         <Button onClick={handleCloseClick}>Begin</Button>
       </IntroBox>
