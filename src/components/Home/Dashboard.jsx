@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
   #dashboard-got-this {
     color: ${props => props.theme.colors.rawr};
     font-size: ${props => props.theme.fontSizes.three};

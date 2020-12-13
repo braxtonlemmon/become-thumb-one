@@ -33,6 +33,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
 `;
 
 const Block = styled.div`
