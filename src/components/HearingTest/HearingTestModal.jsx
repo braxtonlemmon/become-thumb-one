@@ -1,21 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ModalWrapper, ModalBox } from '../shared/Modal';
+import Button from '../shared/Button';
 
 const Wrapper = styled(ModalWrapper)``;
 
 const IntroBox = styled(ModalBox)``;
-
-const CloseButton = styled.button`
-  height: 45px;
-  width: 45px;
-  border: 1px solid black;
-  border-radius: 50%;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-`;
 
 function HearingTestModal({ setIntroOpen }) {
   const handleCloseClick = () => {
@@ -25,7 +15,10 @@ function HearingTestModal({ setIntroOpen }) {
   return (
     <Wrapper>
       <IntroBox>
-        <CloseButton onClick={handleCloseClick}></CloseButton>
+        <p>This hearing test is simple.</p>
+        <p>You will be asked a question and will have two choices of sounds to respond to that question.</p>
+        <p>To listen and choose a sound, just click on its associated picture.</p>
+        <Button onClick={handleCloseClick}>Begin</Button>
       </IntroBox>
     </Wrapper>
   )
