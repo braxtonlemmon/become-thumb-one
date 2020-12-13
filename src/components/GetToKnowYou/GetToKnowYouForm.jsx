@@ -123,11 +123,15 @@ function GetToKnowYouForm() {
     }
   })
 
+  const capitalize = (text) => {
+    return `${text[0].toUpperCase()}${text.substr(1, text.length)}`;
+  }
+
   const onSubmit = (data, e) => {
     e.preventDefault();
     console.log(data);
     setStarted(true);
-    setName(data.name)
+    setName(capitalize(data.name));
     /* setThumbatar(data.thumbatar) */
     setThumbatar(images[data.thumbatar - 1])
     navigate("/")
