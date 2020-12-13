@@ -4,6 +4,7 @@ import { hearingData } from '../../data/hearingData';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Button from '../shared/Button';
+import { PageTitle } from '../shared/Headings';
 
 const Wrapper = styled.div`
   display: flex;
@@ -137,6 +138,7 @@ function HearingTestMain({ setDone }) {
 
   return (
     <Wrapper>
+      <PageTitle>Hearing Test</PageTitle>
       <h3>{hearingData[question].question}</h3>
       <Images>
         <Image onClick={(e) => handlePlayOne(e)} selected={selected === 'one'}>

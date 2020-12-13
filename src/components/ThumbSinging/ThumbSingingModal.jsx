@@ -1,41 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { ModalWrapper, ModalBox } from '../shared/Modal';
 
-const Wrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const Wrapper = styled(ModalWrapper)``;
+
+const QuizBox = styled(ModalBox)`
+  padding: 0;
+  position: relative;
 `;
 
-const QuizBox = styled.div`
-  border: 2px solid black;
-  background: white;
-  width: 95%;
-  height: 80%;
-  max-width: 700px;
-  max-height: 700px;
-  position: relative;
+const Top = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   h2 {
     height: 60px;
-    font-size: 1.2em;
+    font-size: ${props => props.theme.fontSizes.one};
+    display: flex;
+    align-items: center;
+    text-align: center;
   }
 `;
 
 const Words = styled.div`
   height: 100%;
+  width: 100%;
   display: grid;
+  position: relative;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(4, 1fr);
-  justify-items: stretch;
-  align-items: center;
+  gap: 1px;
   p {
     text-align: center;
     height: 100%;
@@ -46,28 +41,44 @@ const Words = styled.div`
 const Tile = styled.div`
   width: 100%;
   height: 100%;
-  border: 1px solid black;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 10px;
-  font-size: 1.3em;
-  background: ${props => props.correct ? 'blue' : 'yellow'};
+  padding: 8px;
+  font-size: ${props => props.theme.fontSizes.one};
+  background: ${props => props.correct ? props.theme.colors.hey : props.theme.colors.yo};
+  color: ${props => props.correct ? props.theme.colors.rawr : props.theme.colors.hey};
 `;
 
-
-
 const CloseButton = styled.button`
-  height: 45px;
-  width: 45px;
-  border: 1px solid black;
-  border-radius: 50%;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  background: none;
+  border: none;
   cursor: pointer;
+  color: ${props => props.theme.colors.tada};
+  font-size: ${props => props.theme.fontSizes.three};
+  font-weight: bolder;
+  text-shadow: 0 0 4px ${props => props.theme.colors.sup};
+  display: flex;
+  align-items: flex-start;
+  &:hover {
+    color: ${props => props.theme.colors.hey};
+  }
+`;
+
+const WooHoo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${props => props.theme.colors.tada};
+  font-size: ${props => props.theme.fontSizes.six};
 `;
 
 function Spot({ children, guesses, setGuesses, num, questions, setQuestions, resetQuiz }) {
@@ -117,6 +128,7 @@ function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
   }
   const [questions, setQuestions] = useState(reset);
   const [play, setPlay] = useState(false);
+  const [isDone, setDone] = useState(false);
 
   const resetQuiz = () => {
     setQuestions(reset);
@@ -140,14 +152,20 @@ function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
   useEffect(() => {
     if (guesses.length > 12) {
       setSongDone(true);
-      setModalOpen(false);
+      setDone(true);
+      setTimeout(() => {
+        setModalOpen(false);
+      }, 1500)
     }
   }, [guesses.length])
 
   return (
     <Wrapper>
       <QuizBox>
-        <h2>{song.intro}...</h2>
+        <Top>
+          <h2>{song.intro}...</h2>
+          <CloseButton onClick={handleCloseClick}>x</CloseButton>
+        </Top>
         <Words>
           {
             song.words.map(word => 
@@ -161,8 +179,13 @@ function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
               >{word.word}</Spot>
             )   
           }
+          {
+            isDone &&
+            <WooHoo>
+                WOOHOO!
+            </WooHoo>
+          }
         </Words>
-        <CloseButton onClick={handleCloseClick}></CloseButton>
       </QuizBox>
     </Wrapper>
   )

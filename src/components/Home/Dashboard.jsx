@@ -6,20 +6,15 @@ import { Context } from '../../context/GlobalContext';
 import Img from 'gatsby-image';
 import { GiCheckMark } from 'react-icons/gi';
 import Button from '../shared/Button';
+import { PageTitle } from '../shared/Headings';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  h2 {
-    text-align: center;
-    font-size: ${props => props.theme.fontSizes.four};
-    margin-bottom: 20px;
-    color: ${props => props.theme.colors.yo};
-    text-shadow: 0 0 5px ${props => props.theme.colors.hey};
-  }
   #dashboard-got-this {
     color: ${props => props.theme.colors.rawr};
+    font-size: ${props => props.theme.fontSizes.three};
   }
 `;
 
@@ -88,7 +83,7 @@ function Dashboard() {
 
   return (
     <Wrapper>
-      <h2>Dashboard</h2>
+      <PageTitle>Dashboard</PageTitle>
       <Thumbatar>
         <Img fluid={thumbatar.node.childImageSharp.fluid} />
       </Thumbatar>

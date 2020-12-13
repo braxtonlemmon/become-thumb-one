@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/layout/seo';
+import ThumbSingingMain from '../components/ThumbSinging/ThumbSingingMain';
 import ThumbSingingModal from '../components/ThumbSinging/ThumbSingingModal';
 import singingData from '../data/singingData';
 import { Context } from '../context/GlobalContext';
@@ -36,19 +37,12 @@ function ThumbSingingPage() {
   return (
     <Layout>
       <SEO title="Thumb Singing" />
-      <p>ThumbSingingPage</p>
-      <button onClick={() => {
-        setCurrentSong(singingData[0])
-        setModalOpen(true)
-        }
-      }>Song 1</button>
-
-      <button onClick={() => {
-        setCurrentSong(singingData[1])
-        setModalOpen(true)
-        }
-      }>Song 2</button>
-
+      <ThumbSingingMain 
+        setModalOpen={setModalOpen}
+        setCurrentSong={setCurrentSong}
+        songOneDone={songOneDone}
+        songTwoDone={songTwoDone}
+      />
       {
         modalOpen &&
         <ThumbSingingModal setModalOpen={setModalOpen} song={currentSong} setSongDone={getSongFunction()} />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { PageTitle } from '../shared/Headings';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -7,7 +8,7 @@ const Wrapper = styled.div`
   background: orange;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 `;
 
 const Dot = styled.div`
@@ -87,6 +88,7 @@ function ClickADotMain({ setDone }) {
   
   return (
     <Wrapper>
+      <PageTitle>Click-A-Dot</PageTitle>
       <Dot 
         onClick={handleClick} 
         x={dotX} 
