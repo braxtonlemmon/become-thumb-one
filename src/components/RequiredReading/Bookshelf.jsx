@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReadingModal from './ReadingModal';
 import bookData from '../../data/bookData';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 const Wrapper = styled.div`
   display: flex;
@@ -51,12 +53,33 @@ const BookFour = styled(Book)`
 const Shelf = styled.div`
   height: 50px;
   width: 90%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  overflow: hidden;
+  background: brown;
+  #wood {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow:hidden;
+  }
 `;
 
 
 
 function Bookshelf({ setOneRead, setTwoRead, setThreeRead, setFourRead }) {
+  const data = useStaticQuery(graphql`
+    query WoodQuery {
+      file(name: {eq: "wood"}) {
+        childImageSharp {
+          fluid(maxWidth: 400) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  const wood = data.file.childImageSharp.fluid;
   const [modalOpen, setModalOpen] = useState(false);
   const [currentBook, setCurrentBook] = useState({});
 
@@ -97,7 +120,9 @@ function Bookshelf({ setOneRead, setTwoRead, setThreeRead, setFourRead }) {
           )
         })}
       </Books>
-      <Shelf></Shelf>
+      <Shelf>
+        <Img id="wood" fluid={wood} />
+      </Shelf>
       {
         modalOpen &&
         <ReadingModal setModalOpen={setModalOpen} book={currentBook} setBookRead={getBookFunction()} />
