@@ -24,11 +24,11 @@ const Dot = styled.div`
   left: ${props => `${props.x}%`};
   cursor: pointer;
   background: ${props => props.color};
-  transition: background 750ms ease, border-color 750ms ease;
+  transition: background 700ms ease, border-color 700ms ease;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   z-index: 50;
   p {
-    font-size: 4em;
+    font-size: ${props => props.theme.fontSizes.six};
     color: ${props => props.color};
     filter: invert();
   }
@@ -54,23 +54,23 @@ const getRandomColor = () => {
 
 function ClickADotMain({ setDone }) {
   const [dotX, setDotX] = useState(25);
-  const [dotY, setDotY] = useState(40);
+  const [dotY, setDotY] = useState(50);
   const [clicks, setClicks] = useState(30);
   const [color, setColor] = useState(getRandomColor());
   const [borderColor, setBorderColor] = useState(getRandomColor());
   const [historicalDots, setHistoricalDots] = useState([]);
-
-  const randomPercent = () => {
+ 
+  const randomPercent = (low, high) => {
     let percent = 0;
-    while (percent < 15 || percent > 85) {
-      percent = Math.floor(Math.random() * 70);
+    while (percent < low || percent > high) {
+      percent = Math.floor(Math.random() * 100);
     }
     return percent;
   }
-  
+
   const handleClick = () => {
-    setDotX(randomPercent());
-    setDotY(randomPercent());
+    setDotX(randomPercent(1, 60));
+    setDotY(randomPercent(20, 78));
     let history = [...historicalDots]
     history.push([dotX, dotY]);
     setHistoricalDots(history);
@@ -96,11 +96,11 @@ function ClickADotMain({ setDone }) {
       >
         <p>{clicks}</p>
       </Dot>
-      {historicalDots.map(history => {
+      {/* {historicalDots.map(history => {
         return (
           <PastDot x={history[0]} y={history[1]} borderColor={borderColor}/>
         )
-      })}
+      })} */}
     </Wrapper>
   )
 }
