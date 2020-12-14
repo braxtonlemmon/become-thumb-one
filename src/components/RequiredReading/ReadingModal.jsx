@@ -11,6 +11,7 @@ const Wrapper = styled(ModalWrapper)`
 const TextBox = styled(ModalBox)`
   justify-content: flex-start;
   padding: 0;
+  padding-bottom: 15px;
   position: relative;
   h2 {
     padding: 10px;
@@ -74,9 +75,18 @@ const Text = styled.article`
   border-radius: 8px;
 `;
 
+const Bottom = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+`;
+
 const DoneButton = styled(Button)`
-  position: absolute;
-  bottom: 20px;
+  &:active, &:focus {
+    outline: 0;
+  }
+
 `;
 
 const Top = styled.div`
@@ -179,7 +189,9 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
         <Text>
           {vowels ? onlyVowels : onlyConsonants}
         </Text>
-        <DoneButton onClick={handleDoneClick} x={doneX} y={doneY}>{doneMessages[doneCount]}</DoneButton>
+        <Bottom>
+          <DoneButton onClick={handleDoneClick} x={doneX} y={doneY}>{doneMessages[doneCount]}</DoneButton>
+        </Bottom>
       </TextBox>
     </Wrapper>
   )

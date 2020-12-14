@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
+  padding-bottom: 50px;
   #dashboard-got-this {
     color: ${props => props.theme.colors.rawr};
     font-size: ${props => props.theme.fontSizes.three};

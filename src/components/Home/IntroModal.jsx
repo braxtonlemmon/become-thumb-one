@@ -4,9 +4,14 @@ import { Context } from '../../context/GlobalContext';
 import Button from '../shared/Button';
 import { ModalWrapper, ModalBox } from '../shared/Modal';
 
-const Wrapper = styled(ModalWrapper)``;
+const Wrapper = styled(ModalWrapper)`
+`;
 
 const TextBox = styled(ModalBox)`
+  /* padding-top: 20px; */
+  p {
+    padding-bottom: 15px;
+  }
 `;
 
 function IntroModal () {

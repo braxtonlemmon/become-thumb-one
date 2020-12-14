@@ -19,19 +19,20 @@ export const ModalBox = styled.div`
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 9px rgba(0,0,0,0.3);
-  margin-top: 105px;
+  margin-top: 80px;
   padding: 35px 15px;
   background: ${props => props.theme.colors.rawr};
   color: ${props => props.theme.colors.tada};
   width: 90%;
   max-width: 700px;
-  height: 70%;
+  height: 80%;
   max-height: 900px;
   position: relative;
-  overflow: auto;
+  overflow: scroll;
   p {
-    margin-bottom: 30px;
+    padding-bottom: 15px;
     text-align: center;
     line-height: ${props => props.theme.fontSizes.two};
   }
+
 `;
