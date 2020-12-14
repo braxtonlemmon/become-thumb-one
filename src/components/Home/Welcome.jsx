@@ -15,21 +15,27 @@ const Wrapper = styled.section`
     max-width: 250px;
     color: ${props => props.theme.colors.hey};
     text-shadow: 0 0 10px ${props => props.theme.colors.rawr};
+    @media (min-width: 760px) {
+      font-size: ${props => props.theme.fontSizes.seven};
+    }
   }
 `;
 
 const Intro = styled.p`
   text-align: center;
-  margin: 15px 20px 0 20px;
+  margin: 20px 20px 10px 20px;
   width: 70%;
-  max-width: 300px;
+  max-width: 500px;
   font-family: ${props => props.theme.fonts.galindo};
   color: ${props => props.theme.colors.yo};
   border-radius: 5px;
   padding: 8px;
   line-height: ${props => props.theme.fontSizes.two};
   /* background: ${props => props.theme.colors.yo}; */
-
+  @media (min-width: 600px) {
+    font-size: ${props => props.theme.fontSizes.three};
+    line-height: 29px;
+  }
 `;
 
 const Image = styled.div`

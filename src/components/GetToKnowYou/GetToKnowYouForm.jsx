@@ -19,7 +19,7 @@ const hop = keyframes`
 
 const Wrapper = styled.div`
   padding: 0 15px;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
   h2 {
     text-align: center;
     font-size: ${props => props.theme.fontSizes.three};
