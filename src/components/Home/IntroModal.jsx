@@ -8,10 +8,13 @@ const Wrapper = styled(ModalWrapper)`
 `;
 
 const TextBox = styled(ModalBox)`
-  /* padding-top: 20px; */
+  max-width: 375px;
+  max-height: 600px;
+  overflow: hidden;
   p {
     padding-bottom: 15px;
   }
+
 `;
 
 function IntroModal () {
