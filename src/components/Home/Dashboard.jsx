@@ -36,6 +36,10 @@ const Tasks = styled.div`
     text-decoration: none;
     color: ${props => props.theme.colors.yo};
   }
+  @media (min-width: 760px) {
+    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 const Task = styled.div`
@@ -50,10 +54,14 @@ const Task = styled.div`
   text-align: center;
   font-size: ${props => props.theme.fontSizes.two};
   padding: 10px;
-  border: 2px solid ${props => props.theme.colors.hey};
   cursor: ${props => props.done ? 'initial' : 'pointer'};
   &:hover {
     background: ${props => props.done? props.theme.colors.hey : props.theme.colors.tada};
+  };
+  @media (min-width: 1020px) {
+    height: 200px;
+    width: 200px;
+    font-size: ${props => props.theme.fontSizes.three};
   }
 `;
 
