@@ -30,6 +30,15 @@ const Wrapper = styled.header`
   }
 `;
 
+const Left = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  @media (min-width: 1200px) {
+    gap: 60px;
+  }
+`;
+
 const NavLinks = styled.ul`
   display: flex;
   justify-content: center;
@@ -67,6 +76,15 @@ const NavLink = styled.li`
   }
 `;
 
+const Title = styled.h1`
+  display: none;
+  text-shadow: 0 0 5px ${props => props.theme.colors.rawr};
+  font-size: ${props => props.theme.fontSizes.four};
+  @media (min-width: 760px) {
+    display: block;
+  }
+`;  
+
 function Header() {
   const data = useStaticQuery(graphql`
     query HandQuery {
@@ -83,10 +101,14 @@ function Header() {
 
   return (
     <Wrapper>
-      <Link to="/">
-        {/* <h1>Become Thumb One</h1> */}
-        <Img fixed={hand} />
-      </Link>
+      <Left>
+        <Link to="/">
+          <Img fixed={hand} />
+        </Link>
+        <Title>
+          Become Thumb One
+        </Title>
+      </Left>
       <NavLinks>
         <NavLink id="header-fun">
           <Link to="/">Fun<AiOutlineHome id="header-icon"/></Link>
