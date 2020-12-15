@@ -51,6 +51,7 @@ const Block = styled.div`
   input {
     text-align: center;
   }
+  max-width: 600px;
 `;
 
 const Row = styled.div`
@@ -77,7 +78,10 @@ const Thumbs = styled.div`
   [type=radio]:checked + .thumbz {
     outline: 2px dashed ${props => props.theme.colors.sup};
   }
-
+  @media (min-width: 760px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+  }
 `;
 
 const Image = styled.div`
@@ -259,7 +263,7 @@ function GetToKnowYouForm() {
         </Block>
 
         <Block>
-          <h3>Choose a thumbatar.</h3>
+          <h3>Click to choose a thumbatar:</h3>
           <Thumbs>
             <label>
               <input

@@ -7,7 +7,7 @@ import ColorBar from './ColorBar';
 import FontSizeBar from './FontSizeBar';
 
 const Main = styled.main`
-  height: calc(100% - 40px);
+  /* height: calc(100% - 40px); */
 `;
 
 const Layout = ({ children }) => {
