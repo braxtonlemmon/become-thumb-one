@@ -171,7 +171,7 @@ function GetToKnowYouForm() {
 
 
         <Block>
-          <label htmlFor="age">How old are you? (Age entered must be less than someone born in 1973.)</label>
+          <label htmlFor="age">How old are you? (Age can be even or odd)</label>
           <input
             type="number"
             name="age"
@@ -179,7 +179,7 @@ function GetToKnowYouForm() {
             ref={
               register({
                 required: 'Age is required',
-                max: { value: getMaxAge(), message: 'Too old!'},
+                pattern: { value: /[0-9]+/, message: 'Must be a number!'},
               })
             }
           ></input>
