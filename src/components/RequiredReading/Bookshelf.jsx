@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 95%;
   max-width: 500px;
+  margin-bottom: 50px;
 `;
 
 const Books = styled.div`

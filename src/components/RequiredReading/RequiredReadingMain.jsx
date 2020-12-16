@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { PageTitle } from '../shared/Headings';
 import Bookshelf from './Bookshelf';
+import Button from '../shared/Button';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,8 +19,13 @@ function RequiredReadingMain({
   oneRead,
   twoRead,
   threeRead,
-  fourRead
+  fourRead,
+  setIntroOpen
 }) {
+  const toggleIntro = () => {
+    setIntroOpen(prev => !prev);
+  }
+
   return (
     <Wrapper>
       <PageTitle>Required Reading</PageTitle>
@@ -33,6 +39,7 @@ function RequiredReadingMain({
         threeRead={threeRead}
         fourRead={fourRead}
       />
+      <Button onClick={toggleIntro}>Help!?</Button>
     </Wrapper>
   )
 }
