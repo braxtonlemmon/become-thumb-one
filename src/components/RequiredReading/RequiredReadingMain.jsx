@@ -6,7 +6,7 @@ import Bookshelf from './Bookshelf';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   width: 100%;
 `;
 

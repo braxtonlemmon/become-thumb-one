@@ -13,6 +13,7 @@ const TextBox = styled(ModalBox)`
   padding: 0;
   padding-bottom: 15px;
   position: relative;
+  overflow: auto;
   h2 {
     padding: 10px;
     padding-top: 15px;
