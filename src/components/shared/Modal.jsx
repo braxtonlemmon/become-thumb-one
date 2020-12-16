@@ -28,7 +28,10 @@ export const ModalBox = styled.div`
   height: 80%;
   max-height: 900px;
   position: relative;
-  overflow: scroll;
+  /* overflow: scroll; */
+  max-width: 375px;
+  max-height: 600px;
+  /* overflow: hidden; */
   p {
     padding-bottom: 15px;
     text-align: center;

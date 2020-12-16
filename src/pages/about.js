@@ -9,6 +9,7 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   width: 80%;
+  max-width: 600px;
   margin: 0 auto;
   p {
     text-align: center;

@@ -8,9 +8,6 @@ const Wrapper = styled(ModalWrapper)`
 `;
 
 const TextBox = styled(ModalBox)`
-  max-width: 375px;
-  max-height: 600px;
-  overflow: hidden;
   p {
     padding-bottom: 15px;
   }
