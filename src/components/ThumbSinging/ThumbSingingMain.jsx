@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { PageTitle } from '../shared/Headings';
 import singingData from '../../data/singingData';
 import { GiCheckMark } from 'react-icons/gi';
+import DancingThumb from '../DancingThumb';
 
 const Wrapper = styled.section`
   display: flex;
@@ -89,6 +90,7 @@ function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDo
           {songTwoDone && <Check />}
         </SongBox>
       </Songs>
+      <DancingThumb />
     </Wrapper>
   )
 }

@@ -11,60 +11,55 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  padding-bottom: 50px;
   h3 {
     text-align: center;
     margin: 0 20px;
+    margin-bottom: 30px;
     font-size: ${props => props.theme.fontSizes.two};
     color: ${props => props.theme.colors.rawr};
   }
 `;
 
 const Images = styled.div`
-  /* width: 100%; */
-  /* height: 400px; */
   padding: 0 40px;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   gap: 30px;
   margin: 15px 0;
   position: relative;
-  /* border: 1px solid red; */
+  @media (min-width: 760px) {
+    flex-direction: row;
+    margin-bottom: 30px;
+  }
+`;
+
+const ImageContainer = styled.div`
+  width: 220px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 10px; */
+  cursor: pointer;
+  background: ${props => props.theme.colors.tada};
+  border-radius: 8px;
+  border: ${props => props.selected ? '3px dashed black' : 'none'};
 `;
 
 const Image = styled.div`
   width: 120px;
   cursor: pointer;
-  padding: 10px;
-  /* border: 1px solid black; */
   .hearing-pic {
     width: 100%;
   }
 `;
 
-const HandBox = styled.div`
-  width: 40px;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  opacity: ${props => (props.selected === 'one' || props.selected ==='two') ? '1' : '0'};
-  /* transition: opacity 300ms ease; */
-  ${props => props.selected === 'one' ? 
-    css`
-      top: 20%;
-    `:
-    css`
-      top: 80%;
-    `
-  }
-  z-index: 400;
-`;
-
 const Next = styled(Button)`
-  position: absolute; 
+  /* position: absolute; 
   right: 30px;
-  top: 200px;
+  top: 200px; */
   display: ${props => props.selected ? 'block' : 'none'};
 `;
 
@@ -141,21 +136,22 @@ function HearingTestMain({ setDone }) {
       <PageTitle>Hearing Test</PageTitle>
       <h3>{hearingData[question].question}</h3>
       <Images>
-        <Image onClick={(e) => handlePlayOne(e)} selected={selected === 'one'}>
-          {
-            imageOne &&
-            <Img className="hearing-pic" fluid={imageOne.node.childImageSharp.fluid} />
-          }
-        </Image>
-        <HandBox selected={selected}>
-          <Img fluid={hand.childImageSharp.fluid} />
-        </HandBox>
-        <Image onClick={(e) => handlePlayTwo(e)} selected={selected === 'two'}>
-          {
-            imageTwo &&
-            <Img className="hearing-pic" fluid={imageTwo.node.childImageSharp.fluid} />
-          }
-        </Image>
+        <ImageContainer onClick={(e) => handlePlayOne(e)} selected={selected === 'one'}>
+          <Image  selected={selected === 'one'}>
+            {
+              imageOne &&
+              <Img className="hearing-pic" fluid={imageOne.node.childImageSharp.fluid} selected={selected === 'one'}/>
+            }
+          </Image>
+        </ImageContainer>
+        <ImageContainer onClick={(e) => handlePlayTwo(e)} selected={selected === 'two'}>
+          <Image  selected={selected === 'two'}>
+            {
+              imageTwo &&
+              <Img className="hearing-pic" fluid={imageTwo.node.childImageSharp.fluid} selected={selected === 'two'}/>
+            }
+          </Image>
+        </ImageContainer>
       </Images>
       <Next onClick={handleNextClick} selected={selected}>Next</Next>
     </Wrapper>
