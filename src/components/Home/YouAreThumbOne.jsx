@@ -1,8 +1,44 @@
 import { navigate } from 'gatsby';
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {Context} from '../../context/GlobalContext';
 import Button from '../shared/Button';
+
+const colorShift = keyframes`
+  0% {
+    color: red;
+  }
+  10% {
+    color: pink;
+  }
+  20% {
+    color: blue;
+  }
+  30% {
+    color: lime;
+  }
+  40% {
+    color: green;
+  }
+  50% {
+    color: purple;
+  }
+  60% {
+    color: aqua;
+  }
+  70% {
+    color: grey;
+  }
+  80% {
+    color: yellow;
+  }
+  90% {
+    color: brown;
+  }
+  100% {
+    color: black;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,10 +48,10 @@ const Wrapper = styled.div`
     font-size: ${props => props.theme.fontSizes.seven};
     text-align: center;
     margin-bottom: 25px;
-    background: -webkit-linear-gradient(${props => props.theme.colors.tada}, ${props => props.theme.colors.hey});
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: ${props => props.theme.colors.rawr};
     text-shadow: 4px 3px rgba(0,0,0,0.6);
+    max-width: 400px;
+    animation: ${colorShift} 3s ease infinite;
   }
 `;
 
