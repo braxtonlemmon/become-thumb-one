@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const Dot = styled.div`
+const Dot = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,6 +28,7 @@ const Dot = styled.div`
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
   z-index: 50;
   p {
+    font-family: ${props => props.theme.fonts.galindo};
     font-size: ${props => props.theme.fontSizes.six};
     color: ${props => props.color};
     filter: invert();
