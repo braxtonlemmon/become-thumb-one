@@ -140,17 +140,12 @@ function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
     12: false
   }
   const [questions, setQuestions] = useState(reset);
-  const [play, setPlay] = useState(false);
   const [isDone, setDone] = useState(false);
 
   const resetQuiz = () => {
     setQuestions(reset);
   }
 
-  const handlePlayClick = () => {
-    setPlay(true);
-  }
-  
   const handleCloseClick = () => {
     setModalOpen(false);
   }
@@ -160,7 +155,7 @@ function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
     if (attempts < 1) {
       song.words.sort(() => Math.random() - 0.5);
     }
-  }, [])
+  }, [attempts, song.words])
 
   useEffect(() => {
     if (guesses.length > 12) {

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { nagivate, navigate } from 'gatsby';
+import { navigate } from 'gatsby';
 import { Context } from '../../context/GlobalContext';
 import { ModalWrapper, ModalBox } from '../shared/Modal';
 import Button from '../shared/Button';

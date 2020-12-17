@@ -90,7 +90,6 @@ function Bookshelf({
 
   const getBookFunction = () => {
     let setBookRead;
-    let read;
     switch (currentBook.id) {
       case 0:
         setBookRead = setOneRead;

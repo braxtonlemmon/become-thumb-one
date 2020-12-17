@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import Layout from "../components/layout/layout"
 import SEO from "../components/layout/seo"
 import Welcome from '../components/Home/Welcome';
@@ -9,8 +9,6 @@ import { Context } from '../context/GlobalContext';
 function IndexPage() {
   const { 
     hasStarted, 
-    tasksDone,
-    setTasksDone,
     requiredReadingDone,
     hearingTestDone,
     clickADotDone,

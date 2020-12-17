@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   background: ${props => props.theme.colors.hi};
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 `;
 
 const Dot = styled.div`
@@ -39,19 +38,6 @@ const Dot = styled.div`
   }
 `;
 
-const PastDot = styled.div`
-  height: 120px;
-  width: 120px;
-  border-radius: 50%;
-  border: 1px solid lightgrey;
-  border: none;
-  box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
-  position: absolute;
-  top: ${props => `${props.y}%`};
-  left: ${props => `${props.x}%`};
-  z-index: 49;
-`;
-
 const getRandomColor = () => {
     const color = Math.floor(Math.random() * 16777216).toString(16);
     return "#000000".slice(0, -color.length) + color;
@@ -65,7 +51,6 @@ function ClickADotMain({ setDone }) {
   const [clicks, setClicks] = useState(30);
   const [color, setColor] = useState(getRandomColor());
   const [borderColor, setBorderColor] = useState(getRandomColor());
-  const [historicalDots, setHistoricalDots] = useState([]);
  
   const randomPercent = (low, high) => {
     let percent = 0;
@@ -80,9 +65,6 @@ function ClickADotMain({ setDone }) {
     setDotY(randomPercent(20, 78));
     setBigDotX(randomPercent(1, 80))
     setBigDotY(randomPercent(20, 80))
-    let history = [...historicalDots]
-    history.push([dotX, dotY]);
-    setHistoricalDots(history);
     setClicks(prev => prev - 1);
     setColor(getRandomColor());
     setBorderColor(getRandomColor());
@@ -92,7 +74,7 @@ function ClickADotMain({ setDone }) {
     if (clicks === 0) {
       setDone(true);
     }
-  }, [clicks])
+  }, [clicks, setDone])
   
   return (
     <Wrapper>
@@ -108,11 +90,6 @@ function ClickADotMain({ setDone }) {
       >
         <p>{clicks}</p>
       </Dot>
-      {/* {historicalDots.map(history => {
-        return (
-          <PastDot x={history[0]} y={history[1]} borderColor={borderColor}/>
-        )
-      })} */}
     </Wrapper>
   )
 }

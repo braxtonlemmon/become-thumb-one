@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import bookData from '../../data/bookData';
 import { ModalWrapper, ModalBox } from '../shared/Modal';
 import CloseButton from '../shared/CloseButton';
 import Button from '../shared/Button';
@@ -30,7 +29,6 @@ const Close = styled(CloseButton)`
   margin: 0;
   right: 10px;
   top: 0;
-  /* border: 1px solid white; */
 `;
 
 const ToggleButtons = styled.div`
@@ -90,20 +88,6 @@ const DoneButton = styled(Button)`
 
 `;
 
-const Top = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h2 {
-    height: 60px;
-    font-size: ${props => props.theme.fontSizes.one};
-    display: flex;
-    align-items: center;
-    text-align: center;
-  }
-`;
-
 function ReadingModal({ setModalOpen, book, setBookRead }) {
   const [vowels, setVowels] = useState(true);
   const [doneX, setDoneX] = useState(25);
@@ -156,11 +140,6 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
   // }
   const onlyVowels = toVowels(book.text);
   const onlyConsonants = toConsonants(book.text);
-  
-  // const handleDoneClick = () => {
-  //   setBookRead(true);
-  //   setModalOpen(false);
-  // }
   
   const handleCloseClick = () => {
     setModalOpen(false);

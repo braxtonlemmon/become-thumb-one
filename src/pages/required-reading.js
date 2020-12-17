@@ -7,7 +7,7 @@ import RequiredReadingIntro from '../components/RequiredReading/RequiredReadingI
 import RequiredReadingOutro from '../components/RequiredReading/RequiredReadingOutro';
 
 function RequiredReadingPage() {
-  const { requiredReadingDone, setRequiredReadingDone } = useContext(Context);
+  const { setRequiredReadingDone } = useContext(Context);
   const [oneRead, setOneRead] = useState(false);
   const [twoRead, setTwoRead] = useState(false);
   const [threeRead, setThreeRead] = useState(false);

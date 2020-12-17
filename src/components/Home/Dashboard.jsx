@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import IntroModal from './IntroModal';
-import { Link, navigate } from 'gatsby';
+import { Link } from 'gatsby';
 import { Context } from '../../context/GlobalContext';
 import Img from 'gatsby-image';
 import { GiCheckMark } from 'react-icons/gi';

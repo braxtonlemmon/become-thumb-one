@@ -7,20 +7,9 @@ import ColorBar from './ColorBar';
 import FontSizeBar from './FontSizeBar';
 
 const Main = styled.main`
-  /* height: calc(100% - 40px); */
 `;
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
       <Header />

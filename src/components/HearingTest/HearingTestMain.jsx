@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import { hearingData } from '../../data/hearingData';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
@@ -41,7 +41,6 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 10px; */
   cursor: pointer;
   background: ${props => props.theme.colors.tada};
   border-radius: 8px;
@@ -57,22 +56,12 @@ const Image = styled.div`
 `;
 
 const Next = styled(Button)`
-  /* position: absolute; 
-  right: 30px;
-  top: 200px; */
   display: ${props => props.selected ? 'block' : 'none'};
 `;
 
 function HearingTestMain({ setDone }) {
   const data = useStaticQuery(graphql`
-    query HearingPics {
-      file(name: {eq: "thumb_one"}) {
-        childImageSharp {
-          fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
+    query SoundsQuery {
       allFile(filter: {relativeDirectory: {eq: "sounds" }}) {
         edges {
           node {
@@ -88,7 +77,6 @@ function HearingTestMain({ setDone }) {
     }
   `);
   const images = data.allFile.edges;
-  const hand = data.file;
   const getImage = (imageName) => {
     const result = images.find(image => image.node.name === imageName);
     return result;
@@ -125,7 +113,6 @@ function HearingTestMain({ setDone }) {
   useEffect(() => {
     const first = getImage(hearingData[question].imageOne);
     const second = getImage(hearingData[question].imageTwo);
-    console.log(first);
     setImageOne(first);
     setImageTwo(second);
     

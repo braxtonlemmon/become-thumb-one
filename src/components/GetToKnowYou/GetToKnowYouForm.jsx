@@ -142,11 +142,6 @@ function GetToKnowYouForm() {
     navigate("/")
   }
 
-  const getMaxAge = () => {
-    let date = new Date();
-    return date.getFullYear() - 1973;
-  }
-
   return (
     <Wrapper>
       <h2>First, we need to get to know you...</h2>

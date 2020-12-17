@@ -1,7 +1,3 @@
-import { useForm } from "react-hook-form"
-
-
-
 export const hearingData = [
   {
     question: 'What sounds most like a banana peel?',
