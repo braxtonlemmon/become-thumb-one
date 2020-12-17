@@ -39,6 +39,10 @@ const Left = styled.div`
   }
 `;
 
+const NavSection = styled.nav`
+
+`;
+
 const NavLinks = styled.ul`
   display: flex;
   justify-content: center;
@@ -108,17 +112,19 @@ function Header() {
           Become Thumb One
         </Title>
       </Left>
-      <NavLinks>
-        <NavLink id="header-fun">
-          <Link to="/">Fun<AiOutlineHome id="header-icon"/></Link>
-        </NavLink>
-        <NavLink id="header-huh">
-          <Link to="/about">Huh<HiOutlineQuestionMarkCircle id="header-icon"/></Link>
-        </NavLink>
-        <NavLink id="header-yo">
-          <Link to="/contact">Yo <FiMail id="header-icon"/></Link>
-        </NavLink>
-      </NavLinks>
+      <NavSection>
+        <NavLinks>
+          <NavLink id="header-fun">
+            <Link to="/">Fun<AiOutlineHome id="header-icon"/></Link>
+          </NavLink>
+          <NavLink id="header-huh">
+            <Link to="/about">Huh<HiOutlineQuestionMarkCircle id="header-icon"/></Link>
+          </NavLink>
+          <NavLink id="header-yo">
+            <Link to="/contact">Yo <FiMail id="header-icon"/></Link>
+          </NavLink>
+        </NavLinks>
+      </NavSection>
     </Wrapper>
   )
 }
