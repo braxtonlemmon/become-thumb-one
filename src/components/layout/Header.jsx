@@ -74,7 +74,7 @@ const NavLink = styled.li`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled.p`
   display: none;
   text-shadow: 0 0 5px ${props => props.theme.colors.rawr};
   font-size: ${props => props.theme.fontSizes.four};

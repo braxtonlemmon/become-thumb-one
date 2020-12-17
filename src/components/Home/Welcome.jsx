@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   /* margin-top: 30px; */
-  h2 {
+  h1 {
     font-family: ${props => props.theme.fonts.galindo};
     font-size: ${props => props.theme.fontSizes.six};
     text-align: center;
@@ -62,9 +62,9 @@ function Welcome() {
   const thumbPic = data.file;
   return (
     <Wrapper>
-      <h2>Become Thumb One</h2>
+      <h1>Become Thumb One</h1>
       <Intro>
-        <span>If you are ready to prove to the world that you are thumb one, use the thumb of your choice and click the hand below to get started!</span>
+          If you are ready to prove to the world that you are thumb one, use the thumb of your choice and click the hand below to get started!
       </Intro>
       <Link to="/get-to-know-you">
         <Image>

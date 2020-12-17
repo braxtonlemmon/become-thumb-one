@@ -74,7 +74,6 @@ function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDo
   
   return (
     <Wrapper>
-
       <PageTitle>Thumb Singing</PageTitle>
       <Songs>
         <SongBox

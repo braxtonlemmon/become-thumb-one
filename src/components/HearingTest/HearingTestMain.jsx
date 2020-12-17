@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   align-items: center;
   position: relative;
   padding-bottom: 50px;
-  h3 {
+  h2 {
     text-align: center;
     margin: 0 20px;
     margin-bottom: 30px;
@@ -121,7 +121,7 @@ function HearingTestMain({ setDone }) {
   return (
     <Wrapper>
       <PageTitle>Hearing Test</PageTitle>
-      <h3>{hearingData[question].question}</h3>
+      <h2>{hearingData[question].question}</h2>
       <Images>
         <ImageContainer onClick={(e) => handlePlayOne(e)} selected={selected === 'one'}>
           <Image  selected={selected === 'one'}>

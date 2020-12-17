@@ -40,7 +40,11 @@ function ContactPage() {
         <PageTitle>Contact</PageTitle>
         <p>Are you confused? Weirded out? Tell me about it.</p>
         <p>Send me an email:</p>
-        <a href="mailto:braxtonlemmon@gmail.com" target="_blank" rel="noopener noreferrer">
+        <a 
+          href="mailto:braxtonlemmon@gmail.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
           <Mail id="mail-icon"></Mail>
         </a>
         <p>And I will respond thumbtime.</p>

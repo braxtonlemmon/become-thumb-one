@@ -20,7 +20,7 @@ const hop = keyframes`
 const Wrapper = styled.div`
   padding: 0 15px;
   padding-bottom: 30px;
-  h2 {
+  h1 {
     text-align: center;
     font-size: ${props => props.theme.fontSizes.three};
     margin-bottom: 20px;
@@ -144,7 +144,7 @@ function GetToKnowYouForm() {
 
   return (
     <Wrapper>
-      <h2>First, we need to get to know you...</h2>
+      <h1>First, we need to get to know you...</h1>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Block>
           <label htmlFor="sofa">

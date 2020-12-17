@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  h2 {
+  h1 {
     font-size: ${props => props.theme.fontSizes.seven};
     text-align: center;
     margin-bottom: 25px;
@@ -81,7 +81,7 @@ function YouAreThumbOne() {
   
   return (
     <Wrapper>
-      <h2>Woo! You are thumb one!</h2>
+      <h1>Woo! You are thumb one!</h1>
       <Button onClick={resetAdventure}>Do it again!</Button>
     </Wrapper>
   )
