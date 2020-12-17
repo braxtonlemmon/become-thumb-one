@@ -54,12 +54,12 @@ const Block = styled.div`
   max-width: 600px;
 `;
 
-const Row = styled.div`
+const Row = styled.fieldset`
   display: flex;
   gap: 20px;
 `;
 
-const Thumbs = styled.div`
+const Thumbs = styled.fieldset`
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
@@ -152,6 +152,7 @@ function GetToKnowYouForm() {
           </label>
           <select
             name="sofa"
+            id="sofa"
             ref={register({
               required: "Select one option"
             })}>
@@ -183,8 +184,8 @@ function GetToKnowYouForm() {
 
 
         <Block>
-          <h3>Are you lying about your age?</h3>
           <Row>
+          <legend>Are you lying about your age?</legend>
             <label>
               <input 
                 type="radio"
@@ -229,7 +230,7 @@ function GetToKnowYouForm() {
         </Block>
 
         <Block>
-          <h3>Do you enjoy the occasional deep-fried Twinkie or pickle?</h3>
+          <label>Do you enjoy the occasional deep-fried Twinkie or pickle?</label>
           <Row>
             <label>
               <input
@@ -258,7 +259,7 @@ function GetToKnowYouForm() {
         </Block>
 
         <Block>
-          <h3>Click to choose a thumbatar:</h3>
+          <label>Click to choose a thumbatar:</label>
           <Thumbs>
             <label>
               <input
