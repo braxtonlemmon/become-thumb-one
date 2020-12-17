@@ -7,19 +7,28 @@ const Wrapper = styled(ModalWrapper)``;
 const QuizBox = styled(ModalBox)`
   padding: 0;
   position: relative;
+  max-width: 700px;
+  max-height: 800px;
 `;
 
 const Top = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 15px;
   h2 {
     height: 60px;
     font-size: ${props => props.theme.fontSizes.one};
     display: flex;
     align-items: center;
     text-align: center;
+    @media (min-width: 768px) {
+      font-size: ${props => props.theme.fontSizes.three};
+    }
+  }
+  @media (min-width: 760px) {
+    padding: 20px 15px;
   }
 `;
 
@@ -50,6 +59,10 @@ const Tile = styled.div`
   font-size: ${props => props.theme.fontSizes.one};
   background: ${props => props.correct ? props.theme.colors.hey : props.theme.colors.yo};
   color: ${props => props.correct ? props.theme.colors.rawr : props.theme.colors.hey};
+  &:hover {
+    background: ${props => props.theme.colors.hey};
+    color: ${props => props.theme.colors.rawr};
+  }
 `;
 
 const CloseButton = styled.button`

@@ -4,11 +4,23 @@ import { PageTitle } from '../shared/Headings';
 import singingData from '../../data/singingData';
 import { GiCheckMark } from 'react-icons/gi';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  h2 {
+    margin-bottom: 45px;
+  }
+`;
+
+const Songs = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (min-width: 760px) {
+    flex-direction: row;
+    gap: 50px;
+  }
 `;
 
 const SongBox = styled.div`
@@ -29,6 +41,10 @@ const SongBox = styled.div`
     color: ${props => props.theme.colors.yo};
     font-size: ${props => props.theme.fontSizes.three};
     text-align: center;
+  }
+  @media (min-width: 760px) {
+    width: 200px;
+    height: 200px;
   }
 `;   
 
@@ -57,20 +73,22 @@ function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDo
   
   return (
     <Wrapper>
+
       <PageTitle>Thumb Singing</PageTitle>
-      <p></p>
-      <SongBox
-        onClick={() => handleClickSong(0)}
-      >
-        <p>{singingData[0].title}</p>
-        {songOneDone && <Check />}
-      </SongBox>
-      <SongBox
-        onClick={() => handleClickSong(1)}
-      >
-        <p>{singingData[1].title}</p>
-        {songTwoDone && <Check />}
-      </SongBox>
+      <Songs>
+        <SongBox
+          onClick={() => handleClickSong(0)}
+          >
+          <p>{singingData[0].title}</p>
+          {songOneDone && <Check />}
+        </SongBox>
+        <SongBox
+          onClick={() => handleClickSong(1)}
+          >
+          <p>{singingData[1].title}</p>
+          {songTwoDone && <Check />}
+        </SongBox>
+      </Songs>
     </Wrapper>
   )
 }
