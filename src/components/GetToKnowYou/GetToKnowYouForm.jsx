@@ -54,7 +54,13 @@ const Block = styled.div`
   max-width: 600px;
 `;
 
-const Row = styled.fieldset`
+const RadioSection = styled.fieldset`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Row = styled.div`
   display: flex;
   gap: 20px;
 `;
@@ -125,6 +131,9 @@ function GetToKnowYouForm() {
     defaultValues: {
       name: '',
       age: 5,
+      thumbatar: 1,
+      trueAge: 'Yes',
+      enjoyFried: 'Yes'
     }
   })
 
@@ -184,31 +193,33 @@ function GetToKnowYouForm() {
 
 
         <Block>
-          <Row>
-          <legend>Are you lying about your age?</legend>
-            <label>
-              <input 
-                type="radio"
-                name="trueAge"
-                value="Yes"
-                ref={register({
-                  required: 'You have to tell us!'
-                })}
-                />
-              Yes
-            </label>
-            <label>
-              <input 
-                type="radio"
-                name="trueAge"
-                value="No"
-                ref={register({
-                  required: 'You have to tell us!'
-                })}
-                />
-              No
-            </label>
-          </Row>
+          <RadioSection>
+            <legend>Are you lying about your age?</legend>
+            <Row>
+              <label>
+                <input 
+                  type="radio"
+                  name="trueAge"
+                  value="Yes"
+                  ref={register({
+                    required: 'You have to tell us!'
+                  })}
+                  />
+                Yes
+              </label>
+              <label>
+                <input 
+                  type="radio"
+                  name="trueAge"
+                  value="No"
+                  ref={register({
+                    required: 'You have to tell us!'
+                  })}
+                  />
+                No
+              </label>
+            </Row>
+          </RadioSection>
           {errors.trueAge && <Error>{errors.trueAge.message}</Error>}
         </Block>
 
@@ -230,109 +241,113 @@ function GetToKnowYouForm() {
         </Block>
 
         <Block>
-          <label>Do you enjoy the occasional deep-fried Twinkie or pickle?</label>
-          <Row>
-            <label>
-              <input
-                type="radio"
-                name="enjoyFried"
-                value="Yes"
-                ref={register({
-                  required: 'We really want to know.'
-                })}
-              />
-              Yes
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="enjoyFried"
-                value="No"
-                ref={register({
-                  required: 'We really want to know.'
-                })}
-              />
-              No
-            </label>
-          </Row>
+          <RadioSection>
+          <legend>Do you enjoy the occasional deep-fried Twinkie or pickle?</legend>
+            <Row>
+              <label>
+                <input
+                  type="radio"
+                  name="enjoyFried"
+                  value="Yes"
+                  ref={register({
+                    required: 'We really want to know.'
+                  })}
+                />
+                Yes
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="enjoyFried"
+                  value="No"
+                  ref={register({
+                    required: 'We really want to know.'
+                  })}
+                />
+                No
+              </label>
+            </Row>
+          </RadioSection>
           {errors.enjoyFried && <Error>{errors.enjoyFried.message}</Error>}
         </Block>
 
         <Block>
-          <label>Click to choose a thumbatar:</label>
-          <Thumbs>
-            <label>
-              <input
-                type="radio"
-                name="thumbatar"
-                value={1}
-                ref={register({
-                  required: 'Please choose a thumbatar.'
-                })}
-              />
-              <Image className="thumbz">
-                <Img 
-                  className="thumb" 
-                  fluid={images[0].node.childImageSharp.fluid} 
-                  alt="Thumb with long hair and big lips drawn on." 
+          <RadioSection>
+            <legend>Click to choose a thumbatar:</legend>
+            <Thumbs>
+              <label>
+                <input
+                  type="radio"
+                  name="thumbatar"
+                  value={1}
+                  ref={register({
+                    required: 'Please choose a thumbatar.'
+                  })}
                 />
-              </Image>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="thumbatar"
-                value={2}
-                ref={register({
-                  required: 'Please choose a thumbatar.'
-                })}
-              />
-              <Image className="thumbz">
-                <Img 
-                  className="thumb" 
-                  fluid={images[1].node.childImageSharp.fluid} 
-                  alt="Thumb with bangs, beauty mark, and a smile drawn on." 
-                />
-              </Image>
-  
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="thumbatar"
-                value={3}
-                ref={register({
-                  required: 'Please choose a thumbatar.'
-                })}
-              />
-              <Image className="thumbz">
-                <Img 
-                  className="thumb" 
-                  fluid={images[2].node.childImageSharp.fluid}
-                  alt="Thumb with glasses and surprised expression drawn on."  
-                />
-              </Image>
-  
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="thumbatar"
-                value={4}
-                ref={register({
-                  required: 'Please choose a thumbatar.'
-                })}
-              />
-              <Image className="thumbz">
-                <Img 
-                  className="thumb" 
-                  fluid={images[3].node.childImageSharp.fluid}  
-                  alt="Thumb with unibrow and angry expression drawn on."
+                <Image className="thumbz">
+                  <Img 
+                    className="thumb" 
+                    fluid={images[0].node.childImageSharp.fluid} 
+                    alt="Thumb with long hair and big lips drawn on." 
                   />
-              </Image>
-  
-            </label>
-          </Thumbs>
+                </Image>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="thumbatar"
+                  value={2}
+                  ref={register({
+                    required: 'Please choose a thumbatar.'
+                  })}
+                />
+                <Image className="thumbz">
+                  <Img 
+                    className="thumb" 
+                    fluid={images[1].node.childImageSharp.fluid} 
+                    alt="Thumb with bangs, beauty mark, and a smile drawn on." 
+                  />
+                </Image>
+    
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="thumbatar"
+                  value={3}
+                  ref={register({
+                    required: 'Please choose a thumbatar.'
+                  })}
+                />
+                <Image className="thumbz">
+                  <Img 
+                    className="thumb" 
+                    fluid={images[2].node.childImageSharp.fluid}
+                    alt="Thumb with glasses and surprised expression drawn on."  
+                  />
+                </Image>
+    
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="thumbatar"
+                  value={4}
+                  ref={register({
+                    required: 'Please choose a thumbatar.'
+                  })}
+                />
+                <Image className="thumbz">
+                  <Img 
+                    className="thumb" 
+                    fluid={images[3].node.childImageSharp.fluid}  
+                    alt="Thumb with unibrow and angry expression drawn on."
+                    />
+                </Image>
+    
+              </label>
+            </Thumbs>
+          </RadioSection>
           {errors.thumbatar && <Error>{errors.thumbatar.message}</Error>}
         </Block>
         <Button type="submit">Submit</Button>
