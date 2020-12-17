@@ -128,7 +128,11 @@ function Bookshelf({
         })}
       </Books>
       <Shelf>
-        <Img id="wood" fluid={wood} />
+        <Img 
+          id="wood" 
+          fluid={wood} 
+          alt="Wood grain."
+        />
       </Shelf>
       {
         modalOpen &&

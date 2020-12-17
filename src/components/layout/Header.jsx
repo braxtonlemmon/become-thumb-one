@@ -49,8 +49,6 @@ const NavLinks = styled.ul`
 
 const NavLink = styled.li`
   border: 3px solid ${props => props.theme.colors.rawr};
-  /* height: 30px; */
-  /* width: 50px; */
   margin: 4px;
   padding: 2px;
   display: flex;
@@ -102,9 +100,10 @@ function Header() {
   return (
     <Wrapper>
       <Left>
-        <Link to="/">
-          <Img fixed={hand} />
-        </Link>
+        <Img 
+          fixed={hand} 
+          alt="White gloved hand giving a thumbs up."
+        />
         <Title>
           Become Thumb One
         </Title>

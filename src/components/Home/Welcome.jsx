@@ -68,7 +68,11 @@ function Welcome() {
       </Intro>
       <Link to="/get-to-know-you">
         <Image>
-          <Img id="thumb-pic" fluid={thumbPic.childImageSharp.fluid} />
+          <Img 
+            id="thumb-pic" 
+            fluid={thumbPic.childImageSharp.fluid} 
+            alt="White gloved hand giving a thumbs up."
+          />
         </Image>
       </Link>
     </Wrapper>

@@ -127,7 +127,12 @@ function HearingTestMain({ setDone }) {
           <Image  selected={selected === 'one'}>
             {
               imageOne &&
-              <Img className="hearing-pic" fluid={imageOne.node.childImageSharp.fluid} selected={selected === 'one'}/>
+              <Img 
+                className="hearing-pic" 
+                fluid={imageOne.node.childImageSharp.fluid} 
+                selected={selected === 'one'}
+                alt={hearingData[question].altOne}  
+              />
             }
           </Image>
         </ImageContainer>
@@ -135,7 +140,12 @@ function HearingTestMain({ setDone }) {
           <Image  selected={selected === 'two'}>
             {
               imageTwo &&
-              <Img className="hearing-pic" fluid={imageTwo.node.childImageSharp.fluid} selected={selected === 'two'}/>
+              <Img 
+                className="hearing-pic" 
+                fluid={imageTwo.node.childImageSharp.fluid} 
+                selected={selected === 'two'}
+                alt={hearingData[question].altTwo}
+              />
             }
           </Image>
         </ImageContainer>

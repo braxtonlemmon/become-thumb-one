@@ -272,7 +272,8 @@ function GetToKnowYouForm() {
               <Image className="thumbz">
                 <Img 
                   className="thumb" 
-                  fluid={images[0].node.childImageSharp.fluid}  
+                  fluid={images[0].node.childImageSharp.fluid} 
+                  alt="Thumb with long hair and big lips drawn on." 
                 />
               </Image>
             </label>
@@ -288,7 +289,8 @@ function GetToKnowYouForm() {
               <Image className="thumbz">
                 <Img 
                   className="thumb" 
-                  fluid={images[1].node.childImageSharp.fluid}  
+                  fluid={images[1].node.childImageSharp.fluid} 
+                  alt="Thumb with bangs, beauty mark, and a smile drawn on." 
                 />
               </Image>
   
@@ -305,7 +307,8 @@ function GetToKnowYouForm() {
               <Image className="thumbz">
                 <Img 
                   className="thumb" 
-                  fluid={images[2].node.childImageSharp.fluid}  
+                  fluid={images[2].node.childImageSharp.fluid}
+                  alt="Thumb with glasses and surprised expression drawn on."  
                 />
               </Image>
   
@@ -323,6 +326,7 @@ function GetToKnowYouForm() {
                 <Img 
                   className="thumb" 
                   fluid={images[3].node.childImageSharp.fluid}  
+                  alt="Thumb with unibrow and angry expression drawn on."
                   />
               </Image>
   

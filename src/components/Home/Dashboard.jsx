@@ -95,7 +95,10 @@ function Dashboard() {
     <Wrapper>
       <PageTitle>Dashboard</PageTitle>
       <Thumbatar>
-        <Img fluid={thumbatar.node.childImageSharp.fluid} />
+        <Img 
+          fluid={thumbatar.node.childImageSharp.fluid} 
+          alt="User's selected thumbatar."
+        />
       </Thumbatar>
       <p id="dashboard-got-this">You got this, {name}.</p>
       <Tasks>

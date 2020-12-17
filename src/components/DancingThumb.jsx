@@ -84,7 +84,7 @@ function DancingThumb () {
   return (
     <Wrapper>
       <Image>
-        <Img fluid={thumbatar.node.childImageSharp.fluid} />
+        <Img fluid={thumbatar.node.childImageSharp.fluid} alt="Image of selected thumbatar."/>
       </Image>
     </Wrapper>
   )
