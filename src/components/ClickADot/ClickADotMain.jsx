@@ -5,7 +5,7 @@ import { PageTitle } from '../shared/Headings';
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  background: orange;
+  background: ${props => props.theme.colors.hi};
   display: flex;
   justify-content: center;
   /* align-items: center; */
@@ -33,6 +33,10 @@ const Dot = styled.div`
     color: ${props => props.color};
     filter: invert();
   }
+  @media (min-width: 760px) {
+    top: ${props => `${props.bigY}%`};
+    left: ${props => `${props.bigX}%`};
+  }
 `;
 
 const PastDot = styled.div`
@@ -54,8 +58,10 @@ const getRandomColor = () => {
 }
 
 function ClickADotMain({ setDone }) {
-  const [dotX, setDotX] = useState(25);
+  const [dotX, setDotX] = useState(60);
   const [dotY, setDotY] = useState(50);
+  const [bigDotX, setBigDotX] = useState(60);
+  const [bigDotY, setBigDotY] = useState(50);
   const [clicks, setClicks] = useState(30);
   const [color, setColor] = useState(getRandomColor());
   const [borderColor, setBorderColor] = useState(getRandomColor());
@@ -72,6 +78,8 @@ function ClickADotMain({ setDone }) {
   const handleClick = () => {
     setDotX(randomPercent(1, 60));
     setDotY(randomPercent(20, 78));
+    setBigDotX(randomPercent(1, 80))
+    setBigDotY(randomPercent(20, 80))
     let history = [...historicalDots]
     history.push([dotX, dotY]);
     setHistoricalDots(history);
@@ -93,6 +101,8 @@ function ClickADotMain({ setDone }) {
         onClick={handleClick} 
         x={dotX} 
         y={dotY} 
+        bigX={bigDotX}
+        bigY={bigDotY}
         color={color} 
         borderColor={borderColor} 
       >
