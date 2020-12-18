@@ -88,6 +88,12 @@ function Bookshelf({
     setModalOpen(true);
   }
 
+  const handleKeyDown = (e, book) => {
+      if (e.keyCode === 13) {
+        handleBookClick(book);
+    }
+  }
+
   const getBookFunction = () => {
     let setBookRead;
     switch (currentBook.id) {
@@ -116,11 +122,13 @@ function Bookshelf({
           return (
             <Book 
               onClick={() => handleBookClick(book)} 
+              onKeyDown={(e) => handleKeyDown(e, book)}
               background={book.background}
               color={book.color}
               height={book.height}
               width={book.width}
               done={status[index]}
+              tabIndex="0"
             >
               <h2>{book.title}</h2>
             </Book>

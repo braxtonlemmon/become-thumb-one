@@ -83,9 +83,12 @@ function DancingThumb () {
   const { thumbatar } = useContext(Context);
   return (
     <Wrapper>
-      <Image>
-        <Img fluid={thumbatar.node.childImageSharp.fluid} alt="Image of selected thumbatar."/>
-      </Image>
+      {
+        thumbatar &&
+        <Image>
+          <Img fluid={thumbatar.node.childImageSharp.fluid} alt="Image of selected thumbatar."/>
+        </Image>
+      }
     </Wrapper>
   )
 }
