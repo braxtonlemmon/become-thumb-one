@@ -155,7 +155,7 @@ function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
     if (attempts < 1) {
       song.words.sort(() => Math.random() - 0.5);
     }
-  }, [attempts, song.words])
+  }, [])
 
   useEffect(() => {
     if (guesses.length > 12) {
