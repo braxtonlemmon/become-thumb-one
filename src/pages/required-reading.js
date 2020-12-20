@@ -43,7 +43,8 @@ function RequiredReadingPage() {
       />
       {
         introOpen &&
-        <RequiredReadingIntro setIntroOpen={setIntroOpen} />
+        <RequiredReadingIntro 
+          setIntroOpen={setIntroOpen} />
       }
       {
         isDone &&
