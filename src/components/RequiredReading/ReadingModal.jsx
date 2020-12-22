@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { ModalWrapper, ModalBox } from '../shared/Modal';
 import CloseButton from '../shared/CloseButton';
@@ -128,22 +128,22 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
     }
   }
 
-
-  // Maybe going to attempt to offer an option to scramble up the letters of each word, keeping the first and last letters the same
-  // const toScrambles = (text) => {
-  //   const splitText = text.split(" ");
-  //   splitText.map(word => {
-  //     if (word.length > 4) {
-
-  //     }
-  //   })
-  // }
   const onlyVowels = toVowels(book.text);
   const onlyConsonants = toConsonants(book.text);
   
   const handleCloseClick = () => {
     setModalOpen(false);
   }
+
+  useEffect(() => {
+    function keyListener(e) {
+      if (e.keyCode === 27) {
+        setModalOpen(false);
+      }
+    }
+    return () => 
+      document.addEventListener("keydown", keyListener);
+  });
   
   return (
     <Wrapper>
