@@ -6,6 +6,7 @@ import ThumbSingingMain from '../components/ThumbSinging/ThumbSingingMain';
 import ThumbSingingModal from '../components/ThumbSinging/ThumbSingingModal';
 import ThumbSingingOutro from '../components/ThumbSinging/ThumbSingingOutro';
 import { Context } from '../context/GlobalContext';
+import ThumbModal from '../components/ThumbModal';
 
 function ThumbSingingPage() {
   const { setThumbSingingDone } = useContext(Context);
@@ -30,6 +31,10 @@ function ThumbSingingPage() {
     }
     return setSongDone;
   }
+
+  const handleCloseIntro = () => {
+    setIntroOpen(false);
+  }
   
   useEffect(() => {
     if (songOneDone && songTwoDone) {
@@ -49,7 +54,12 @@ function ThumbSingingPage() {
       />
       {
         introOpen &&
-        <ThumbSingingIntro setIntroOpen={setIntroOpen} />
+        <ThumbModal
+          isOpen={introOpen}
+          handleClose={handleCloseIntro}
+        >
+          <ThumbSingingIntro setIntroOpen={setIntroOpen} />
+        </ThumbModal>
       }
       {
         modalOpen &&
