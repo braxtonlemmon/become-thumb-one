@@ -7,6 +7,7 @@ import Img from 'gatsby-image';
 import { GiCheckMark } from 'react-icons/gi';
 import Button from '../shared/Button';
 import { PageTitle } from '../shared/Headings';
+import ThumbModal from '../ThumbModal';
 
 const Wrapper = styled.div`
   display: flex;
@@ -91,6 +92,10 @@ function Dashboard() {
     setIntroModalOpen(true);
   }
 
+  const handleIntroClose = () => {
+    setIntroModalOpen(false);
+  }
+
   return (
     <Wrapper>
       <PageTitle>Dashboard</PageTitle>
@@ -133,7 +138,12 @@ function Dashboard() {
       <Button onClick={handleHelpClick}>Help!?</Button>
       {
         introModalOpen &&
-        <IntroModal />
+        <ThumbModal
+          isOpen={introModalOpen}
+          handleClose={handleIntroClose}
+        >
+          <IntroModal />
+        </ThumbModal>
       }
     </Wrapper>
   )

@@ -21,7 +21,6 @@ function IntroModal () {
   }
   
   return (
-    <Wrapper>
       <TextBox>
         <p>Hey there, {name}. </p>
         <p>Welcome to your personal journey to becoming thumbone.</p>
@@ -30,7 +29,6 @@ function IntroModal () {
         <p>Here's thumb luck for the road.</p>
         <Button onClick={handleClose}>Thanks.</Button>
       </TextBox>
-    </Wrapper>
   )
 }
 
