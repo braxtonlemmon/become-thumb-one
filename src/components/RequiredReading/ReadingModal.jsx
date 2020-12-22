@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { ModalWrapper, ModalBox } from '../shared/Modal';
 import CloseButton from '../shared/CloseButton';
 import Button from '../shared/Button';
+import Modal from 'react-modal';
+Modal.setAppElement('#___gatsby');
 
 const Wrapper = styled(ModalWrapper)`
 `;
@@ -88,7 +91,7 @@ const DoneButton = styled(Button)`
 
 `;
 
-function ReadingModal({ setModalOpen, book, setBookRead }) {
+function ReadingModal({ setModalOpen, book, setBookRead, modalOpen }) {
   const [vowels, setVowels] = useState(true);
   const [doneX, setDoneX] = useState(25);
   const [doneY, setDoneY] = useState(60);
@@ -128,6 +131,39 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
     }
   }
 
+  // useEffect(() => {
+  //   function keyListener(e) {
+  //     const listener = keyListenersMap.get(e.keyCode);
+  //     return listener && listener(e);
+  //   }
+  //   document.addEventListener("keydown", keyListener);
+    
+  //   return () => 
+  //     document.removeEventListener("keydown", keyListener);
+  // });
+  
+  // const modalRef = React.createRef();
+  // const handleTabKey = (e) => {
+  //   const focusableModalElements = modalRef.current.querySelectorAll(
+  //     'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+  //   );
+  //   const firstElement = focusableModalElements[0];
+  //   const lastElement = focusableModalElements[focusableModalElements.length - 1];
+  //   if (!e.shiftKey && document.activeElement !== firstElement) {
+  //     firstElement.focus();
+  //     e.preventDefault();
+  //   }
+  //   // if (e.shiftKey && document.activeElement !== lastElement) {
+  //   //   lastElement.focus();
+  //   //   e.preventDefault();
+  //   // }
+  // };
+  // const onModalClose = () => {
+  //   setModalOpen(false);
+  // }
+
+  // const keyListenersMap = new Map([[27, onModalClose], [9, handleTabKey]]);
+
   const onlyVowels = toVowels(book.text);
   const onlyConsonants = toConsonants(book.text);
   
@@ -135,18 +171,27 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
     setModalOpen(false);
   }
 
-  useEffect(() => {
-    function keyListener(e) {
-      if (e.keyCode === 27) {
-        setModalOpen(false);
-      }
-    }
-    return () => 
-      document.addEventListener("keydown", keyListener);
-  });
+
+  
   
   return (
+    
     <Wrapper>
+      <Modal
+        isOpen={modalOpen}
+        onRequestClose={handleCloseClick}
+        style={{
+          overlay: {
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.3)'
+          },
+
+        }}
+      >
       <TextBox>
         <h2>{book.title}</h2>
         <Close onClick={handleCloseClick}>x</Close>
@@ -154,17 +199,17 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
           <ModeButton 
             onClick={() => setVowels(true)}
             vowels={vowels}
-          >Vowel</ModeButton>
+            >Vowel</ModeButton>
           <Toggle 
             vowels={vowels} 
             onClick={toggle}
-          >
+            >
             <div className="toggle-dot"></div>
           </Toggle>
           <ModeButton 
             onClick={() => setVowels(false)}
             vowels={!vowels}
-          >Consonant</ModeButton>
+            >Consonant</ModeButton>
         </ToggleButtons>
         <Text>
           {vowels ? onlyVowels : onlyConsonants}
@@ -173,6 +218,7 @@ function ReadingModal({ setModalOpen, book, setBookRead }) {
           <DoneButton onClick={handleDoneClick} x={doneX} y={doneY}>{doneMessages[doneCount]}</DoneButton>
         </Bottom>
       </TextBox>
+      </Modal>
     </Wrapper>
   )
 }
