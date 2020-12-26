@@ -5,6 +5,7 @@ import { Context } from '../context/GlobalContext';
 import RequiredReadingMain from '../components/RequiredReading/RequiredReadingMain';
 import RequiredReadingIntro from '../components/RequiredReading/RequiredReadingIntro';
 import RequiredReadingOutro from '../components/RequiredReading/RequiredReadingOutro';
+import ThumbModal from '../components/ThumbModal';
 
 function RequiredReadingPage() {
   const { setRequiredReadingDone } = useContext(Context);
@@ -27,6 +28,10 @@ function RequiredReadingPage() {
     }
   }, [oneRead, twoRead, threeRead, fourRead])
 
+  const handleCloseIntro = () => {
+    setIntroOpen(false);
+  }
+
   return (
     <Layout>
       <SEO title="Thumb Singing" />
@@ -43,8 +48,12 @@ function RequiredReadingPage() {
       />
       {
         introOpen &&
-        <RequiredReadingIntro 
-          setIntroOpen={setIntroOpen} />
+        <ThumbModal
+          isOpen={introOpen}
+          handleClose={handleCloseIntro}
+        >
+          <RequiredReadingIntro setIntroOpen={setIntroOpen} />
+        </ThumbModal>
       }
       {
         isDone &&

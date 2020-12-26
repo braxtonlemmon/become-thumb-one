@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/layout/seo';
 import { PageTitle } from '../components/shared/Headings';
 import styled from 'styled-components';
+import ThumbModal from '../components/ThumbModal';
 
 const Wrapper = styled.section`
   display: flex;
@@ -21,6 +22,15 @@ const Wrapper = styled.section`
 `;
 
 function AboutPage() {
+  const [isOpen, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  }
+
+  const handleOpen = () => {
+    setOpen(true);
+  }
+
   return (
     <Layout>
       <SEO title="About" />
@@ -30,6 +40,17 @@ function AboutPage() {
         <p>This is exactly why you are here. You are very welcome.</p>
         <p>Good luck!</p>
       </Wrapper>
+      <ThumbModal
+        isOpen={isOpen}
+        handleClose={handleClose}
+      >
+        <p>yo</p>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button type="button" onClick={handleClose}>Close</button>
+      </ThumbModal>
+      <button type="button" onClick={handleOpen}>Open</button>
     </Layout>
   )
 }

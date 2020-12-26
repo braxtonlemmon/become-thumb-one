@@ -14,7 +14,8 @@ function ThumbModal({ children, handleClose, isOpen }) {
           left: 0,
           right: 0,
           top: 0,
-          bottom: 0
+          bottom: 0,
+          zIndex: '500'
         },
         content: {
           position: 'absolute',
@@ -36,6 +37,7 @@ function ThumbModal({ children, handleClose, isOpen }) {
           alignItems: 'center',
           color: '#EAF6FF',
           boxShadow: '0 0 9px rgba(0,0,0,0.3)',
+          zIndex: '999'
 
         }
       }}

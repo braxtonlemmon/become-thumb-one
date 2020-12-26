@@ -144,7 +144,12 @@ function Bookshelf({
       </Shelf>
       {
         modalOpen &&
-        <ReadingModal setModalOpen={setModalOpen} book={currentBook} setBookRead={getBookFunction()} />
+        <ReadingModal 
+        setModalOpen={setModalOpen} 
+        book={currentBook} 
+        setBookRead={getBookFunction()}
+        modalOpen={modalOpen} 
+        />
       }
     </Wrapper>
   )

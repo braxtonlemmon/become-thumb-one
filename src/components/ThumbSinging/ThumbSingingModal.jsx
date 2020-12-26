@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { ModalWrapper, ModalBox } from '../shared/Modal';
+import { ModalBox } from '../shared/Modal';
 
-const Wrapper = styled(ModalWrapper)``;
 
 const QuizBox = styled(ModalBox)`
   padding: 0;
@@ -168,34 +167,32 @@ function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
   }, [guesses.length])
 
   return (
-    <Wrapper>
-      <QuizBox>
-        <Top>
-          <h2>{song.intro}...</h2>
-          <CloseButton onClick={handleCloseClick}>x</CloseButton>
-        </Top>
-        <Words>
-          {
-            song.words.map(word => 
-              <Spot
-                num={word.id}
-                guesses={guesses}
-                setGuesses={setGuesses}
-                questions={questions}
-                setQuestions={setQuestions}
-                resetQuiz={resetQuiz}
-              >{word.word}</Spot>
-            )   
-          }
-          {
-            isDone &&
-            <WooHoo>
-                WOOHOO!
-            </WooHoo>
-          }
-        </Words>
-      </QuizBox>
-    </Wrapper>
+    <QuizBox>
+      <Top>
+        <h2>{song.intro}...</h2>
+        <CloseButton onClick={handleCloseClick}>x</CloseButton>
+      </Top>
+      <Words>
+        {
+          song.words.map(word => 
+            <Spot
+              num={word.id}
+              guesses={guesses}
+              setGuesses={setGuesses}
+              questions={questions}
+              setQuestions={setQuestions}
+              resetQuiz={resetQuiz}
+            >{word.word}</Spot>
+          )   
+        }
+        {
+          isDone &&
+          <WooHoo>
+              WOOHOO!
+          </WooHoo>
+        }
+      </Words>
+    </QuizBox>
   )
 }
 
