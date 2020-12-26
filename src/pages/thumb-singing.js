@@ -63,7 +63,12 @@ function ThumbSingingPage() {
       }
       {
         modalOpen &&
-        <ThumbSingingModal setModalOpen={setModalOpen} song={currentSong} setSongDone={getSongFunction()} />
+        <ThumbSingingModal 
+          setModalOpen={setModalOpen} 
+          song={currentSong} 
+          setSongDone={getSongFunction()}
+          modalOpen={modalOpen} 
+        />
       }
       {
         outroOpen &&

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { ModalBox } from '../shared/Modal';
-
+import Modal from 'react-modal';
 
 const QuizBox = styled(ModalBox)`
   padding: 0;
@@ -121,7 +121,7 @@ function Spot({ children, guesses, setGuesses, num, questions, setQuestions, res
 }
 
 
-function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
+function ThumbSingingModal({ setModalOpen, modalOpen, song, setSongDone }) {
   const [attempts, setAttempts] = useState(0);
   const [guesses, setGuesses] = useState([0]);
   const reset = {
@@ -167,32 +167,64 @@ function ThumbSingingModal({ setModalOpen, song, setSongDone }) {
   }, [guesses.length])
 
   return (
-    <QuizBox>
-      <Top>
-        <h2>{song.intro}...</h2>
-        <CloseButton onClick={handleCloseClick}>x</CloseButton>
-      </Top>
-      <Words>
-        {
-          song.words.map(word => 
-            <Spot
+    <Modal
+      isOpen={modalOpen}
+      onRequestClose={handleCloseClick}
+      style={{
+        overlay: {
+          background: 'rgba(0,0,0,0.4)',
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: '500'
+        },
+        content: {
+          position: 'absolute',
+          top: '100px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '95%',
+          maxWidth: '700px',
+          height: '90%',
+          maxHeight: '800px',
+          margin: '0 auto',
+          background: '#394F49',
+          border: 'none',
+          color: '#EAF6FF'
+        }
+      }}
+    >
+      <QuizBox>
+        <Top>
+          <h2>{song.intro}...</h2>
+          <CloseButton onClick={handleCloseClick}>x</CloseButton>
+        </Top>
+        <Words>
+          {
+            song.words.map(word => 
+              <Spot
               num={word.id}
               guesses={guesses}
               setGuesses={setGuesses}
               questions={questions}
               setQuestions={setQuestions}
               resetQuiz={resetQuiz}
-            >{word.word}</Spot>
-          )   
-        }
-        {
-          isDone &&
-          <WooHoo>
-              WOOHOO!
-          </WooHoo>
-        }
-      </Words>
-    </QuizBox>
+              >{word.word}</Spot>
+              )   
+          }
+          {
+            isDone &&
+            <WooHoo>
+                WOOHOO!
+            </WooHoo>
+          }
+        </Words>
+      </QuizBox>
+    </Modal>
   )
 }
 
