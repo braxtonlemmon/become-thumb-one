@@ -65,6 +65,12 @@ function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDo
     setCurrentSong(singingData[num]);
     setModalOpen(true);
   }
+
+  const handleKeyDown = (e, selection) => {
+    if (e.keyCode === 13) {
+      selection === 'one' ? handleClickSong(0) : handleClickSong(1);
+    }
+  }
   
   useEffect(() => {
     if (songOneDone && songTwoDone) {
@@ -78,13 +84,17 @@ function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDo
       <Songs>
         <SongBox
           onClick={() => handleClickSong(0)}
-          >
+          onKeyDown={(e) => handleKeyDown(e, 'one')}
+          tabIndex="0"
+        >
           <p>{singingData[0].title}</p>
           {songOneDone && <Check />}
         </SongBox>
         <SongBox
           onClick={() => handleClickSong(1)}
-          >
+          onKeyDown={(e) => handleKeyDown(e, 'two')}
+          tabIndex="0"
+        >
           <p>{singingData[1].title}</p>
           {songTwoDone && <Check />}
         </SongBox>
