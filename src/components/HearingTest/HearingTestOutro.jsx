@@ -4,9 +4,7 @@ import { Context } from '../../context/GlobalContext';
 import { results } from '../../data/hearingData';
 import { Link } from 'gatsby';
 import Button from '../shared/Button';
-import { ModalWrapper, ModalBox } from '../shared/Modal';
-
-const Wrapper = styled(ModalWrapper)``;
+import { ModalBox } from '../shared/Modal';
 
 const OutroBox = styled(ModalBox)`
   p {
@@ -28,12 +26,10 @@ function HearingTestOutro() {
   }, [])
   
   return (
-    <Wrapper>
-      <OutroBox>
-        <p>Based on your responses, we've determined your favorite genre of music is {getResult()}!</p>
-        <Link to="/"><Button>Dashboard</Button></Link>
-      </OutroBox>
-    </Wrapper>
+    <OutroBox>
+      <p>Based on your responses, we've determined your favorite genre of music is {getResult()}!</p>
+      <Link to="/"><Button>Dashboard</Button></Link>
+    </OutroBox>
   )
 }
 

@@ -14,6 +14,10 @@ function HearingTestPage() {
     setIntroOpen(false);
   }
 
+  const handleOutroClose = () => {
+    setDone(false);
+  }
+
   return (
     <Layout>
       <SEO title="Hearing test" />
@@ -32,7 +36,12 @@ function HearingTestPage() {
       }
       {
         isDone &&
-        <HearingTestOutro />
+        <ThumbModal
+          isOpen={isDone}
+          handleClose={handleOutroClose}
+        >
+          <HearingTestOutro />
+        </ThumbModal>
       }
     </Layout>
   )
