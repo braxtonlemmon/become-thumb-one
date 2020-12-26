@@ -4,6 +4,7 @@ import ReadingModal from './ReadingModal';
 import bookData from '../../data/bookData';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import ThumbModal from '../ThumbModal';
 
 const Wrapper = styled.div`
   display: flex;
@@ -114,6 +115,10 @@ function Bookshelf({
     }
     return setBookRead;
   }
+  
+  const handleClose = () => {
+    setModalOpen(false);
+  }
 
   return (
     <Wrapper>
@@ -144,12 +149,17 @@ function Bookshelf({
       </Shelf>
       {
         modalOpen &&
-        <ReadingModal 
-        setModalOpen={setModalOpen} 
-        book={currentBook} 
-        setBookRead={getBookFunction()}
-        modalOpen={modalOpen} 
-        />
+        <ThumbModal
+          isOpen={modalOpen}
+          handleClose={handleClose}
+        >
+          <ReadingModal 
+          setModalOpen={setModalOpen} 
+          book={currentBook} 
+          setBookRead={getBookFunction()}
+          modalOpen={modalOpen} 
+          />
+        </ThumbModal>
       }
     </Wrapper>
   )
