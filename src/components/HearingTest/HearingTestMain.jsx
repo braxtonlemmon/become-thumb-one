@@ -110,6 +110,13 @@ function HearingTestMain({ setDone }) {
     audio.play();
   }
 
+  const handleKeyDown = (e, selection) => {
+    if (e.keyCode === 13) {
+      selection === 'one' ? handlePlayOne() : handlePlayTwo();
+    }
+
+  }
+
   useEffect(() => {
     const first = getImage(hearingData[question].imageOne);
     const second = getImage(hearingData[question].imageTwo);
@@ -123,7 +130,12 @@ function HearingTestMain({ setDone }) {
       <PageTitle>Hearing Test</PageTitle>
       <h2>{hearingData[question].question}</h2>
       <Images>
-        <ImageContainer onClick={(e) => handlePlayOne(e)} selected={selected === 'one'}>
+        <ImageContainer 
+          onClick={(e) => handlePlayOne(e)} 
+          selected={selected === 'one'}
+          tabIndex="0"
+          onKeyDown={(e) => handleKeyDown(e, 'one')}
+        >
           <Image  selected={selected === 'one'}>
             {
               imageOne &&
@@ -136,7 +148,12 @@ function HearingTestMain({ setDone }) {
             }
           </Image>
         </ImageContainer>
-        <ImageContainer onClick={(e) => handlePlayTwo(e)} selected={selected === 'two'}>
+        <ImageContainer 
+          onClick={(e) => handlePlayTwo(e)} 
+          selected={selected === 'two'}
+          tabIndex="0"
+          onKeyDown={(e) => handleKeyDown(e, 'two')}
+        >
           <Image  selected={selected === 'two'}>
             {
               imageTwo &&
