@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ModalWrapper, ModalBox } from '../shared/Modal';
+import { ModalBox } from '../shared/Modal';
 import Button from '../shared/Button';
 import { navigate } from 'gatsby';
-const Wrapper = styled(ModalWrapper)`
-`;
 
 const OutroBox = styled(ModalBox)`
   p {
@@ -20,13 +18,11 @@ function RequiredReadingOutro() {
   }
   
   return (
-    <Wrapper>
-      <OutroBox>
-        <p>Soooo....which book was your favorite?</p>
-        <p>Holy Socks is riveting, am I right? Anyway, you're done reading.</p>
-        <Button onClick={handleDashboardClick}>Dashboard</Button>
-      </OutroBox>
-    </Wrapper>
+    <OutroBox>
+      <p>Soooo....which book was your favorite?</p>
+      <p>Holy Socks is riveting, am I right? Anyway, you're done reading.</p>
+      <Button onClick={handleDashboardClick}>Dashboard</Button>
+    </OutroBox>
   )
 }
 

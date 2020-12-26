@@ -9,8 +9,13 @@ import ThumbModal from '../components/ThumbModal';
 function ClickAButtonPage() {
   const [isIntroOpen, setIntroOpen] = useState(true);
   const [isDone, setDone] = useState(false);
+  
   const handleIntroClose = () => {
     setIntroOpen(false);
+  }
+
+  const handleDoneClose = () => {
+    setDone(false);
   }
   
   return (
@@ -30,7 +35,12 @@ function ClickAButtonPage() {
       />
       {
         isDone &&
-        <ClickADotDone />
+        <ThumbModal
+          isOpen={isDone}
+          handleClose={handleDoneClose}
+        >
+          <ClickADotDone />
+        </ThumbModal>
       }
     </Layout>
   )

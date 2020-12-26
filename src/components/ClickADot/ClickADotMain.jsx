@@ -80,7 +80,9 @@ function ClickADotMain({ setDone }) {
   return (
     <Wrapper>
       <PageTitle>Click-A-Dot</PageTitle>
-      <Dot 
+      {
+        clicks > 0 &&
+        <Dot 
         onClick={handleClick} 
         x={dotX} 
         y={dotY} 
@@ -88,9 +90,10 @@ function ClickADotMain({ setDone }) {
         bigY={bigDotY}
         color={color} 
         borderColor={borderColor} 
-      >
-        <p>{clicks}</p>
-      </Dot>
+        >
+          <p>{clicks}</p>
+        </Dot>
+      }
     </Wrapper>
   )
 }

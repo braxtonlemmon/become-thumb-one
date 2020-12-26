@@ -32,6 +32,10 @@ function RequiredReadingPage() {
     setIntroOpen(false);
   }
 
+  const handleCloseOutro = () => {
+    setDone(false);
+  }
+
   return (
     <Layout>
       <SEO title="Thumb Singing" />
@@ -57,7 +61,12 @@ function RequiredReadingPage() {
       }
       {
         isDone &&
-        <RequiredReadingOutro />
+        <ThumbModal
+          isOpen={isDone}
+          handleClose={handleCloseOutro}
+        >
+          <RequiredReadingOutro />
+        </ThumbModal>
       }
     </Layout>
   )
