@@ -21,10 +21,10 @@ const wobble = keyframes`
 const Button = styled.button`
   border-radius: 8px;
   border: none;
-  box-shadow: 0 0 4px ${props => props.theme.colors.sup};
+  box-shadow: 0 0 4px ${props => props.theme.colors.yo};
   height: 48px;
-  color: ${props => props.theme.colors.sup};
-  background: ${props => props.theme.colors.tada};
+  color: ${props => props.theme.colors.tada};
+  background: ${props => props.theme.colors.rawr};
   font-family: ${props => props.theme.fonts.galindo};
   font-size: ${props => props.theme.fontSizes.two};
   cursor: pointer;

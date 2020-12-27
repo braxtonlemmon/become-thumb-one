@@ -24,8 +24,8 @@ const Wrapper = styled.div`
     text-align: center;
     font-size: ${props => props.theme.fontSizes.three};
     margin-bottom: 20px;
-    color: ${props => props.theme.colors.rawr};
-    text-shadow: 0 0 5px ${props => props.theme.colors.hey};
+    color: ${props => props.theme.colors.sup};
+    /* text-shadow: 0 0 5px ${props => props.theme.colors.hey}; */
   }
 `;
 
@@ -45,9 +45,10 @@ const Block = styled.div`
   border-radius: 8px;
   margin: 15px 5px;
   background: ${props => props.theme.colors.hey};
-  color: ${props => props.theme.colors.yo};
+  background: none;
+  color: ${props => props.theme.colors.rawr};
   padding: 10px;
-  box-shadow: 0 0 3px ${props => props.theme.colors.sup};
+  /* box-shadow: 0 0 3px ${props => props.theme.colors.sup}; */
   input {
     text-align: center;
   }
