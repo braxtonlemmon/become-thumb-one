@@ -3,7 +3,7 @@ const bookData = [
     id: 0,
     title: 'Snow Beetle',
     text: `Over the long weekend I decided to drive north to visit my sister. The drive was fine. I got lost once, and the kid riding with me didn't really like that much. Too bad. Anyway, I made it to my sister's place and the weather was really bummy. It was winter and there was quite a deep coating of snow, being up in the north and all. What did we decide to do? We decided to go rent some snowshoes at the nearby rental shop and climb up a mountain. The mountain ended up being more of a hill. That was fine. It just made the experience that much more strange. The sun was no where to be seen. In fact, there was a heavy fog that afternoon. So we parked at the hill, got out of the car, and put on our snowshoes. The snow came down sporadically. Off we went. There was nothing but white all around us. White in the air, white on the ground. White in front of us, and white behind us. After what felt like hours of wandering, we paused. That's when I saw him. The snow beetle. There, on the white hill, miles from any visible vegetation, was a black beetle crawling atop the surface of the snow. I dropped to my hands and knees and watched his progress. I couldn't tell quite what type of journey he was on, but he kept moving. I was fascinated. Completely enthralled. Eventually I tore myself from the scene and we headed back down the hill. These days I find myself often wondering about the snow beetle and how his journey ended.`,
-    background: '#eaf6ff',
+    background: '#3e82bd',
     color: '#c3423f',
     height: '300px',
     width: '20%'
