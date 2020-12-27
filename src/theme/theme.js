@@ -1,12 +1,22 @@
 const theme = {
+  // colors: {
+  //   rawr: '#394F49',
+  //   tada: '#EAF6FF',
+  //   hey: '#E0FF4F',
+  //   hi: '#F6AA1C',
+  //   yo: '#C3423F',
+  //   sup: '#FF6663'
+  // },
   colors: {
-    rawr: '#394F49',
-    tada: '#EAF6FF',
-    hey: '#E0FF4F',
-    hi: '#F6AA1C',
-    yo: '#C3423F',
-    sup: '#FF6663'
+    rawr: '#22514c',
+    tada: '#faf6f1',
+    hey: '#3e82bd',
+    hi: '#f3cbbb',
+    yo: '#8bb0a1',
+    sup: '#ce3f22',
+    dark: '#272425'
   },
+
   fonts: {
     galindo: "'Galindo', cursive"
   },

@@ -213,6 +213,7 @@ function ThumbSingingModal({ setModalOpen, modalOpen, song, setSongDone }) {
               questions={questions}
               setQuestions={setQuestions}
               resetQuiz={resetQuiz}
+              tabIndex="0"
               >{word.word}</Spot>
               )   
           }

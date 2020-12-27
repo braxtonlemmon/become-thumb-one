@@ -15,7 +15,7 @@ const Wrapper = styled.header`
   width: 100%;
   height: 90px;
   padding: 0 8px;
-  background: ${props => props.theme.colors.sup};
+  background: ${props => props.theme.colors.yo};
   box-shadow: -8px 0px 5px rgba(0,0,0,0.2);
   position: sticky;
   margin-bottom: 30px;
@@ -23,7 +23,7 @@ const Wrapper = styled.header`
   font-family: ${props => props.theme.fonts.galindo};
   color: ${props => props.theme.colors.tada};
   font-size: ${props => props.theme.fontSizes.three};
-  border-bottom: 3px solid ${props => props.theme.colors.rawr};
+  /* border-bottom: 3px solid ${props => props.theme.colors.rawr}; */
   a {
     color: ${props => props.theme.colors.tada};
     text-decoration: none;
@@ -80,7 +80,8 @@ const NavLink = styled.li`
 
 const Title = styled.p`
   display: none;
-  text-shadow: 0 0 5px ${props => props.theme.colors.rawr};
+  color: ${props => props.theme.colors.rawr};
+  /* text-shadow: 0 0 5px ${props => props.theme.colors.rawr}; */
   font-size: ${props => props.theme.fontSizes.four};
   @media (min-width: 760px) {
     display: block;
