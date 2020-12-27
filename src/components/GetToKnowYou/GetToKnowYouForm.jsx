@@ -52,7 +52,37 @@ const Block = styled.div`
   input {
     text-align: center;
   }
-  max-width: 600px;
+  max-width: 750px;
+`;
+
+const BlockRow = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* gap: 15px; */
+  .question-content {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 9px;
+    text-align: center;
+    input {
+      text-align: center;
+    }
+  }
+`;
+
+const Num = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 45px;
+  height: 45px;
+  font-size: ${props => props.theme.fontSizes.three};
+  margin-right: 10px;
 `;
 
 const RadioSection = styled.fieldset`
@@ -157,119 +187,144 @@ function GetToKnowYouForm() {
       <h1>First, we need to get to know you...</h1>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Block>
-          <label htmlFor="sofa">
-            Of the following, which is your favorite sofa type?
-          </label>
-          <select
-            name="sofa"
-            id="sofa"
-            ref={register({
-              required: "Select one option"
-            })}>
-              <option value=""></option>
-              <option value="futon">Denim Futon</option>
-              <option value="banana">White Leather Banana Chair</option>
-              <option value="bench">Cast Iron Park Bench</option>
-              <option value="sectional">Beige Sectional</option>
-          </select>
-          {errors.sofa && <Error>{errors.sofa.message}</Error>}
+          <BlockRow>
+            <Num>1</Num>
+            <div className="question-content">
+              <label htmlFor="sofa">
+                Of the following, which is your favorite sofa type?
+              </label>
+              <select
+                name="sofa"
+                id="sofa"
+                ref={register({
+                  required: "Select one option"
+                })}>
+                  <option value=""></option>
+                  <option value="futon">Denim Futon</option>
+                  <option value="banana">White Leather Banana Chair</option>
+                  <option value="bench">Cast Iron Park Bench</option>
+                  <option value="sectional">Beige Sectional</option>
+              </select>
+              {errors.sofa && <Error>{errors.sofa.message}</Error>}
+            </div>
+          </BlockRow>
         </Block>
 
 
         <Block>
-          <label htmlFor="age">How old are you? (Age can be even or odd)</label>
-          <input
-            type="number"
-            name="age"
-            id="age"
-            ref={
-              register({
-                required: 'Age is required',
-                pattern: { value: /[0-9]+/, message: 'Must be a number!'},
-              })
-            }
-          ></input>
-          {errors.age && <Error>{errors.age.message}</Error>}
+          <BlockRow>
+            <Num>2</Num>
+            <div className="question-content">
+              <label htmlFor="age">How old are you? (Age can be even or odd)</label>
+              <input
+                type="number"
+                name="age"
+                id="age"
+                ref={
+                  register({
+                    required: 'Age is required',
+                    pattern: { value: /[0-9]+/, message: 'Must be a number!'},
+                  })
+                }
+              ></input>
+              {errors.age && <Error>{errors.age.message}</Error>}
+            </div>
+          </BlockRow>
         </Block>
 
 
         <Block>
-          <RadioSection>
-            <legend>Are you lying about your age?</legend>
-            <Row>
-              <label>
-                <input 
-                  type="radio"
-                  name="trueAge"
-                  value="Yes"
-                  ref={register({
-                    required: 'You have to tell us!'
-                  })}
-                  />
-                Yes
-              </label>
-              <label>
-                <input 
-                  type="radio"
-                  name="trueAge"
-                  value="No"
-                  ref={register({
-                    required: 'You have to tell us!'
-                  })}
-                  />
-                No
-              </label>
-            </Row>
-          </RadioSection>
-          {errors.trueAge && <Error>{errors.trueAge.message}</Error>}
+          <BlockRow>
+            <Num>3</Num>
+            <div className="question-content">
+              <RadioSection>
+                <legend>Are you lying about your age?</legend>
+                <Row>
+                  <label>
+                    <input 
+                      type="radio"
+                      name="trueAge"
+                      value="Yes"
+                      ref={register({
+                        required: 'You have to tell us!'
+                      })}
+                      />
+                    Yes
+                  </label>
+                  <label>
+                    <input 
+                      type="radio"
+                      name="trueAge"
+                      value="No"
+                      ref={register({
+                        required: 'You have to tell us!'
+                      })}
+                      />
+                    No
+                  </label>
+                </Row>
+              </RadioSection>
+              {errors.trueAge && <Error>{errors.trueAge.message}</Error>}
+            </div>
+          </BlockRow>
         </Block>
 
         <Block>
-          <label htmlFor="name">What is your name? (Name entered must be between 5 and 7 characters.)</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            ref={
-              register({ 
-                required: 'First name is required',
-                minLength: {value: 5, message: 'Too short!'},
-                maxLength: {value: 7, message: 'Too long!'}
-              })
-            }
-          />
-          {errors.name && <Error>{errors.name.message}</Error>}
+          <BlockRow>
+            <Num>4</Num>
+            <div className="question-content">
+              <label htmlFor="name">What is your name? (Name entered must be between 5 and 7 characters.)</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                ref={
+                  register({ 
+                    required: 'First name is required',
+                    minLength: {value: 5, message: 'Too short!'},
+                    maxLength: {value: 7, message: 'Too long!'}
+                  })
+                }
+              />
+              {errors.name && <Error>{errors.name.message}</Error>}
+            </div>
+          </BlockRow>
         </Block>
 
         <Block>
-          <RadioSection>
-          <legend>Do you enjoy the occasional deep-fried Twinkie or pickle?</legend>
-            <Row>
-              <label>
-                <input
-                  type="radio"
-                  name="enjoyFried"
-                  value="Yes"
-                  ref={register({
-                    required: 'We really want to know.'
-                  })}
-                />
-                Yes
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="enjoyFried"
-                  value="No"
-                  ref={register({
-                    required: 'We really want to know.'
-                  })}
-                />
-                No
-              </label>
-            </Row>
-          </RadioSection>
-          {errors.enjoyFried && <Error>{errors.enjoyFried.message}</Error>}
+          <BlockRow>
+            <Num>5</Num>
+            <div className="question-content">
+              <RadioSection>
+              <legend>Do you enjoy the occasional deep-fried Twinkie or pickle?</legend>
+                <Row>
+                  <label>
+                    <input
+                      type="radio"
+                      name="enjoyFried"
+                      value="Yes"
+                      ref={register({
+                        required: 'We really want to know.'
+                      })}
+                    />
+                    Yes
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="enjoyFried"
+                      value="No"
+                      ref={register({
+                        required: 'We really want to know.'
+                      })}
+                    />
+                    No
+                  </label>
+                </Row>
+              </RadioSection>
+              {errors.enjoyFried && <Error>{errors.enjoyFried.message}</Error>}
+            </div>
+          </BlockRow>
         </Block>
 
         <Block>
