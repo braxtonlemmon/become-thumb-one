@@ -9,7 +9,7 @@ function ThumbModal({ children, handleClose, isOpen }) {
       onRequestClose={handleClose}
       style={{
         overlay: {
-          background: 'rgba(0,0,0,0.4)',
+          background: 'rgba(0,0,0,0.25)',
           position: 'fixed',
           left: 0,
           right: 0,
@@ -28,7 +28,7 @@ function ThumbModal({ children, handleClose, isOpen }) {
           height: '80%',
           maxHeight: '600px',
           margin: '0 auto',
-          background: `#394F49`,
+          background: `#faf6f1`,
           outline: 'none',
           border: 'none',
           display: 'flex',

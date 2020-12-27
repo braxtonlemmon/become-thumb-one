@@ -45,7 +45,7 @@ export const ModalBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: ${props => props.theme.colors.tada};
+  color: ${props => props.theme.colors.dark};
   width: 100%;
   height: 100%;
   p {
