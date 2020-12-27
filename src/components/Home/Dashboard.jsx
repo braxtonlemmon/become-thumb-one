@@ -46,7 +46,7 @@ const Tasks = styled.div`
 const Task = styled.div`
   position: relative;
   background: ${props => props.done? 'none' : props.theme.colors.hey};
-  background: ${props => props.theme.colors.hey};
+  background: ${props => props.theme.colors.sup};
   height: 140px;
   width: 140px;
   display: flex;
@@ -55,9 +55,11 @@ const Task = styled.div`
   text-align: center;
   font-size: ${props => props.theme.fontSizes.two};
   padding: 10px;
+  color: ${props => props.theme.colors.tada};
   cursor: ${props => props.done ? 'initial' : 'pointer'};
   &:hover {
-    background: ${props => props.done? props.theme.colors.hey : props.theme.colors.tada};
+    background: ${props => props.done? props.theme.colors.hey : props.theme.colors.coal};
+
   };
   @media (min-width: 1020px) {
     height: 200px;

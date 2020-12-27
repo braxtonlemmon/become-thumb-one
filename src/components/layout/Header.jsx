@@ -80,7 +80,7 @@ const NavLink = styled.li`
 
 const Title = styled.p`
   display: none;
-  color: ${props => props.theme.colors.rawr};
+  color: ${props => props.theme.colors.coal};
   /* text-shadow: 0 0 5px ${props => props.theme.colors.rawr}; */
   font-size: ${props => props.theme.fontSizes.four};
   @media (min-width: 760px) {

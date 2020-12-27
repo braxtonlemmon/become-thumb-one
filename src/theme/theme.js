@@ -14,7 +14,8 @@ const theme = {
     hi: '#f3cbbb',
     yo: '#8bb0a1',
     sup: '#ce3f22',
-    dark: '#272425'
+    dark: '#272425',
+    coal: '#3a3a3a'
   },
 
   fonts: {
