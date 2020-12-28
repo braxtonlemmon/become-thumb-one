@@ -29,13 +29,13 @@ const dance = keyframes`
     transform: rotate(5) translateX(70%);
   }
    80% {
-    transform: rotate(-5) translateX(80%) translateY(-5px);
+    transform: rotate(-5) translateX(60%) translateY(-5px);
   }
    90% {
-    transform: rotate(5deg) translateX(90%);
+    transform: rotate(5deg) translateX(50%);
   }
    100% {
-    transform: rotate(-5) translateX(100%);
+    transform: rotate(-5) translateX(40%);
   }
   
 `;
@@ -45,7 +45,7 @@ const slideSmall = keyframes`
     left: 10%;
   }
   50% {
-    left: 60%;
+    left: 50%;
   }
   100% {
     left: 10%;
