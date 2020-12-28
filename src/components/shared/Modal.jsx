@@ -53,4 +53,7 @@ export const ModalBox = styled.div`
     text-align: center;
     line-height: ${props => props.theme.fontSizes.two};
   }
+  button {
+    margin-bottom: 15px;
+  }
 `;
