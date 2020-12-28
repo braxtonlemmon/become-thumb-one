@@ -57,7 +57,7 @@ const Block = styled.div`
   input {
     text-align: center;
   }
-  max-width: 750px;
+  max-width: 950px;
 `;
 
 const BlockRow = styled.div`
@@ -134,6 +134,7 @@ const Thumbs = styled.fieldset`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 `;
 
