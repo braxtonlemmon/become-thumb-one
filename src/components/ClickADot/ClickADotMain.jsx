@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { PageTitle } from '../shared/Headings';
+import Button from '../shared/Button';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -39,12 +40,17 @@ const Dot = styled.button`
   }
 `;
 
+const HelpButton = styled(Button)`
+  bottom: 40px;
+  position: absolute;
+`;
+
 const getRandomColor = () => {
     const color = Math.floor(Math.random() * 16777216).toString(16);
     return "#000000".slice(0, -color.length) + color;
 }
 
-function ClickADotMain({ setDone }) {
+function ClickADotMain({ setDone, setIntroOpen }) {
   const [dotX, setDotX] = useState(60);
   const [dotY, setDotY] = useState(50);
   const [bigDotX, setBigDotX] = useState(60);
@@ -94,6 +100,7 @@ function ClickADotMain({ setDone }) {
           <p>{clicks}</p>
         </Dot>
       }
+      <HelpButton onClick={() => setIntroOpen(true)}>Help?!</HelpButton>
     </Wrapper>
   )
 }

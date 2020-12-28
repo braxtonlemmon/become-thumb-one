@@ -32,6 +32,7 @@ function ClickAButtonPage() {
       }
       <ClickADotMain 
         setDone={setDone}
+        setIntroOpen={setIntroOpen}
       />
       {
         isDone &&
