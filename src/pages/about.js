@@ -42,6 +42,7 @@ function AboutPage() {
         <p>Try to find another place on the internet where you can become thumb one. Try it.</p>
         <p>This is exactly why you are here. You are very welcome.</p>
         <p>Good luck!</p>
+        <p>To find out more about the project, check out the GitHub page below.</p>
         <a href="https://github.com/braxtonlemmon/become-thumb-one" target="_blank" rel="noopener noreferrer">
           <GitHubIcon />
         </a>
