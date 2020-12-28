@@ -57,10 +57,19 @@ const Image = styled.div`
 `;
 
 const Next = styled(Button)`
-  display: ${props => props.selected ? 'block' : 'none'};
+  /* display: ${props => props.selected ? 'block' : 'none'}; */
+  pointer-events: ${props => props.selected ? 'initial' : 'none'};
+  background: ${props => props.selected ? props.theme.colors.rawr : 'none'};
+  color: ${props => props.selected ? props.theme.colors.tada : props.theme.colors.hi};
+  cursor: ${props => props.selected ? 'pointer' : 'not-allowed'};
 `;
 
-function HearingTestMain({ setDone }) {
+const Buttons = styled.div`
+  display: flex;
+  gap: 30px;
+`;
+
+function HearingTestMain({ setDone, setIntroOpen }) {
   const data = useStaticQuery(graphql`
     query SoundsQuery {
       allFile(filter: {relativeDirectory: {eq: "sounds" }}) {
@@ -94,6 +103,16 @@ function HearingTestMain({ setDone }) {
       setQuestion(prev => prev + 1);
     } else {
       setDone(true);
+    }
+  }
+
+  const handleNextKeyDown = (e) => {
+    if (selected && e.keyCode === 13) {
+      console.log('next');
+      handleNextClick();
+    } else {
+      console.log('bad')
+      return null;
     }
   }
 
@@ -168,7 +187,14 @@ function HearingTestMain({ setDone }) {
           </Image>
         </ImageContainer>
       </Images>
-      <Next onClick={handleNextClick} selected={selected}>Next</Next>
+      <Buttons>
+        <Button onClick={() => setIntroOpen(true)}>Help?!</Button>     
+        <Next 
+          onClick={handleNextClick} 
+          selected={selected}
+          onKeyDown={(e) => handleNextKeyDown(e)}
+        >Next</Next>
+      </Buttons>
       <DancingThumb />
     </Wrapper>
   )

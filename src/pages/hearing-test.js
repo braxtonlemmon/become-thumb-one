@@ -32,7 +32,10 @@ function HearingTestPage() {
       }
       {
         !isDone && 
-        <HearingTestMain setDone={setDone} />
+        <HearingTestMain 
+          setDone={setDone} 
+          setIntroOpen={setIntroOpen}
+        />
       }
       {
         isDone &&
