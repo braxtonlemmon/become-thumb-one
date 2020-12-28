@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Button from '../shared/Button';
 import { PageTitle } from '../shared/Headings';
+import DancingThumb from '../DancingThumb';
 
 const Wrapper = styled.div`
   display: flex;
@@ -168,6 +169,7 @@ function HearingTestMain({ setDone }) {
         </ImageContainer>
       </Images>
       <Next onClick={handleNextClick} selected={selected}>Next</Next>
+      <DancingThumb />
     </Wrapper>
   )
 }

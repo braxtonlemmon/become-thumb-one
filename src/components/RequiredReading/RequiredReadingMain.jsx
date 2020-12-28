@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { PageTitle } from '../shared/Headings';
 import Bookshelf from './Bookshelf';
 import Button from '../shared/Button';
+import DancingThumb from '../DancingThumb';
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,6 +41,7 @@ function RequiredReadingMain({
         fourRead={fourRead}
       />
       <Button onClick={toggleIntro}>Help!?</Button>
+      <DancingThumb />
     </Wrapper>
   )
 }
