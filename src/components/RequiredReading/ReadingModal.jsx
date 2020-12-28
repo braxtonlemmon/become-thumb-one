@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ModalWrapper, ModalBox } from '../shared/Modal';
+import { ModalBox } from '../shared/Modal';
 import CloseButton from '../shared/CloseButton';
 import Button from '../shared/Button';
-
-const Wrapper = styled(ModalWrapper)`
-`;
 
 const TextBox = styled(ModalBox)`
   justify-content: flex-start;
@@ -83,8 +79,7 @@ const Bottom = styled.div`
   margin-top: 15px;
 `;
 
-const DoneButton = styled(Button)`
-`;
+const DoneButton = styled(Button)``;
 
 function ReadingModal({ setModalOpen, book, setBookRead, modalOpen }) {
   const [vowels, setVowels] = useState(true);
@@ -99,6 +94,7 @@ function ReadingModal({ setModalOpen, book, setBookRead, modalOpen }) {
     "Seriously!",
     "Ugh."
   ]
+
   const toVowels = (text) => {
     return text.replace(/[bcdfghjklmnpqrstvwxyz]/ig, "");
   }
@@ -126,15 +122,12 @@ function ReadingModal({ setModalOpen, book, setBookRead, modalOpen }) {
     }
   }
 
-  const onlyVowels = toVowels(book.text);
-  const onlyConsonants = toConsonants(book.text);
-  
   const handleCloseClick = () => {
     setModalOpen(false);
   }
 
-
-  
+  const onlyVowels = toVowels(book.text);
+  const onlyConsonants = toConsonants(book.text);
   
   return (
     <TextBox>

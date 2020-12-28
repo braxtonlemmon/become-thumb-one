@@ -34,15 +34,6 @@ const GitHubIcon = styled(FaGithub)`
 `;
 
 function AboutPage() {
-  const [isOpen, setOpen] = useState(false);
-  const handleClose = () => {
-    setOpen(false);
-  }
-
-  const handleOpen = () => {
-    setOpen(true);
-  }
-
   return (
     <Layout>
       <SEO title="About" />

@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Modal from 'react-modal';
 
 function ThumbModal({ children, handleClose, isOpen }) {
-  
-  // if (typeof )
-  
+    
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const app = document.querySelector('#___gatsby');
       Modal.setAppElement(app);
     }
   }, [])
+
   return (
     <Modal
       isOpen={isOpen}
@@ -29,7 +28,6 @@ function ThumbModal({ children, handleClose, isOpen }) {
           position: 'absolute',
           top: '100px',
           bottom: '50%',
-          display: 'block',
           padding: '2em',
           width: '79%',
           maxWidth: '700px',

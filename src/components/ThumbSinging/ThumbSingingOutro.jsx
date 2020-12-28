@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ModalWrapper, ModalBox } from '../shared/Modal';
+import { ModalBox } from '../shared/Modal';
 import Button from '../shared/Button';
 import { navigate } from 'gatsby';
 
