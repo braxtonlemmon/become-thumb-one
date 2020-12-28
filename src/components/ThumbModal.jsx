@@ -23,11 +23,10 @@ function ThumbModal({ children, handleClose, isOpen }) {
           bottom: '50%',
           display: 'block',
           padding: '2em',
-          width: '85%',
+          width: '79%',
           maxWidth: '700px',
           height: '80%',
           maxHeight: '600px',
-          margin: '0 auto',
           background: `#faf6f1`,
           outline: 'none',
           border: 'none',
@@ -36,6 +35,7 @@ function ThumbModal({ children, handleClose, isOpen }) {
           justifyContent: 'center',
           alignItems: 'center',
           color: '#EAF6FF',
+          margin: '0 auto',
           boxShadow: '0 0 9px rgba(0,0,0,0.3)',
           zIndex: '999'
 
