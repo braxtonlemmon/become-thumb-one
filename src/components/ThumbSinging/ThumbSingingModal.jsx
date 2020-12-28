@@ -6,6 +6,8 @@ import Modal from 'react-modal';
 const QuizBox = styled(ModalBox)`
   padding: 0;
   position: relative;
+  width: 100%;
+  height: 100%;
   max-width: 700px;
   max-height: 800px;
 `;
@@ -56,10 +58,10 @@ const Tile = styled.div`
   text-align: center;
   padding: 8px;
   font-size: ${props => props.theme.fontSizes.one};
-  background: ${props => props.correct ? props.theme.colors.hey : props.theme.colors.yo};
-  color: ${props => props.correct ? props.theme.colors.rawr : props.theme.colors.hey};
+  background: ${props => props.correct ? props.theme.colors.yo : props.theme.colors.sup};
+  color: ${props => props.correct ? props.theme.colors.rawr : props.theme.colors.tada};
   &:hover {
-    background: ${props => props.theme.colors.hey};
+    background: ${props => props.theme.colors.yo};
     color: ${props => props.theme.colors.rawr};
   }
 `;
@@ -186,23 +188,22 @@ function ThumbSingingModal({ setModalOpen, modalOpen, song, setSongDone }) {
           top: 0,
           right: 0,
           bottom: 0,
-          zIndex: '500'
+          zIndex: '500',
         },
         content: {
           position: 'absolute',
-          top: '100px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '95%',
+          top: '60px',
+          display: 'block',
+          left: '2%',
+          right: '2%',
+          width: '90%',
           maxWidth: '700px',
-          height: '90%',
+          height: '85%',
           maxHeight: '800px',
           margin: '0 auto',
-          background: '#394F49',
+          background: '#faf6f1',
           border: 'none',
-          color: '#EAF6FF'
+          color: '#EAF6FF',
         }
       }}
     >
