@@ -4,6 +4,7 @@ import { PageTitle } from '../shared/Headings';
 import singingData from '../../data/singingData';
 import { GiCheckMark } from 'react-icons/gi';
 import DancingThumb from '../DancingThumb';
+import Button from '../shared/Button';
 
 const Wrapper = styled.section`
   display: flex;
@@ -60,7 +61,7 @@ const Check = styled(GiCheckMark)`
 `;
 
 
-function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDone, setOutroOpen }) {
+function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDone, setOutroOpen, setIntroOpen }) {
   const handleClickSong = (num) => {
     setCurrentSong(singingData[num]);
     setModalOpen(true);
@@ -99,6 +100,7 @@ function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDo
           {songTwoDone && <Check />}
         </SongBox>
       </Songs>
+      <Button onClick={() => setIntroOpen(true)}>Help?!</Button>
       <DancingThumb />
     </Wrapper>
   )
