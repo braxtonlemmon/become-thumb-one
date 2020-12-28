@@ -43,7 +43,10 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: ${props => props.theme.colors.tada};
+  background: ${props => props.theme.colors.hi};
+  background: rgba(0,0,0,0.1);
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.05));
+  background: linear-gradient(${props => props.theme.colors.sup}, ${props => props.theme.colors.hey});
   border-radius: 8px;
   border: ${props => props.selected ? '3px dashed black' : 'none'};
 `;
