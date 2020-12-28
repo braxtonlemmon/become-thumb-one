@@ -110,10 +110,18 @@ function Spot({ children, guesses, setGuesses, num, questions, setQuestions, res
     }
   }
 
+  const onKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      handleClick();
+    }
+  }
+
   return (
     <Tile
       onClick={handleClick}
+      onKeyDown={(e) => onKeyDown(e)}
       correct={correct && questions[num]}
+      tabIndex="0"
     >
       {children}
     </Tile>
@@ -213,7 +221,6 @@ function ThumbSingingModal({ setModalOpen, modalOpen, song, setSongDone }) {
               questions={questions}
               setQuestions={setQuestions}
               resetQuiz={resetQuiz}
-              tabIndex="0"
               >{word.word}</Spot>
               )   
           }
