@@ -5,7 +5,7 @@ import { PageTitle } from '../shared/Headings';
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  background: ${props => props.theme.colors.hi};
+  /* background: ${props => props.theme.colors.hi}; */
   display: flex;
   justify-content: center;
 `;
