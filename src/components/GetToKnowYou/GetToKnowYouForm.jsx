@@ -354,7 +354,7 @@ function GetToKnowYouForm() {
             <Num>6</Num>
             <div className="question-content">
               <RadioSection>
-                <legend>Click to choose a thumbatar:</legend>
+                <legend>Click to choose a thumbatar...</legend>
                 <Thumbs>
                   <label className="thumb-label">
                     <Image 
