@@ -32,23 +32,28 @@ const Wrapper = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  align-items: flex-start;
   margin-bottom: 50px;
+  margin: 0 auto 50px auto;
+  /* border: 1px solid black; */
+  width: min-content;
 `;
 
 const Block = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  /* text-align: center; */
   gap: 9px;
   border-radius: 8px;
-  margin: 15px 5px;
+  margin: 15px 0 20px 0;
   background: ${props => props.theme.colors.hey};
   background: none;
   color: ${props => props.theme.colors.rawr};
   padding: 10px;
   /* box-shadow: 0 0 3px ${props => props.theme.colors.sup}; */
+  /* border: 1px solid black; */
   input {
     text-align: center;
   }
@@ -58,17 +63,21 @@ const Block = styled.div`
 const BlockRow = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  /* border: 1px solid black; */
+  /* justify-content: flex-start; */
   /* gap: 15px; */
+  /* border: 1px solid black; */
   .question-content {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    align-items: center;
+    align-items: flex-start;
     gap: 9px;
-    text-align: center;
+    /* text-align: center; */
+    /* border: 1px solid black; */
+    max-width: 80%;
     input {
-      text-align: center;
+      /* text-align: center; */
     }
   }
 `;
@@ -82,18 +91,19 @@ const Num = styled.div`
   width: 45px;
   height: 45px;
   font-size: ${props => props.theme.fontSizes.three};
-  margin-right: 10px;
+  margin-right: 20px;
 `;
 
 const RadioSection = styled.fieldset`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const Row = styled.div`
   display: flex;
   gap: 20px;
+  margin-top: 20px;
 `;
 
 const Thumbs = styled.fieldset`
@@ -103,12 +113,12 @@ const Thumbs = styled.fieldset`
   align-items: center;
   gap: 15px;
   margin: 10px 0;
-  [type=radio] {
+  /* [type=radio] {
     opacity: 0;
     width: 0;
     height: 0;
     position: absolute;
-  }
+  } */
   [type=radio] + .thumbz {
     cursor: pointer;
   }
@@ -119,6 +129,12 @@ const Thumbs = styled.fieldset`
     grid-template-columns: repeat(4, 1fr);
     gap: 35px;
   }
+  .thumb-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Image = styled.div`
@@ -127,6 +143,7 @@ const Image = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
   .thumb {
     width: 100%;
   }
@@ -137,6 +154,10 @@ const Error = styled.p`
   font-size: 13px;
   animation: ${hop} 750ms ease infinite;
   color: ${props => props.theme.colors.sup};
+`;
+
+const SubmitButton = styled(Button)`
+  margin: 0 auto;
 `;
 
 function GetToKnowYouForm() {
@@ -328,85 +349,98 @@ function GetToKnowYouForm() {
         </Block>
 
         <Block>
-          <RadioSection>
-            <legend>Click to choose a thumbatar:</legend>
-            <Thumbs>
-              <label>
-                <input
-                  type="radio"
-                  name="thumbatar"
-                  value={1}
-                  ref={register({
-                    required: 'Please choose a thumbatar.'
-                  })}
-                />
-                <Image className="thumbz">
-                  <Img 
-                    className="thumb" 
-                    fluid={images[0].node.childImageSharp.fluid} 
-                    alt="Thumb with long hair and big lips drawn on." 
-                  />
-                </Image>
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="thumbatar"
-                  value={2}
-                  ref={register({
-                    required: 'Please choose a thumbatar.'
-                  })}
-                />
-                <Image className="thumbz">
-                  <Img 
-                    className="thumb" 
-                    fluid={images[1].node.childImageSharp.fluid} 
-                    alt="Thumb with bangs, beauty mark, and a smile drawn on." 
-                  />
-                </Image>
-    
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="thumbatar"
-                  value={3}
-                  ref={register({
-                    required: 'Please choose a thumbatar.'
-                  })}
-                />
-                <Image className="thumbz">
-                  <Img 
-                    className="thumb" 
-                    fluid={images[2].node.childImageSharp.fluid}
-                    alt="Thumb with glasses and surprised expression drawn on."  
-                  />
-                </Image>
-    
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="thumbatar"
-                  value={4}
-                  ref={register({
-                    required: 'Please choose a thumbatar.'
-                  })}
-                />
-                <Image className="thumbz">
-                  <Img 
-                    className="thumb" 
-                    fluid={images[3].node.childImageSharp.fluid}  
-                    alt="Thumb with unibrow and angry expression drawn on."
+          <BlockRow>
+            <Num>6</Num>
+            <div className="question-content">
+              <RadioSection>
+                <legend>Click to choose a thumbatar:</legend>
+                <Thumbs>
+                  <label className="thumb-label">
+                    <Image 
+                      className="thumbz" 
+                    >
+                      <Img 
+                        className="thumb" 
+                        fluid={images[0].node.childImageSharp.fluid} 
+                        alt="Thumb with long hair and big lips drawn on." 
+                      />
+                    </Image>
+                    <input
+                      type="radio"
+                      name="thumbatar"
+                      value={1}
+                      ref={register({
+                        required: 'Please choose a thumbatar.'
+                      })}
                     />
-                </Image>
-    
-              </label>
-            </Thumbs>
-          </RadioSection>
-          {errors.thumbatar && <Error>{errors.thumbatar.message}</Error>}
+                  </label>
+                  <label className="thumb-label">
+                    <Image 
+                      className="thumbz"
+                    >
+                      <Img 
+                        className="thumb" 
+                        fluid={images[1].node.childImageSharp.fluid} 
+                        alt="Thumb with bangs, beauty mark, and a smile drawn on." 
+                      />
+                    </Image>
+                    <input
+                      type="radio"
+                      name="thumbatar"
+                      value={2}
+                      ref={register({
+                        required: 'Please choose a thumbatar.'
+                      })}
+                    />
+        
+                  </label>
+                  <label className="thumb-label">
+                    <Image 
+                      className="thumbz"
+                    >
+                      <Img 
+                        className="thumb" 
+                        fluid={images[2].node.childImageSharp.fluid}
+                        alt="Thumb with glasses and surprised expression drawn on."  
+                      />
+                    </Image>
+                    <input
+                      type="radio"
+                      name="thumbatar"
+                      value={3}
+                      ref={register({
+                        required: 'Please choose a thumbatar.'
+                      })}
+                    />
+        
+                  </label>
+                  <label className="thumb-label">
+                    <Image 
+                      className="thumbz"
+                    >
+                      <Img 
+                        className="thumb" 
+                        fluid={images[3].node.childImageSharp.fluid}  
+                        alt="Thumb with unibrow and angry expression drawn on."
+                        />
+                    </Image>
+                    <input
+                      type="radio"
+                      name="thumbatar"
+                      value={4}
+                      ref={register({
+                        required: 'Please choose a thumbatar.'
+                      })}
+                    />
+        
+                  </label>
+                </Thumbs>
+              </RadioSection>
+              {errors.thumbatar && <Error>{errors.thumbatar.message}</Error>}
+            </div>
+          </BlockRow>
         </Block>
-        <Button type="submit">Submit</Button>
+        <SubmitButton type="submit">Submit</SubmitButton>
       </Form>
     </Wrapper>
   )
