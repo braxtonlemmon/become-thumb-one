@@ -30,17 +30,21 @@ const Close = styled(CloseButton)`
 
 const ToggleButtons = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 8px;
   margin-bottom: 15px;
+  @media (min-width: 450px) {
+    flex-direction: row;
+  }
 `;
 
 const ModeButton = styled.button`
   font-family: ${props => props.theme.fonts.galindo};
   cursor: pointer;
   background: ${props => props.vowels ? props.theme.colors.hey : 'none'};
-  border: ${props => props.vowels ? `3px solid ${props.theme.colors.rawr}` : `2px solid ${props.theme.colors.tada}`};
-  color: ${props => props.vowels ? props.theme.colors.rawr : props.theme.colors.tada};
+  border: ${props => props.vowels ? `3px solid ${props.theme.colors.rawr}` : `2px solid ${props.theme.colors.hey}`};
+  color: ${props => props.vowels ? props.theme.colors.rawr : props.theme.colors.hey};
 `;
 
 const Toggle = styled.div`
@@ -138,16 +142,18 @@ function ReadingModal({ setModalOpen, book, setBookRead, modalOpen }) {
           onClick={() => setVowels(true)}
           vowels={vowels}
           >Vowel</ModeButton>
-        <Toggle 
+        {/* <Toggle 
           vowels={vowels} 
           onClick={toggle}
           >
           <button className="toggle-dot"></button>
-        </Toggle>
+        </Toggle> */}
         <ModeButton 
           onClick={() => setVowels(false)}
           vowels={!vowels}
-          >Consonant</ModeButton>
+        >
+          Consonant
+        </ModeButton>
       </ToggleButtons>
       <Text>
         {vowels ? onlyVowels : onlyConsonants}
