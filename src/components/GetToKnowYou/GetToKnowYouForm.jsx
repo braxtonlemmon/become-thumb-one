@@ -58,11 +58,18 @@ const Block = styled.div`
     text-align: center;
   }
   max-width: 950px;
+  width: 100%;
+  @media (min-width: 450px) {
+    align-items: flex-start;
+  }
 `;
 
 const BlockRow = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
   /* border: 1px solid black; */
   /* justify-content: flex-start; */
   /* gap: 15px; */
@@ -71,14 +78,22 @@ const BlockRow = styled.div`
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    align-items: flex-start;
+    align-items: center;
     gap: 9px;
     /* text-align: center; */
     /* border: 1px solid black; */
     max-width: 80%;
     input {
-      /* text-align: center; */
+      text-align: center;
     }
+    @media (min-width: 450px) {
+      align-items: flex-start;
+    }
+  }
+  @media (min-width: 450px) {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
   }
 `;
 
@@ -97,7 +112,10 @@ const Num = styled.div`
 const RadioSection = styled.fieldset`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  @media (min-width: 450px) {
+    align-items: flex-start;
+  }
 `;
 
 const Row = styled.div`
@@ -354,7 +372,7 @@ function GetToKnowYouForm() {
             <Num>6</Num>
             <div className="question-content">
               <RadioSection>
-                <legend>Click to choose a thumbatar...</legend>
+                <legend>Choose your thumbatar!</legend>
                 <Thumbs>
                   <label className="thumb-label">
                     <Image 
