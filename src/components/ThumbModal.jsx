@@ -23,7 +23,7 @@ function ThumbModal({ children, handleClose, isOpen }) {
           bottom: '50%',
           display: 'block',
           padding: '2em',
-          width: '90%',
+          width: '85%',
           maxWidth: '700px',
           height: '80%',
           maxHeight: '600px',
