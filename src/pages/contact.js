@@ -25,11 +25,16 @@ const Wrapper = styled.section`
 `;
 
 const Mail = styled(HiOutlineMail)`
-  color: ${props => props.theme.colors.rawr};
+  color: ${props => props.theme.colors.hey};
   cursor: pointer;
   height: ${props => props.theme.fontSizes.seven};
   width: ${props => props.theme.fontSizes.seven};
   margin-bottom: 20px;
+  transform: rotate(0);
+  transition: transform 300ms ease;
+  &:hover {
+    transform: rotate(7deg);
+  }
 `;
 
 function ContactPage() {
