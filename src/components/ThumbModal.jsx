@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 
 function ThumbModal({ children, handleClose, isOpen }) {
+  const app = document.querySelector('#___gatsby');
+  Modal.setAppElement(app);
 
   return (
     <Modal
