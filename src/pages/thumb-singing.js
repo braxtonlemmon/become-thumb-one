@@ -35,6 +35,10 @@ function ThumbSingingPage() {
   const handleCloseIntro = () => {
     setIntroOpen(false);
   }
+
+  const handleCloseOutro = () => {
+    setOutroOpen(false);
+  }
   
   useEffect(() => {
     if (songOneDone && songTwoDone) {
@@ -72,7 +76,12 @@ function ThumbSingingPage() {
       }
       {
         outroOpen &&
-        <ThumbSingingOutro />
+        <ThumbModal
+          isOpen={outroOpen}
+          handleClose={handleCloseOutro}
+        >
+          <ThumbSingingOutro />
+        </ThumbModal>
       }
     </Layout>
   )

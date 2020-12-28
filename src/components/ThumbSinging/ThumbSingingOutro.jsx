@@ -4,8 +4,6 @@ import { ModalWrapper, ModalBox } from '../shared/Modal';
 import Button from '../shared/Button';
 import { navigate } from 'gatsby';
 
-const Wrapper = styled(ModalWrapper)``;
-
 const DoneBox = styled(ModalBox)`
   p {
     font-size: ${props => props.theme.fontSizes.three};
@@ -19,13 +17,11 @@ function ThumbSingingOutro() {
   }
   
   return (
-    <Wrapper>
-      <DoneBox>
-        <p>YUS!</p>
-        <p>That was thumb sweet music. Good job.</p>
-        <Button onClick={handleDoneClick}>Dashboard</Button>
-      </DoneBox>
-    </Wrapper>
+    <DoneBox>
+      <p>YUS!</p>
+      <p>That was thumb sweet music. Good job.</p>
+      <Button onClick={handleDoneClick}>Dashboard</Button>
+    </DoneBox>
   )
 }
 
