@@ -19,6 +19,7 @@ const Songs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-bottom: 30px;
   @media (min-width: 760px) {
     flex-direction: row;
     gap: 50px;
@@ -31,7 +32,7 @@ const SongBox = styled.div`
   align-items: center;
   width: 170px;
   height: 170px;
-  background: ${props => props.theme.colors.tada};
+  background: ${props => props.theme.colors.yo};
   cursor: pointer;
   position: relative;
   &:hover {
@@ -40,7 +41,7 @@ const SongBox = styled.div`
     }
   }
   p {
-    color: ${props => props.theme.colors.yo};
+    color: ${props => props.theme.colors.dark};
     font-size: ${props => props.theme.fontSizes.three};
     text-align: center;
   }

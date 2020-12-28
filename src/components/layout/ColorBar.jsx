@@ -57,7 +57,7 @@ const Block = styled.div`
 `;
 
 function ColorBar() {
-  const [isVisible, setVisible] = useState(false);
+  const [isVisible, setVisible] = useState(true);
   
   const toggleVisibility = () => {
     setVisible(prev => !prev);
