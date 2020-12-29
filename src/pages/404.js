@@ -24,7 +24,6 @@ const Wrapper = styled.div`
   }
 `;
 
-
 const BadHand = styled(Img)`
   transform: rotate(180deg) scaleX(-1);
 `;
