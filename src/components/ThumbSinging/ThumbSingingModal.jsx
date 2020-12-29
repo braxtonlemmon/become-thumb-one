@@ -21,6 +21,7 @@ const Top = styled.div`
   justify-content: space-between;
   padding: 0 15px;
   flex: 0 1 auto;
+  height: 15%;
   h2 {
     /* height: 60px; */
     font-size: ${props => props.theme.fontSizes.one};
@@ -38,6 +39,7 @@ const Top = styled.div`
 
 const Words = styled.div`
   /* height: 100%; */
+  height: 85%;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
