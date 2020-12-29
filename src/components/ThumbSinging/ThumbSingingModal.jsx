@@ -16,10 +16,11 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  height: min-content;
-  height: 80px;
+  /* height: min-content; */
+  /* height: 80px; */
   justify-content: space-between;
   padding: 0 15px;
+  flex: 0 1 auto;
   h2 {
     /* height: 60px; */
     font-size: ${props => props.theme.fontSizes.one};
@@ -36,13 +37,13 @@ const Top = styled.div`
 `;
 
 const Words = styled.div`
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   display: grid;
-  position: relative;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(4, 1fr);
   gap: 1px;
+  flex: 1 1 auto;
   p {
     text-align: center;
     height: 100%;
