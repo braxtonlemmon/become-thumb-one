@@ -29,13 +29,16 @@ const Close = styled(CloseButton)`
 `;
 
 const ToggleButtons = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: stretch; */
+  display: block;
   margin-bottom: 15px;
   @media (min-width: 450px) {
+    display: flex;
     flex-direction: row;
+
   }
 `;
 
@@ -47,7 +50,8 @@ const ModeButton = styled.button`
   color: ${props => props.chosen ? props.theme.colors.rawr : props.theme.colors.hey};
   border-radius: 5px;
   height: 40px;
-  margin: 4px 0;
+  margin: 4px auto;
+  display: block;
   @media (min-width: 450px) {
     margin: 0 4px;
   }
@@ -80,6 +84,7 @@ const Text = styled.article`
   color: ${props => props.theme.colors.rawr};
   padding: 10px;
   border-radius: 8px;
+  margin-top: 2px;
 `;
 
 const Bottom = styled.div`
