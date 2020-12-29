@@ -17,6 +17,7 @@ const Top = styled.div`
   display: flex;
   align-items: center;
   height: min-content;
+  height: 80px;
   justify-content: space-between;
   padding: 0 15px;
   h2 {
