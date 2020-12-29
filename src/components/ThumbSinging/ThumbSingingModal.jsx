@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 
 const QuizBox = styled(ModalBox)`
   padding: 0;
-  position: relative;
+  /* position: relative; */
   width: 100%;
   height: 100%;
   max-width: 700px;
@@ -16,10 +16,11 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  height: min-content;
   justify-content: space-between;
   padding: 0 15px;
   h2 {
-    height: 60px;
+    /* height: 60px; */
     font-size: ${props => props.theme.fontSizes.one};
     display: flex;
     align-items: center;
