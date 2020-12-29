@@ -45,6 +45,7 @@ const ModeButton = styled.button`
   border: ${props => props.chosen ? `3px solid ${props.theme.colors.rawr}` : `2px solid ${props.theme.colors.hey}`};
   color: ${props => props.chosen ? props.theme.colors.rawr : props.theme.colors.hey};
   border-radius: 5px;
+  height: min-content;
   margin: 4px 0;
   @media (min-width: 450px) {
     margin: 0 4px;
