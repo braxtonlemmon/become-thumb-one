@@ -8,8 +8,8 @@ const TextBox = styled(ModalBox)`
   justify-content: flex-start;
   padding: 0;
   padding-bottom: 15px;
-  position: relative;
-  overflow: auto;
+  /* position: relative; */
+  /* overflow: auto; */
   h2 {
     padding: 10px;
     padding-top: 15px;
@@ -32,7 +32,6 @@ const ToggleButtons = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2px;
   margin-bottom: 15px;
   @media (min-width: 450px) {
     flex-direction: row;
@@ -46,6 +45,10 @@ const ModeButton = styled.button`
   border: ${props => props.chosen ? `3px solid ${props.theme.colors.rawr}` : `2px solid ${props.theme.colors.hey}`};
   color: ${props => props.chosen ? props.theme.colors.rawr : props.theme.colors.hey};
   border-radius: 5px;
+  margin: 4px 0;
+  @media (min-width: 450px) {
+    margin: 0 4px;
+  }
 `;
 
 const Toggle = styled.div`

@@ -27,7 +27,6 @@ const Images = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
   margin: 15px 0;
   position: relative;
   @media (min-width: 760px) {
@@ -49,6 +48,7 @@ const ImageContainer = styled.div`
   background: linear-gradient(${props => props.theme.colors.sup}, ${props => props.theme.colors.hey});
   border-radius: 8px;
   border: ${props => props.selected ? '3px dashed black' : 'none'};
+  margin: 15px;
 `;
 
 const Image = styled.div`
@@ -69,7 +69,9 @@ const Next = styled(Button)`
 
 const Buttons = styled.div`
   display: flex;
-  gap: 30px;
+  & > * {
+    margin: 0 15px;
+  }
 `;
 
 function HearingTestMain({ setDone, setIntroOpen }) {

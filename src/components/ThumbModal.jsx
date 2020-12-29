@@ -28,7 +28,7 @@ function ThumbModal({ children, handleClose, isOpen }) {
           position: 'absolute',
           top: '100px',
           bottom: '50%',
-          padding: '2em',
+          padding: '15px',
           width: '79%',
           maxWidth: '700px',
           height: '80%',

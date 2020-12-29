@@ -44,16 +44,13 @@ const Block = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* text-align: center; */
-  gap: 9px;
+  margin-bottom: 9px;
   border-radius: 8px;
   margin: 15px 0 20px 0;
   background: ${props => props.theme.colors.hey};
   background: none;
   color: ${props => props.theme.colors.rawr};
   padding: 10px;
-  /* box-shadow: 0 0 3px ${props => props.theme.colors.sup}; */
-  /* border: 1px solid black; */
   input {
     text-align: center;
   }
@@ -69,22 +66,16 @@ const BlockRow = styled.div`
   align-items: center;
   flex-direction: column;
   text-align: center;
-  gap: 10px;
-  /* border: 1px solid black; */
-  /* justify-content: flex-start; */
-  /* gap: 15px; */
-  /* border: 1px solid black; */
   .question-content {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
-    gap: 9px;
-    /* text-align: center; */
-    /* border: 1px solid black; */
     max-width: 80%;
     input {
       text-align: center;
+    }
+    label {
+      margin-bottom: 15px;
     }
     @media (min-width: 450px) {
       align-items: flex-start;
@@ -120,8 +111,10 @@ const RadioSection = styled.fieldset`
 
 const Row = styled.div`
   display: flex;
-  gap: 20px;
   margin-top: 20px;
+  & > * {
+    margin-right: 20px;
+  }
 `;
 
 const Thumbs = styled.fieldset`
@@ -129,7 +122,6 @@ const Thumbs = styled.fieldset`
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  gap: 15px;
   margin: 10px 0;
   /* [type=radio] {
     opacity: 0;
@@ -162,7 +154,7 @@ const Image = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  margin: 15px;
   .thumb {
     width: 100%;
   }

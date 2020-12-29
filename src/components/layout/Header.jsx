@@ -32,11 +32,7 @@ const Wrapper = styled.header`
 
 const Left = styled.div`
   display: flex;
-  gap: 20px;
   align-items: center;
-  @media (min-width: 1200px) {
-    gap: 60px;
-  }
 `;
 
 const NavSection = styled.nav`
@@ -83,8 +79,12 @@ const Title = styled.p`
   color: ${props => props.theme.colors.coal};
   /* text-shadow: 0 0 5px ${props => props.theme.colors.rawr}; */
   font-size: ${props => props.theme.fontSizes.four};
+  margin-left: 20px;
   @media (min-width: 760px) {
     display: block;
+  }
+  @media (min-width: 1200px) {
+    margin-left: 60px;
   }
 `;  
 

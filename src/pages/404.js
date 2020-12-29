@@ -11,7 +11,6 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
   margin-top: 50px;
   p, h1 {
     color: ${props => props.theme.colors.coal};
@@ -21,6 +20,9 @@ const Wrapper = styled.div`
   }
   p {
     font-size: ${props => props.theme.fontSizes.three};
+  }
+  & > * {
+    margin: 20px;
   }
 `;
 

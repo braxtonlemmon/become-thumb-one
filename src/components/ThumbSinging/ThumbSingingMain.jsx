@@ -18,11 +18,9 @@ const Wrapper = styled.section`
 const Songs = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
   margin-bottom: 30px;
   @media (min-width: 760px) {
     flex-direction: row;
-    gap: 50px;
   }
 `;
 
@@ -32,6 +30,7 @@ const SongBox = styled.div`
   align-items: center;
   width: 170px;
   height: 170px;
+  margin: 10px;
   background: ${props => props.theme.colors.yo};
   cursor: pointer;
   position: relative;
@@ -48,6 +47,7 @@ const SongBox = styled.div`
   @media (min-width: 760px) {
     width: 200px;
     height: 200px;
+    margin: 25px;
   }
 `;   
 
