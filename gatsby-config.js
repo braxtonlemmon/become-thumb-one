@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Become Thumb One`,
-    description: `Become Thumb One`,
+    description: `The only site where anyone can become thumb one.`,
     author: `@braxtonlemmon`,
   },
   plugins: [
@@ -21,7 +21,7 @@ module.exports = {
         background_color: `#faf6f1`,
         theme_color: `#faf6f1`,
         display: `minimal-ui`,
-        icon: `src/images/thumb.png`, // This path is relative to the root of the site.
+        icon: `src/images/thumb.png`, 
       },
     },
     {
@@ -37,8 +37,5 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
