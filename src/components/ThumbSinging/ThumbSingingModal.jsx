@@ -221,14 +221,15 @@ function ThumbSingingModal({ setModalOpen, modalOpen, song, setSongDone }) {
         </Top>
         <Words>
           {
-            song.words.map(word => 
+            song.words.map((word, index) => 
               <Spot
-              num={word.id}
-              guesses={guesses}
-              setGuesses={setGuesses}
-              questions={questions}
-              setQuestions={setQuestions}
-              resetQuiz={resetQuiz}
+                num={word.id}
+                guesses={guesses}
+                setGuesses={setGuesses}
+                questions={questions}
+                setQuestions={setQuestions}
+                resetQuiz={resetQuiz}
+                key={`spot-${index}`}  
               >{word.word}</Spot>
               )   
           }

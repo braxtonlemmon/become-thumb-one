@@ -133,6 +133,7 @@ function Bookshelf({
               width={book.width}
               done={status[index]}
               tabIndex="0"
+              key={`book-${index}`}
             >
               <h2>{book.title}</h2>
             </Book>

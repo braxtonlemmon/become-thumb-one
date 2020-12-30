@@ -67,6 +67,7 @@ const Bottom = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  padding-bottom: 20px;
 `;
 
 const DoneButton = styled(Button)``;
