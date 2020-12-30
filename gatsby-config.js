@@ -18,8 +18,8 @@ module.exports = {
         name: `Become Thumb One`,
         short_name: `Become Thumb One`,
         start_url: `/`,
-        background_color: `#272425`,
-        theme_color: `#272425`,
+        background_color: `#faf6f1`,
+        theme_color: `#faf6f1`,
         display: `minimal-ui`,
         icon: `src/images/thumb.png`, // This path is relative to the root of the site.
       },
