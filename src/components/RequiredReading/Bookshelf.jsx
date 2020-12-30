@@ -23,7 +23,6 @@ const Books = styled.div`
   align-items: flex-end;
 `;
 
-
 const Book = styled.div`
   visibility: ${props => props.done ? 'hidden' : 'visible'};
   width: ${props => props.width};

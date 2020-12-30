@@ -4,7 +4,6 @@ import { ModalBox } from '../shared/Modal'
 import Button from '../shared/Button';
 import { GiMusicalNotes } from 'react-icons/gi';
 
-
 const IntroBox = styled(ModalBox)``;
 
 function ThumbSingingIntro({ setIntroOpen }) {

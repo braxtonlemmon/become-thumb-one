@@ -60,7 +60,6 @@ const Image = styled.div`
 `;
 
 const Next = styled(Button)`
-  /* display: ${props => props.selected ? 'block' : 'none'}; */
   pointer-events: ${props => props.selected ? 'initial' : 'none'};
   background: ${props => props.selected ? props.theme.colors.rawr : 'none'};
   color: ${props => props.selected ? props.theme.colors.tada : props.theme.colors.hi};
@@ -113,10 +112,8 @@ function HearingTestMain({ setDone, setIntroOpen }) {
 
   const handleNextKeyDown = (e) => {
     if (selected && e.keyCode === 13) {
-      console.log('next');
       handleNextClick();
     } else {
-      console.log('bad')
       return null;
     }
   }

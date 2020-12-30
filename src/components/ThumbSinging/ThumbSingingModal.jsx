@@ -5,7 +5,6 @@ import Modal from 'react-modal';
 
 const QuizBox = styled(ModalBox)`
   padding: 0;
-  /* position: relative; */
   width: 100%;
   height: 100%;
   max-width: 700px;
@@ -16,14 +15,11 @@ const Top = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  /* height: min-content; */
-  /* height: 80px; */
   justify-content: space-between;
   padding: 0 15px;
   flex: 0 1 auto;
   height: 15%;
   h2 {
-    /* height: 60px; */
     font-size: ${props => props.theme.fontSizes.one};
     display: flex;
     align-items: center;
@@ -38,7 +34,6 @@ const Top = styled.div`
 `;
 
 const Words = styled.div`
-  /* height: 100%; */
   height: 85%;
   width: 100%;
   display: grid;
@@ -137,6 +132,13 @@ function Spot({ children, guesses, setGuesses, num, questions, setQuestions, res
 
 
 function ThumbSingingModal({ setModalOpen, modalOpen, song, setSongDone }) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const app = document.querySelector('#___gatsby');
+      Modal.setAppElement(app);
+    }
+  }, [])
+  
   const [attempts, setAttempts] = useState(0);
   const [guesses, setGuesses] = useState([0]);
   const reset = {

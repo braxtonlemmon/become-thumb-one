@@ -23,7 +23,6 @@ const Wrapper = styled.header`
   font-family: ${props => props.theme.fonts.galindo};
   color: ${props => props.theme.colors.tada};
   font-size: ${props => props.theme.fontSizes.three};
-  /* border-bottom: 3px solid ${props => props.theme.colors.rawr}; */
   a {
     color: ${props => props.theme.colors.tada};
     text-decoration: none;
@@ -48,17 +47,11 @@ const NavLinks = styled.ul`
 `;
 
 const NavLink = styled.li`
-  /* border: 3px solid ${props => props.theme.colors.rawr}; */
   margin: 4px;
   padding: 2px;
   display: flex;
   align-items: center;
-  /* background: ${props => props.theme.colors.tada}; */
   font-size: ${props => props.theme.fontSizes.two};
-  /* &:hover {
-    background: ${props => props.theme.colors.rawr};
-    color: ${props => props.theme.colors.tada};
-  } */
   a {
     display: block;
     text-decoration: none;
@@ -71,9 +64,6 @@ const NavLink = styled.li`
     color: ${props => props.theme.colors.tada};
     border: 2px solid ${props => props.theme.colors.dark};
     &:hover {
-      /* background: ${props => props.theme.colors.dark}; */
-      /* color: ${props => props.theme.colors.yo}; */
-      /* border: 2px solid white; */
       border-bottom: 2px solid white;
     }
   }
@@ -85,7 +75,6 @@ const NavLink = styled.li`
 const Title = styled.p`
   display: none;
   color: ${props => props.theme.colors.tada};
-  /* text-shadow: 0 0 5px ${props => props.theme.colors.rawr}; */
   font-size: ${props => props.theme.fontSizes.four};
   margin-left: 20px;
   @media (min-width: 760px) {

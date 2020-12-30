@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
   body, html, #___gatsby {
     height: 100%;
     background: ${props => props.theme.colors.tada};
-    /* background: #faf5e2; */
     font-size: 18px;
     font-family: ${props => props.theme.fonts.galindo};
   }

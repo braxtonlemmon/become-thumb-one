@@ -5,5 +5,4 @@ export const PageTitle = styled.h1`
   font-size: ${props => props.theme.fontSizes.four};
   margin-bottom: 20px;
   color: ${props => props.theme.colors.sup};
-  /* text-shadow: 0 0 5px ${props => props.theme.colors.hey}; */
 `;

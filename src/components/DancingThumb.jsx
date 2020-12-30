@@ -67,7 +67,6 @@ const slideLarge = keyframes`
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  /* border: 1px solid black; */
   position: relative;
   margin-top: 50px;
 `;
@@ -75,7 +74,6 @@ const Wrapper = styled.div`
 const Image = styled.div`
   width: 100px;
   height: 200px;
-  /* border: 1px solid white; */
   position: absolute;
   animation: ${slideSmall} 14s ease infinite;
   & > * {

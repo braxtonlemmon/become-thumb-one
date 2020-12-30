@@ -25,18 +25,15 @@ const Wrapper = styled.div`
     font-size: ${props => props.theme.fontSizes.three};
     margin-bottom: 20px;
     color: ${props => props.theme.colors.sup};
-    /* text-shadow: 0 0 5px ${props => props.theme.colors.hey}; */
   }
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   align-items: flex-start;
   margin-bottom: 50px;
   margin: 0 auto 50px auto;
-  /* border: 1px solid black; */
   width: min-content;
 `;
 
@@ -124,12 +121,6 @@ const Thumbs = styled.fieldset`
   justify-content: center;
   align-items: center;
   margin: 10px 0;
-  /* [type=radio] {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    position: absolute;
-  } */
   [type=radio] + .thumbz {
     cursor: pointer;
   }
@@ -207,10 +198,8 @@ function GetToKnowYouForm() {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    console.log(data);
     setStarted(true);
     setName(capitalize(data.name));
-    /* setThumbatar(data.thumbatar) */
     setThumbatar(images[data.thumbatar - 1])
     navigate("/")
   }

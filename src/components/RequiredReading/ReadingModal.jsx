@@ -106,7 +106,6 @@ function ReadingModal({ setModalOpen, book, setBookRead, modalOpen }) {
       lastChar = theWord[theWord.length -1];
     }
     let middle = word.slice(1, word.length - 1).split('');
-    console.log(middle);
     for (let i = middle.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [middle[i], middle[j]] = [middle[j], middle[i]];
