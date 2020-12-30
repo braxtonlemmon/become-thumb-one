@@ -27,7 +27,7 @@ const Intro = styled.p`
   width: 70%;
   max-width: 500px;
   font-family: ${props => props.theme.fonts.galindo};
-  color: ${props => props.theme.colors.rawr};
+  color: ${props => props.theme.colors.dark};
   border-radius: 5px;
   padding: 8px;
   line-height: ${props => props.theme.fontSizes.two};

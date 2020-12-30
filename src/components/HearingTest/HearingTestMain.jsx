@@ -47,7 +47,7 @@ const ImageContainer = styled.div`
   background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.05));
   background: linear-gradient(${props => props.theme.colors.sup}, ${props => props.theme.colors.hey});
   border-radius: 8px;
-  border: ${props => props.selected ? '3px dashed black' : 'none'};
+  border: ${props => props.selected ? `6px dashed ${props.theme.colors.hi}` : 'none'};
   margin: 15px;
 `;
 

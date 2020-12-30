@@ -59,6 +59,7 @@ const Task = styled.div`
   cursor: ${props => props.done ? 'initial' : 'pointer'};
   &:hover {
     background: ${props => props.done? props.theme.colors.hey : props.theme.colors.coal};
+    background: ${props => props.done ? props.theme.colors.sup : props.theme.colors.coal};
 
   };
   @media (min-width: 1020px) {

@@ -29,18 +29,24 @@ const SongBox = styled.div`
   justify-content: center;
   align-items: center;
   width: 170px;
+  padding: 15px;
   height: 170px;
   margin: 10px;
-  background: ${props => props.theme.colors.yo};
+  background: ${props => props.theme.colors.sup};
   cursor: pointer;
   position: relative;
+  /* transition: font-size 300ms ease; */
   &:hover {
+    /* background: ${props => props.theme.colors.rawr}; */
     p {
-      color: ${props => props.theme.colors.sup};
+      font-size: 31px;
     }
+    /* p {
+      color: ${props => props.theme.colors.sup};
+    } */
   }
   p {
-    color: ${props => props.theme.colors.dark};
+    color: ${props => props.theme.colors.tada};
     font-size: ${props => props.theme.fontSizes.three};
     text-align: center;
   }

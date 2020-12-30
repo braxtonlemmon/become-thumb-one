@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <Main>{children}</Main>
-      <ColorBar />
+      {/* <ColorBar /> */}
       {/* <FontSizeBar /> */}
     </>
   )

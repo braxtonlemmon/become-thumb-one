@@ -15,7 +15,7 @@ const Wrapper = styled.header`
   width: 100%;
   height: 90px;
   padding: 0 8px;
-  background: ${props => props.theme.colors.yo};
+  background: ${props => props.theme.colors.dark};
   box-shadow: -8px 0px 5px rgba(0,0,0,0.2);
   position: sticky;
   margin-bottom: 30px;
@@ -48,16 +48,17 @@ const NavLinks = styled.ul`
 `;
 
 const NavLink = styled.li`
-  border: 3px solid ${props => props.theme.colors.rawr};
+  /* border: 3px solid ${props => props.theme.colors.rawr}; */
   margin: 4px;
   padding: 2px;
   display: flex;
   align-items: center;
-  background: ${props => props.theme.colors.tada};
+  /* background: ${props => props.theme.colors.tada}; */
   font-size: ${props => props.theme.fontSizes.two};
-  &:hover {
-    background: ${props => props.theme.colors.hey};
-  }
+  /* &:hover {
+    background: ${props => props.theme.colors.rawr};
+    color: ${props => props.theme.colors.tada};
+  } */
   a {
     display: block;
     text-decoration: none;
@@ -66,8 +67,15 @@ const NavLink = styled.li`
     align-items: center;
     height: 100%;
     width: 100%;
-    color: ${props => props.theme.colors.rawr};
-
+    padding: 3px;
+    color: ${props => props.theme.colors.tada};
+    border: 2px solid ${props => props.theme.colors.dark};
+    &:hover {
+      /* background: ${props => props.theme.colors.dark}; */
+      /* color: ${props => props.theme.colors.yo}; */
+      /* border: 2px solid white; */
+      border-bottom: 2px solid white;
+    }
   }
   #header-icon {
     margin-left: 3px;
@@ -76,7 +84,7 @@ const NavLink = styled.li`
 
 const Title = styled.p`
   display: none;
-  color: ${props => props.theme.colors.coal};
+  color: ${props => props.theme.colors.tada};
   /* text-shadow: 0 0 5px ${props => props.theme.colors.rawr}; */
   font-size: ${props => props.theme.fontSizes.four};
   margin-left: 20px;

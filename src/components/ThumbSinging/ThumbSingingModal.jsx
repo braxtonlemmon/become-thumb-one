@@ -63,11 +63,11 @@ const Tile = styled.div`
   text-align: center;
   padding: 8px;
   font-size: ${props => props.theme.fontSizes.one};
-  background: ${props => props.correct ? props.theme.colors.yo : props.theme.colors.sup};
-  color: ${props => props.correct ? props.theme.colors.rawr : props.theme.colors.tada};
+  background: ${props => props.correct ? props.theme.colors.dark : props.theme.colors.sup};
+  color: ${props => props.correct ? props.theme.colors.tada : props.theme.colors.tada};
   &:hover {
-    background: ${props => props.theme.colors.yo};
-    color: ${props => props.theme.colors.rawr};
+    background: ${props => props.theme.colors.dark};
+    color: ${props => props.theme.colors.tada};
   }
 `;
 

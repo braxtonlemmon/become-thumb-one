@@ -18,6 +18,17 @@ const theme = {
     coal: '#3a3a3a'
   },
 
+  // colors: {
+  //   rawr: '#1d8db0',
+  //   dark: '#30618d',
+  //   hey: '#54bceb',
+  //   tada: '#e8e8e8',
+  //   hi: '#e6bb38',
+
+  //   yo: '#8bb0a1',
+  //   sup: '#ce3f22',
+  //   coal: '#3a3a3a'
+  // },
   fonts: {
     galindo: "'Galindo', cursive"
   },
