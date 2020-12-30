@@ -8,8 +8,6 @@ const TextBox = styled(ModalBox)`
   justify-content: flex-start;
   padding: 0;
   padding-bottom: 15px;
-  /* position: relative; */
-  /* overflow: auto; */
   h2 {
     padding: 10px;
     padding-top: 15px;
@@ -29,16 +27,11 @@ const Close = styled(CloseButton)`
 `;
 
 const ToggleButtons = styled.div`
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: stretch; */
   display: block;
   margin-bottom: 15px;
   @media (min-width: 450px) {
     display: flex;
     flex-direction: row;
-
   }
 `;
 
@@ -57,27 +50,6 @@ const ModeButton = styled.button`
   }
   @media (min-width: 450px) {
     margin: 0 4px;
-  }
-`;
-
-const Toggle = styled.div`
-  width: 55px;
-  height: 30px;
-  background: ${props => props.theme.colors.hey};
-  border-radius: 20%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: ${props => props.vowels ? 'flex-start' : 'flex-end'};
-  transition: all 300ms ease;
-  .toggle-dot {
-    height: 25px;
-    width: 25px;
-    margin-left: 5px;
-    margin-right: 5px;
-    background: ${props => props.theme.colors.sup};
-    border-radius: 20%;
-    border: none;
   }
 `;
 
@@ -156,11 +128,7 @@ function ReadingModal({ setModalOpen, book, setBookRead, modalOpen }) {
   const randomPercent = () => {
     return Math.floor(Math.random() * 55);
   }
-  
-  const toggle = () => {
-    setVowels(prev => !prev);
-  }
-  
+    
   const handleDoneClick = () => {
     setDoneX(randomPercent());
     setDoneY(randomPercent());
@@ -195,12 +163,6 @@ function ReadingModal({ setModalOpen, book, setBookRead, modalOpen }) {
           }}
           chosen={vowels}
           >Vowel</ModeButton>
-        {/* <Toggle 
-          vowels={vowels} 
-          onClick={toggle}
-          >
-          <button className="toggle-dot"></button>
-        </Toggle> */}
         <ModeButton 
           onClick={() => {
             setVowels(false)
