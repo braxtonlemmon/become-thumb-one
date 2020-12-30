@@ -75,7 +75,7 @@ const BlockRow = styled.div`
       text-align: center;
     }
     label {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
     @media (min-width: 450px) {
       align-items: flex-start;
@@ -93,11 +93,12 @@ const Num = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 2px solid black;
   width: 45px;
   height: 45px;
   font-size: ${props => props.theme.fontSizes.three};
   margin-right: 20px;
+  margin-bottom: 15px;
 `;
 
 const RadioSection = styled.fieldset`
