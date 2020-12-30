@@ -28,22 +28,17 @@ const SongBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 170px;
+  width: 190px;
   padding: 15px;
-  height: 170px;
+  height: 190px;
   margin: 10px;
   background: ${props => props.theme.colors.sup};
   cursor: pointer;
   position: relative;
-  /* transition: font-size 300ms ease; */
   &:hover {
-    /* background: ${props => props.theme.colors.rawr}; */
     p {
-      font-size: 31px;
+      font-size: 30px;
     }
-    /* p {
-      color: ${props => props.theme.colors.sup};
-    } */
   }
   p {
     color: ${props => props.theme.colors.tada};
@@ -66,7 +61,6 @@ const Check = styled(GiCheckMark)`
   width: 100%;
   color: ${props => props.theme.colors.rawr};
 `;
-
 
 function ThumbSingingMain({ setCurrentSong, setModalOpen, songOneDone, songTwoDone, setOutroOpen, setIntroOpen }) {
   const handleClickSong = (num) => {
